@@ -1,0 +1,75 @@
+{% comment %}
+Re-use the 'rte' class wherever you output content that was added by a merchant using
+the Rich Text Editor ( 'rte' stands for rich text editor ).
+Style all HTML elements in that content the same way across the board.
+Use the 'rte' class in your CSS to help maintain that consistency.
+Example: the h2 element should have the same size and color in:
+- product descriptions
+- collection descriptions
+- 'page' pages' content
+- blog post
+{% endcomment %}
+
+{% assign page = pages.frontpage %}
+
+{% if settings.homepage_is_product_page %}
+	{% assign product = collections.frontpage.products.first %}
+	{% include 'product' %}
+{% else %}
+<div class="rte">
+  {{ page.content }}
+</div>
+{% endif %}
+
+
+
+{% comment %}
+<!-- START SHOWCASE -->
+<!--
+<div id="showcase">{% if collections.frontpage.products.size > 0 %}{% for product in collections.frontpage.products limit: 1 %}
+	<h1>{{ product.title | escape }}</h1>
+	<div id="i-image" class="clearfix eight columns">
+		<a href="{{ product.url | within: collections.all }}"><img src="{{ product.images[0] | product_img_url: "grande" }}" alt="{{ product.title | escape }}" /></a>
+	</div>{% if settings.showcase.size > 0 %}
+	<h3>{{ settings.showcase | escape }}</h3>{% endif %}
+	<div id="buy" class="clear">
+        <a class="button" id="buy-this" href="{{ product.url | within: collections.all }}">{{ settings.homepage_buy_button_text }}</a>
+        <span>{{ product.price | money }}</span>
+	</div>{% endfor %}{% else %}
+	<p><a href="/admin/custom_collections">Add a product to the "frontpage" collection to see it here...</a></p>{% endif %}
+</div>-->
+<!-- END SHOWCASE -->
+<!--
+{% assign collection = collections.frontpage %}
+
+
+<ul class="grid clearfix">
+{% for product in collection.products %}
+  {% include 'product-grid-item' with 'three-per-row' %}
+{% else %}
+<p>You have no products in your Frontpage collection. <a href="http://www.shopify.com/admin/custom_collections">Add some.</a></p>
+{% endfor %}
+</ul>-->
+{% endcomment %}
+
+<!-- Begin slider -->
+<div class="row flexslider-outer clearfix">
+  <h5 class="flexslider-header clearfix">Replace this with a theme setting</h5>
+  <div class="twelve columns">
+    <div class="flexslider-container">
+      <div class="flexslider">
+         
+          <ul class="slides">{% for product in collections[settings.product_slider_collection].products %}
+            <li>
+              <a href="{{ product.url | within: collections.all }}">
+                <img src="{{ product.images[0] | product_img_url: "small" }}" alt="{{ product.title | escape }}" />
+              </a>
+              <h5><a href="{{ product.url | within: collections.all }}">{{ product.title | escape | truncate: 20 }}</a></h5>
+              <p class="price">{{ product.price | money }}</p>
+            </li>{% endfor %}
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End slider -->

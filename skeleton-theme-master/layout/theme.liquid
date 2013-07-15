@@ -1,0 +1,249 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  {% if template == 'index' %}
+  <title>{{ shop.name }} | {{ page_title }}</title>
+  {% elsif template == '404' %}
+  <title>Page Not Found | {{ shop.name }}</title>
+  {% else %}
+  <title>{{ page_title }} | {{ shop.name }}</title>
+  {% endif %}
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description }}" />
+  {% endif %}
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  {{ content_for_header }}
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'layout.css' | asset_url | stylesheet_tag }}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ 'skeleton.css' | asset_url | stylesheet_tag }}
+  
+  <!--[if lt IE 9]>
+  {{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
+  <![endif]-->
+
+  {% if template contains 'customers' %}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+  {% endif %}
+  
+  {% comment %}
+  Needed when shopify_common.js is used.
+  We will get rid of that depency: 
+  https://github.com/Shopify/shopify/issues/3732
+  {% endcomment %}
+  <!--[if lt IE 8]>
+  {{ 'json2.js' | asset_url | script_tag }}
+  <![endif]-->
+
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  {{'jquery.fancybox.js' | asset_url | script_tag}}
+  {{'jquery.flexslider.js' | asset_url | script_tag }}
+  
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+</head>
+
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+
+  <div class="container">
+
+    <header>
+      
+      {% comment %}
+      Older browsers don't support the HTML5 placeholder attribute, so it's a good idea to use JavaScript
+      to show and hide the placeholder text.
+      Have a look in assets/shop.js.liquid to see sample JavaScript for this.
+      {% endcomment %}
+      {% comment %}
+      <form action="/search" method="get" class="search-form" role="search">
+        <input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
+        <input type="submit" id="search-submit" value="Search" />
+      </form>
+      {% endcomment %}
+      {% if shop.customer_accounts_enabled %}
+      <p class="customer-links">
+        {% if customer %}
+          Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+        {% else %}
+          {{ 'Log in' | customer_login_link }}
+          {% if shop.customer_accounts_optional %}
+          or {{ 'Create an account' | customer_register_link }}
+          {% endif %}
+        {% endif %}
+      </p>
+      {% endif %}
+      
+      {% comment %}
+      Note on checkout link: it is a good idea to avoid linking to /checkout directly because shops that use 
+      Paypal Express Checkout and/or Google Checkout have special checkout buttons on the /cart page. Also,
+      special instructions for the seller are entered on the /cart page.
+      {% endcomment %}
+            
+      {% comment %}
+      It would be nice if the logo was a shop setting, rather than a theme setting.
+      But for now, it is a theme setting. The shop logo is uploaded on the theme settings page.
+      Link to the theme settings page of currently published theme will always be:
+      http://www.shopify.com/admin/themes/current/settings. In the theme's files, in your instructions,
+      use a relative link: /admin/themes/current/settings.
+      To add theme settings to a theme, see this: http://wiki.shopify.com/Theme_Settings
+      Theme settings are added to http://www.shopify.com/admin/themes/current#config/settings.html
+      {% endcomment %}
+      <div class="eleven columns ">
+        {% if settings.use_logo %}
+        <a id="logo" href="/" role="banner">
+          {{ 'logo.png' | asset_url | img_tag: shop.name }}
+        </a><!-- #logo -->
+        {% endif %}
+        {% if template == 'index' %}
+        <h1 id="site-title"{% if settings.use_logo %} class="hidden"{% else %} role="banner"{% endif %}>
+          <a href="/">{{ shop.name }}</a>
+        </h1>
+        {% else %}
+        <a id="site-title" href="/" role="banner">{{ shop.name }}</a>
+        {% endif %}
+      </div>
+      {% comment %}
+      A word on drop-down menus: Shopify has no concept of drop-down menus.
+      Drop-down menus in Shopify themes are a hack that relies on a naming convention.
+      To create a drop-down menu, the merchant must create a link list that has the same name as the link he wants the drop-down for.
+      For example, if he wants a drop-down under a 'Shop by brand' link (say, he has such link in his Main Menu), he needs to create
+      a linklist called 'Shop by brand', and populate it with links. Once he has done that, there'll be a drop-down under 'Shop by brand'.
+      Shopify has a visual how-to guide here: http://support.shopify.com/customer/portal/articles/262961.
+      The naming convention hack won't work well if a shop's navigation uses non-English characters. There's a much more verbose coding solution
+      that can handle non-English characters here: http://wiki.shopify.com/Fix_to_Drop-down_menu_code_to_work_with_non-English_characters.
+      A word on sub-categories: Shopify manages sub-categories using product tags: http://support.shopify.com/customer/portal/articles/75425.
+      {% endcomment %}
+      
+      <div class="header-info five columns">
+        <div class="info-contact">
+          <p class="contact-phone">Phone: 613 897 1843</p>
+          <p class="contact-email">Email: Hello</p>
+        </div>
+        
+        <ul class="info-social">
+          <li id="social-facebook" class="social-icon"><i class="icon-facebook-sign icon-2x"></i></li>
+          <li id="social-twitter" class="social-icon"><i class="icon-twitter-sign icon-2x"></i></li>
+          <li id="social-pinterest" class="social-icon"><i class="icon-pinterest-sign icon-2x"></i></li>
+          <li id="social-instagram" class="social-icon"><i class="icon-instagram icon-2x"></i></li>
+          <li id="social-google+" class="social-icon"><i class="icon-google-plus-sign icon-2x"></i></li>
+          <li id="social-youtube" class="social-icon"><i class="icon-youtube icon-2x"></i></li>
+          <li id="social-vimeo" class="social-icon"><i class="icon-vimeo icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      
+      <section id="nav" class="clearfix">
+        <div id="nav-wrap" class="main sixteen columns ">
+          <nav class="large thirteen columns alpha ">
+            {% include 'dropdown' %}
+          </nav> 
+          <nav id="nav-cart" class="three columns boxify omega large">
+            <div class="cart-wrapper clearfix">
+            	<i class="icon-shopping-cart icon-2x icon-flip-horizontal"></i>
+            	<a href="/cart"{% if template == "cart" %} class="active"{% endif %}>{{ cart.item_count }} {{ cart.item_count | pluralize: "Item", "Items" }}</a>
+            </div>
+          </nav>
+          <nav class="mobile clearfix">
+            {% include 'mobile-menu' %}
+          </nav>
+          <nav>
+          	
+          </nav>
+        </div> 
+      </section> 
+    </header>
+    <div id="main" role="main" class="sixteen columns">
+      {% comment %}
+      If we are on the /collections page, we will list collections in the shop.
+      Unfortunately, Shopify does not let us use an actual template file for the /collections page.
+      {% endcomment %}
+      {% if template == 'list-collections' %}
+      
+      <div class="sixteen columns">{% include 'collection-listing' %}</div>
+      {% else %}
+      {% comment %}
+      Else, we have a template file to render.
+      That's what content_for_layout is for.
+      {% endcomment %}
+      <div class="{% if template contains "blog" or template == "article" or template == "page" %} twelve columns alpha{% else %}row {% endif %} boxify">{{ content_for_layout }}</div>
+      {% endif %}
+    
+      <!-- START SIDEBAR -->
+      {% if template contains "blog" or template == "article" or template =="page" %}
+      	{% include "sidebar" %}
+      {% endif %}
+      <!-- END SIDEBAR -->
+    </div>
+    <div id="overview" class="sixteen columns clearfix">
+      <div id="o-inner" class="row">
+        <div class=" o-content overview-third o-first">
+          <h3>{{ pages.frontpage.title }}</h3>
+          <p>{{ pages.frontpage.content | strip_html | strip_newlines | truncatewords: 45 }}</p>
+          <p id="o-link"><a class="a-col" href="/pages/frontpage">Read More</a></p>
+        </div>
+        <div class="o-content welcome overview-third">{% if settings.disable_blog %}
+          <h3>{{ pages[settings.extra_content].title }}</h3>
+          <p>{{ pages[settings.extra_content].content | strip_html | strip_newlines | truncatewords: 45 }}</p>
+          <p><a class="a-col" href="/pages/{{ settings.extra_content }}">Read More</a></p>{% else %}
+          <h3>From Our Blog</h3>{% for article in blogs.news.articles limit: 1 %}
+          <h5>{{ article.title }}</h5>
+          <p>{{ article.content | strip_html | strip_newlines | truncatewords: 30 }}</p>
+          <p id="o-link"><a class="a-col" href="{{ article.url }}">Read More</a></p>{% endfor %}{% endif %}
+        </div>{% if settings.newsletter == "disabled" %}
+        <div>
+          <h3>{{ pages.about-us.title }}</h3>
+          <p>{{ pages.about-us.content | strip_html | strip_newlines | truncatewords: 45 }}</p>
+          <p><a href="/pages/about-us">Read More</a></p>
+        </div>{% else %}
+        <div class="o-content newsletter overview-third">
+          <h3>{{ settings.newsletter_heading }}</h3>
+          <form id="o-form" method="post" action="{{ settings.newsletter_action }}">
+            <p><input type="text" value="{{ settings.newsletter_first_name_label }}" name="{{ settings.newsletter_first_name }}" id="fname" class="field" /></p>
+            <p><input type="text" value="{{ settings.newsletter_last_name_label }}" name="{{ settings.newsletter_last_name }}" id="lname" class="field" /></p>
+            <p><input type="text" value="{{ settings.newsletter_email_label }}" name="{{ settings.newsletter_email }}" id="email" class="field" /></p>
+            <input class="button" id="subscribe" type="submit" value="{{ settings.newsletter_submit }}" />
+          </form>
+        </div>{% endif %}
+      </div>
+    </div>
+    <footer class="row">
+  
+      {% if linklists.footer.links.size > 0 %}
+      <p class="f-links" role="navigation">
+      {% for link in linklists.footer.links %}
+        <a class="f-l-item" href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+      {% endfor %}
+      </p>
+      {% endif %}
+      
+      <p class="f-copy" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
+
+    </footer>
+
+    {% comment %}Shopify does not support Internet Explorer 6.{% endcomment %}
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    
+  </div><!-- end of #container -->
+  
+  {{ 'shop.js'  | asset_url | script_tag }}
+  {{ 'enquire.js' | asset_url | script_tag }}
+  {{ 'dropdown.js'  | asset_url | script_tag }}<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+   
+</body>
+</html>

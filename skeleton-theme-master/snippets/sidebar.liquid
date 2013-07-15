@@ -1,0 +1,11 @@
+<div id="sidebar" class="four columns boxify omega">{% unless settings.disable_blog %}
+  <h3>Recent Articles</h3>{% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}{% if blogs.[blog_handle].articles.size > 0 %}{% for article in blogs.[blog_handle].articles limit: 4 %}
+  <!-- START POST {{ forloop.index }} -->
+  <div class="post{% if forloop.last %} end{% endif %}">
+    <h5><a href="{{ article.url }}">{{ article.title | escape }}</a></h5>
+    <p>{{ article.content | strip_html | strip_newlines | truncate: 80 }}</p>
+  </div>
+  <!-- END POST {{ forloop.index }} -->{% endfor %}{% else %}
+  <p>No articles.</p>{% endif %}
+  <p id="feed"><a href="{{ shop.url }}/blogs/{{ blog_handle }}.atom">{{ blog.title | escape }} Feed Subscription</a></p>{% endunless %}
+</div>
