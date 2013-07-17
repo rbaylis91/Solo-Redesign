@@ -6,7 +6,7 @@
     
     <div id="product-details" class="sixteen columns">
       
-      <h1 itemprop="name" class=>{{ product.title }}</h1>
+      <h1 itemprop="name" class="title">{{ product.title }}</h1>
       {% assign product_vendor_handle = product.vendor | handle %}
       {% comment %}
       Do we have a collection that has the same name as our product vendor name?
@@ -18,7 +18,6 @@
       {% else %}
         {% assign vendor_url = product.vendor | url_for_vendor %}
       {% endif %}
-      <h2 itemprop="brand">{{ product.vendor | link_to: vendor_url }}</h2>
       
       <div id="product-photos" class="eight columns alpha">
   
@@ -51,7 +50,7 @@
       {% endif %}
     
       </div><!-- #product-photos -->
-      <div id="product-description-1" class="rte eight columns omega">
+      <div id="product-description-1" class="rte seven columns omega offset-by-one">
         <div id=""  itemprop="description">
           {{ product.description }}
         </div>

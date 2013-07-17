@@ -21,14 +21,15 @@
   {% endif %}
 
   <link rel="canonical" href="{{ canonical_url }}" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   {{ content_for_header }}
   {{ 'base.css' | asset_url | stylesheet_tag }}
   {{ 'layout.css' | asset_url | stylesheet_tag }}
   {{ 'style.css' | asset_url | stylesheet_tag }}
   {{ 'skeleton.css' | asset_url | stylesheet_tag }}
-  
+  {{ 'superfish.css' | asset_url | stylesheet_tag }}
+
   <!--[if lt IE 9]>
   {{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
   <![endif]-->
@@ -37,22 +38,16 @@
   {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
   {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
   {% endif %}
-  
-  {% comment %}
-  Needed when shopify_common.js is used.
-  We will get rid of that depency: 
-  https://github.com/Shopify/shopify/issues/3732
-  {% endcomment %}
-  <!--[if lt IE 8]>
-  {{ 'json2.js' | asset_url | script_tag }}
-  <![endif]-->
+
 
   {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   {{'jquery.fancybox.js' | asset_url | script_tag}}
   {{'jquery.flexslider.js' | asset_url | script_tag }}
+  {{'superfish.js' | asset_url | script_tag }}
   
+
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 </head>
@@ -62,7 +57,7 @@
   <div class="container">
 
     <header>
-      
+
       {% comment %}
       Older browsers don't support the HTML5 placeholder attribute, so it's a good idea to use JavaScript
       to show and hide the placeholder text.
@@ -74,66 +69,33 @@
         <input type="submit" id="search-submit" value="Search" />
       </form>
       {% endcomment %}
+      
+      {% comment %}
       {% if shop.customer_accounts_enabled %}
       <p class="customer-links">
         {% if customer %}
-          Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+        Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
         {% else %}
-          {{ 'Log in' | customer_login_link }}
-          {% if shop.customer_accounts_optional %}
-          or {{ 'Create an account' | customer_register_link }}
-          {% endif %}
+        {{ 'Log in' | customer_login_link }}
+        {% if shop.customer_accounts_optional %}
+        or {{ 'Create an account' | customer_register_link }}
+        {% endif %}
         {% endif %}
       </p>
       {% endif %}
-      
-      {% comment %}
-      Note on checkout link: it is a good idea to avoid linking to /checkout directly because shops that use 
-      Paypal Express Checkout and/or Google Checkout have special checkout buttons on the /cart page. Also,
-      special instructions for the seller are entered on the /cart page.
       {% endcomment %}
-            
-      {% comment %}
-      It would be nice if the logo was a shop setting, rather than a theme setting.
-      But for now, it is a theme setting. The shop logo is uploaded on the theme settings page.
-      Link to the theme settings page of currently published theme will always be:
-      http://www.shopify.com/admin/themes/current/settings. In the theme's files, in your instructions,
-      use a relative link: /admin/themes/current/settings.
-      To add theme settings to a theme, see this: http://wiki.shopify.com/Theme_Settings
-      Theme settings are added to http://www.shopify.com/admin/themes/current#config/settings.html
-      {% endcomment %}
-      <div class="eleven columns ">
-        {% if settings.use_logo %}
-        <a id="logo" href="/" role="banner">
-          {{ 'logo.png' | asset_url | img_tag: shop.name }}
-        </a><!-- #logo -->
-        {% endif %}
-        {% if template == 'index' %}
-        <h1 id="site-title"{% if settings.use_logo %} class="hidden"{% else %} role="banner"{% endif %}>
+
+      <div class="twelve row">
+       
+        <h1 id="site-title">
           <a href="/">{{ shop.name }}</a>
         </h1>
-        {% else %}
-        <a id="site-title" href="/" role="banner">{{ shop.name }}</a>
-        {% endif %}
+
       </div>
-      {% comment %}
-      A word on drop-down menus: Shopify has no concept of drop-down menus.
-      Drop-down menus in Shopify themes are a hack that relies on a naming convention.
-      To create a drop-down menu, the merchant must create a link list that has the same name as the link he wants the drop-down for.
-      For example, if he wants a drop-down under a 'Shop by brand' link (say, he has such link in his Main Menu), he needs to create
-      a linklist called 'Shop by brand', and populate it with links. Once he has done that, there'll be a drop-down under 'Shop by brand'.
-      Shopify has a visual how-to guide here: http://support.shopify.com/customer/portal/articles/262961.
-      The naming convention hack won't work well if a shop's navigation uses non-English characters. There's a much more verbose coding solution
-      that can handle non-English characters here: http://wiki.shopify.com/Fix_to_Drop-down_menu_code_to_work_with_non-English_characters.
-      A word on sub-categories: Shopify manages sub-categories using product tags: http://support.shopify.com/customer/portal/articles/75425.
-      {% endcomment %}
-      
+     
+     {% comment %}
       <div class="header-info five columns">
-        <div class="info-contact">
-          <p class="contact-phone">Phone: 613 897 1843</p>
-          <p class="contact-email">Email: Hello</p>
-        </div>
-        
+
         <ul class="info-social">
           <li id="social-facebook" class="social-icon"><i class="icon-facebook-sign icon-2x"></i></li>
           <li id="social-twitter" class="social-icon"><i class="icon-twitter-sign icon-2x"></i></li>
@@ -143,48 +105,24 @@
           <li id="social-youtube" class="social-icon"><i class="icon-youtube icon-2x"></i></li>
           <li id="social-vimeo" class="social-icon"><i class="icon-vimeo icon-2x"></i></li>
         </ul>
-        
       </div>
-      
+      {% endcomment %}
+
       <section id="nav" class="clearfix">
-        <div id="nav-wrap" class="main sixteen columns ">
-          <nav class="large thirteen columns alpha ">
-            {% include 'dropdown' %}
-          </nav> 
-          <nav id="nav-cart" class="three columns boxify omega large">
-            <div class="cart-wrapper clearfix">
-            	<i class="icon-shopping-cart icon-2x icon-flip-horizontal"></i>
-            	<a href="/cart"{% if template == "cart" %} class="active"{% endif %}>{{ cart.item_count }} {{ cart.item_count | pluralize: "Item", "Items" }}</a>
-            </div>
-          </nav>
-          <nav class="mobile clearfix">
-            {% include 'mobile-menu' %}
-          </nav>
-          <nav>
-          	
-          </nav>
-        </div> 
+        <nav class="large sixteen clearfix">
+          {% include 'dropdown' %}
+        </nav> 
+        <nav class="mobile clearfix">
+          {% include 'mobile-menu' %}
+        </nav>
       </section> 
     </header>
     <div id="main" role="main" class="sixteen columns">
-      {% comment %}
-      If we are on the /collections page, we will list collections in the shop.
-      Unfortunately, Shopify does not let us use an actual template file for the /collections page.
-      {% endcomment %}
-      {% if template == 'list-collections' %}
-      
-      <div class="sixteen columns">{% include 'collection-listing' %}</div>
-      {% else %}
-      {% comment %}
-      Else, we have a template file to render.
-      That's what content_for_layout is for.
-      {% endcomment %}
       <div class="{% if template contains "blog" or template == "article" or template == "page" %} twelve columns alpha{% else %}row {% endif %} boxify">{{ content_for_layout }}</div>
-      {% endif %}
-    
+
       <!-- START SIDEBAR -->
       {% if template contains "blog" or template == "article" or template =="page" %}
-      	{% include "sidebar" %}
+      {% include "sidebar" %}
       {% endif %}
       <!-- END SIDEBAR -->
     </div>
@@ -221,29 +159,32 @@
       </div>
     </div>
     <footer class="row">
-  
+
       {% if linklists.footer.links.size > 0 %}
       <p class="f-links" role="navigation">
-      {% for link in linklists.footer.links %}
+        {% for link in linklists.footer.links %}
         <a class="f-l-item" href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-      {% endfor %}
+        {% endfor %}
       </p>
       {% endif %}
-      
+
       <p class="f-copy" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
 
     </footer>
 
-    {% comment %}Shopify does not support Internet Explorer 6.{% endcomment %}
-    <!--[if lt IE 7]>
-    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-    
+
   </div><!-- end of #container -->
-  
+
   {{ 'shop.js'  | asset_url | script_tag }}
   {{ 'enquire.js' | asset_url | script_tag }}
-  {{ 'dropdown.js'  | asset_url | script_tag }}<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-   
+  
+  
+  <script>
+  jQuery(document).ready(function() {
+  		jQuery('ul.sf-menu').superfish();});
+
+  </script>
+
+
 </body>
 </html>
