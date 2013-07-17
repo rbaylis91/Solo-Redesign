@@ -2,160 +2,31 @@
 /*
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}html,button,input,select,textarea{font-family:sans-serif;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:.67em 0;}h2{font-size:1.5em;margin:.83em 0;}h3{font-size:1.17em;margin:1em 0;}h4{font-size:1em;margin:1.33em 0;}h5{font-size:.83em;margin:1.67em 0;}h6{font-size:.67em;margin:2.33em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}blockquote{margin:1em 40px;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#000;}p,pre{margin:1em 0;}code,kbd,pre,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em;}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word;}q{quotes:none;}q:before,q:after{content:'';content:none;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}dl,menu,ol,ul{margin:1em 0;}dd{margin:0 0 0 40px;}menu,ol,ul{/*padding:0 0 0 40px;*/}nav ul,nav ol{list-style:none;list-style-image:none;}img{border:0;-ms-interpolation-mode:bicubic;}svg:not(:root){overflow:hidden;}figure{margin:0;}form{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em;}legend{border:0;padding:0;white-space:normal;*margin-left:-7px;}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
 
-/* ==========================================================================
-Additional styles for the Skeleton Theme - Replace that with your own CSS
-========================================================================== */
+
+
+
+/* ================ */
+/* =  Global CSS  = */
+/* ================ */
+
 h1, h2, h3, h4, h5, h6 {color:#2c2f2f;}
 body{font-family: Helvetica, Arial, sans-serif;}
-
 /* Hiding placeholder text on focus in webkit, thanks to http://www.kolodvor.net/2012/03/23/webkit-placeholder-attribute-behavior */
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color:transparent; }
-
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
-/* Products grid, collections grid: we are using lists, not tables */
-ul.grid li { float: left; list-style-type: none; }
-
-/* Utility classes: Hidden, float lef, float right, etc. */
-
 .hidden { display: none; }
 .left { float: left; }
 .right { float: right; }
 
-/* Styling #site-title as it uses h1 on home page and span on other pages. */
-
-#site-title {
-	font-size: 2em;
-	font-weight: bold;
-	line-height: 1.5;
-	margin: 0;
-	padding: 0;
-}
-
-
-.title{margin:40px 0 80px 0; text-align:center;}
-
-.container {
-	margin: 0 auto;
-}
-
-
-/* Override to globally-hosted search.css on the /search page */
-
-#searchresults input {
-	width: auto;
-}
-
-/* SETUP */
-.container{background-color:grey;}
 h1{font-size:60px;}
 h5{font-size: 14px;line-height: 1.52em;padding: 0 0 5px;font-weight:bold;}
 
 
-/* GENERAL SETTINGS */
-.clearify{clear:both;}
-a.a-col, a.a-col:visited{text-decoration: none;color: #a2d400;}
-.container{background-color:white;padding:60px 0px 0px 0px;}
-.boxify{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;} 
+/**** Buttons ****/
 
-
-#main > #sidebar, #main > .twelve, #main > .row{margin-top:40px;margin-bottom:40px;}
-#main > .twelve{padding-right:20px;}
-
-/* COLLECTIONS */
-.prod-image-wrap{padding:10px;}
-.prod-image-wrap a{width:100%;}
-.prod-image-wrap a img{width:inherit;overflow:hidden;height:auto;}
-
-
-
-
-
-
-/* ---------------- */
-/*    HEADER        */
-/* ---------------- */
-
-
-.social-icon{display:inline-block;float:right;margin-left:6px;}
-
-
-
-
-/***** Nav Bar *****/
-
-nav{font-weight:bold; border-top:1px solid #ddd; border-bottom: 1px solid #ddd;}
-nav li, nav ul{margin-bottom:0;}
-/*
-
-nav li a{display:inline-block; }
-*/
-.m-nav-bar{display:none;}
-.mobile{display:none;}
-
-
-/* DROPDOWN */
-
-.dropdown{/*margin:15px 0px 0px -18px; padding:0px; */}
-
-.dropdown ul{display:none;background-color:white;border: 1px solid #EBEBEB;font-weight:normal;}
-.dropdown ul li{width:250px;padding: 15px 18px 15px 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin-bottom:0px;}
-
-/* MAIN */
-#main{margin-top:0px;}
-
-
-/* HOMEPAGE */
-#i-inner{width:100%;}
-
-/* OVERVIEW */
-
-#o-inner{text-align: left;-moz-border-radius: 12px;
-	-webkit-border-radius: 12px;border-radius: 12px;
-	background-color: #f2f2f2;padding: 26px;-webkit-box-sizing: border-box;border: 1px solid #DDDBDB; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box; }
-	.overview-third{width:278px;display:inline-block;float:left;margin-left:26px;}
-	.o-first{margin-left:0px;}
-	#o-link{margin-bottom:0px;}
-	.o-field{width:100%;}
-	#overview input[type="text"]{width:100%;-webkit-box-sizing: border-box;border: 1px solid #DDDBDB; /* Safari/Chrome, other WebKit */
-		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-		box-sizing: border-box;}
-		#subscribe{margin-bottom:0px;}
-
-/* FOOTER */
-footer{margin-top:26px;}
-.f-links{float:left;}
-.f-l-item{margin-right:26px;}
-
-/* COLLECTIONS */
-.row-one{margin-top:0px;}
-.prod-grid-item{margin:25px 25px 25px 25px;}
-.first-prod{margin-left:0px;margin-right:25px;}
-.last-prod{margin-left:25px;margin-right:0px;}
-
-.prod-caption{text-align:center;}
-
-/* PRODUCT PAGE */
-#product-details{text-align:justify;margin-left:0px;margin-right:0px;}
-#product-details h1, #product-details h2{display:block;text-align:center}
-#product-details h2{}
-	#product-description{padding:0px 20px 0px 20px}
-	#product-photo-thumbs li{width:27%; height:auto;padding:3%;}
-
-	.selector-wrapper{margin-bottom:10px;}
-	.selector-wrapper > label{margin-bottom:6px;}
-	#product-variants{padding-bottom: 10px;padding-top: 10px;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
-	#product-price{margin-top:20px;}
-	.selector-wrapper select{width:100px;}
-	.product-price{font-size:36px;font-weight:bold;}
-	.product-compare-price{font-size:18px;font-weight:normal;padding-left:3px;color:grey;}
-
-/* BUTTONS */
 .btn{height: 55px;line-height: 55px;}
 
 .btn-green{
@@ -171,24 +42,104 @@ footer{margin-top:26px;}
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abcf2c', endColorstr='#91ae27',GradientType=0 );
 }
 
-/* CART PAGE */
-#cart-main{}
-	#cart-main .ca-prod-image{width:90px;height:auto;}
 
-/* BLOG PAGE */
-#blog-main{margin:0px}
-.blog-article-title{font-size:18px;padding-top:20px;font-weight:bold;margin-bottom:0px;line-height:24px;}
-.blog-article-date{color: #666;font-size: 13px;font-weight: normal;padding: 0px 0 5px;}
-.blog-article p{font-size:13px;line-height:1.52em;color:black;}
 
-/* SIDEBAR */
-#sidebar{}
-	#sidebar h3, #overview h3{font-size: 20px;line-height: 1.42em;font-weight: bold;}
+/* ================ */
+/* = theme.liquid = */
+/* ================ */
 
-/* INDEX PAGE */
-.flexslider li{}
+#site-title { font-size: 2em; font-weight: bold; line-height: 1.5; 	margin: 0; padding: 0; }
+.title{ margin:40px 0 80px 0; text-align:center;}
+.container { margin: 0 auto;}
 
-/* CART */
+#main{margin-top:0px;}
+#main > #sidebar, #main > .twelve, #main > .row{margin-top:40px;margin-bottom:40px;}
+#main > .twelve{padding-right:20px;}
+
+
+
+/**** Nav Bar ****/
+
+nav{font-weight:bold; border-top:1px solid #ddd; border-bottom: 1px solid #ddd;}
+nav li, nav ul{margin-bottom:0;}
+.dropdown{/*margin:15px 0px 0px -18px; padding:0px; */}
+.dropdown ul{display:none;background-color:white;border: 1px solid #EBEBEB;font-weight:normal;}
+.dropdown ul li{width:250px;padding: 15px 18px 15px 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin-bottom:0px;}
+.m-nav-bar{display:none;}
+.mobile{display:none;}
+
+
+/**** Side Bar ****/
+
+#sidebar h3, #overview h3{font-size: 20px;line-height: 1.42em;font-weight: bold;}
+
+
+/**** Footer  ****/
+footer{margin-top:26px;}
+.f-links{float:left;}
+.f-l-item{margin-right:26px;}
+
+
+
+
+/* ================ */
+/* = index.liquid = */
+/* ================ */
+
+
+
+
+/* ================== */
+/* = product.liquid = */
+/* ================== */
+
+
+#product-details{text-align:justify;margin-left:0px;margin-right:0px;}
+#product-details h1, #product-details h2{display:block;text-align:center}
+
+#product-description{padding:0px 20px 0px 20px}
+#product-photo-thumbs li{width:27%; height:auto;padding:3%;}
+
+.selector-wrapper{margin-bottom:10px;}
+.selector-wrapper > label{margin-bottom:6px;}
+#product-variants{padding-bottom: 10px;padding-top: 10px;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
+#product-price{margin-top:20px;}
+.selector-wrapper select{width:100px;}
+.product-price{font-size:36px;font-weight:bold;}
+.product-compare-price{font-size:18px;font-weight:normal;padding-left:3px;color:grey;}
+
+
+
+
+
+
+/* ==================== */
+/* = collection.liqid = */
+/* ==================== */
+
+
+ul.grid li { float: left; list-style-type: none; }
+.prod-image-wrap{padding:10px;}
+.prod-image-wrap a{width:100%;}
+.prod-image-wrap a img{width:inherit;overflow:hidden;height:auto;}
+.row-one{margin-top:0px;}
+.prod-grid-item{margin:25px 25px 25px 25px;}
+.first-prod{margin-left:0px;margin-right:25px;}
+.last-prod{margin-left:25px;margin-right:0px;}
+
+.prod-caption{text-align:center;}
+
+
+
+
+
+
+
+/* =============== */
+/* = cart.liquid = */
+/* =============== */
+
+#cart-main .ca-prod-image{width:90px;height:auto;}
 #cartform > table{width:100%;}
 #cartform tr:hover{opacity:1.0 !important;}
 #cartform tr{text-align:left;border-top: 1px solid #e6e4e5;opacity:0.8 !important;}
@@ -205,11 +156,41 @@ footer{margin-top:26px;}
 
 
 
+/* =============== */
+/* = blog.liquid = */
+/* =============== */
+
+#blog-main{margin:0px}
+.blog-article-title{font-size:18px;padding-top:20px;font-weight:bold;margin-bottom:0px;line-height:24px;}
+.blog-article-date{color: #666;font-size: 13px;font-weight: normal;padding: 0px 0 5px;}
+.blog-article p{font-size:13px;line-height:1.52em;color:black;}
+
+
+/* =================== */
+/* =  article.liquid = */
+/* =================== */
 
 
 
-/* #Media Queries
-================================================== */
+/* ================= */
+/* = search.liquid = */
+/* ================= */
+
+
+/* ===================== */
+/* = Customer Accounts = */
+/* ===================== */
+
+
+
+
+
+
+
+
+/* =============================================== */
+/* =               MEDIA QUERIES                 = */
+/* =============================================== */
 
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 959px) {
@@ -263,19 +244,9 @@ footer{margin-top:26px;}
 
 
 
-
-
-/* FLEXSLIDER */
-/*
-* jQuery FlexSlider v2.0
-* http://www.woothemes.com/flexslider/
-*
-* Copyright 2012 WooThemes
-* Free to use under the GPLv2 license.
-* http://www.gnu.org/licenses/gpl-2.0.html
-*
-* Contributing author: Tyler Smith (@mbmufffin)
-*/
+/* =================================================== */
+/* =                   FLEXSLIDER                    = */
+/* =================================================== */
 
 
 /* Browser Resets */
