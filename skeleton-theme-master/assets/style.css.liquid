@@ -45,9 +45,32 @@ h5{font-size: 14px;line-height: 1.52em;padding: 0 0 5px;font-weight:bold;}
 
 /**** Header ****/
 
-.header{height:180px; margin-bottom:0;}
+.header{height:180px; margin-bottom:0; position: relative;}
 
+/**** Header social icons ****/
 
+.social-icons{position:absolute; top:0; right:0;}
+.social-icons li{display:inline-block; width:25px; height:25px; }
+.social-icons a{background: url("{{ 'social_icons.png' | asset_url }}") top left; display:inline-block; width:25px; height:25px;}
+
+.fb a{background-position: -25px 0;}
+.yt a{background-position: -50px 0;}
+.rss a{background-position: -75px 0;}
+.ins a{background-position: -100px 0;}
+.pin a{background-position: -125px 0;}
+.vim a{background-position: -150px 0;}
+.tum a{background-position: -175px 0;}
+.gp a{background-position: -200px 0;}
+
+.tw a:hover{background-position:0 25px}
+.fb a:hover{background-position: -25px 25px;}
+.yt a:hover{background-position: -50px 25px;}
+.rss a:hover{background-position: -75px 25px;}
+.ins a:hover{background-position: -100px 25px;}
+.pin a:hover{background-position: -125px 25px;}
+.vim a:hover{background-position: -150px 25px;}
+.tum a:hover{background-position: -175px 25px;}
+.gp a:hover{background-position: -200px 25px;}
 
 /**** Nav Bar ****/
 
@@ -70,19 +93,13 @@ nav li, nav ul{margin-bottom:0;}
 footer{margin-top:26px;}
 .f-links{float:left;}
 .f-l-item{margin-right:26px;}
-#o-inner{text-align: left;-moz-border-radius: 12px;
-  -webkit-border-radius: 12px;border-radius: 12px;
-  background-color: #f2f2f2;padding: 26px;-webkit-box-sizing: border-box;border: 1px solid #DDDBDB; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box; }
-  .overview-third{width:278px;display:inline-block;float:left;margin-left:26px;}
-  .o-first{margin-left:0px;}
-  #o-link{margin-bottom:0px;}
-  .o-field{width:100%;}
-  #overview input[type="text"]{width:100%;-webkit-box-sizing: border-box;border: 1px solid #DDDBDB; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;}
-    #subscribe{margin-bottom:0px;}
+#o-inner{text-align: left; border-radius: 12px;	background-color: #f2f2f2;padding: 26px; border: 1px solid #DDDBDB;}
+.overview-third{width:278px;display:inline-block;float:left;margin-left:26px;}
+.o-first{margin-left:0px;}
+#o-link{margin-bottom:0px;}
+.o-field{width:100%;}
+#overview input[type="text"]{width:100%;-webkit-box-sizing: border-box; border: 1px solid #DDDBDB; box-sizing: border-box;}
+#subscribe{margin-bottom:0px;}
 
 
 

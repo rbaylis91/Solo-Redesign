@@ -57,18 +57,7 @@
 
     <header>
 
-      {% comment %}
-      Older browsers don't support the HTML5 placeholder attribute, so it's a good idea to use JavaScript
-      to show and hide the placeholder text.
-      Have a look in assets/shop.js.liquid to see sample JavaScript for this.
-      {% endcomment %}
-      {% comment %}
-      <form action="/search" method="get" class="search-form" role="search">
-        <input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
-        <input type="submit" id="search-submit" value="Search" />
-      </form>
-      {% endcomment %}
-
+  
       {% comment %}
       {% if shop.customer_accounts_enabled %}
       <p class="customer-links">
@@ -84,14 +73,31 @@
       {% endif %}
       {% endcomment %}
 
+      <!-- Header -->
       <div class="header twelve row">
 
         <h1 id="site-title">
           <a href="/">{{ shop.name }}</a>
         </h1>
+        
+        <!-- Social Icons -->
+          <ul class="social-icons">
+              <li class="tw"><a href="#"></a></li>
+              <li class="fb"><a href="#"></a></li>
+              <li class="yt"><a href="#"></a></li>
+              <li class="rss"><a href="#"></a></li>
+              <li class="ins"><a href="#"></a></li>
+              <li class="pin"><a href="#"></a></li>
+              <li class="vim"><a href="#"></a></li>
+              <li class="tum"><a href="#"></a></li>
+              <li class="gp"><a href="#"></a></li>
+          </ul>
+        <!-- End Social Icons -->
 
       </div>
-
+      <!--End Header-->
+      
+      
       <section id="nav" class="clearfix">
         <nav class="large sixteen clearfix">
           {% include 'dropdown' %}
