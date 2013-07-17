@@ -26,7 +26,7 @@
   {{ content_for_header }}
   {{ 'base.css' | asset_url | stylesheet_tag }}
   {{ 'skeleton.css' | asset_url | stylesheet_tag }}
-    {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
   {{ 'superfish.css' | asset_url | stylesheet_tag }}
 
   <!--[if lt IE 9]>
@@ -45,7 +45,7 @@
   {{'jquery.fancybox.js' | asset_url | script_tag}}
   {{'jquery.flexslider.js' | asset_url | script_tag }}
   {{'superfish.js' | asset_url | script_tag }}
-  
+
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
@@ -68,7 +68,7 @@
         <input type="submit" id="search-submit" value="Search" />
       </form>
       {% endcomment %}
-      
+
       {% comment %}
       {% if shop.customer_accounts_enabled %}
       <p class="customer-links">
@@ -85,13 +85,13 @@
       {% endcomment %}
 
       <div class="header twelve row">
-       
+
         <h1 id="site-title">
           <a href="/">{{ shop.name }}</a>
         </h1>
 
       </div>
-     
+
       <section id="nav" class="clearfix">
         <nav class="large sixteen clearfix">
           {% include 'dropdown' %}
@@ -161,20 +161,20 @@
 
   {{ 'shop.js'  | asset_url | script_tag }}
   {{ 'enquire.js' | asset_url | script_tag }}
-  
-  
+
+
   <script>
   jQuery(document).ready(function() {
-  		jQuery('ul.sf-menu').superfish(
-  		  {
-          delay:1,
-        			speed:       1                          // faster animation speed
-        }
-  		  
-  		  );});
+    jQuery('ul.sf-menu').superfish(
+      {
+        delay:1,
+        speed:       1                          // faster animation speed
+      }
 
-  </script>
+      );});
+
+      </script>
 
 
-</body>
-</html>
+    </body>
+    </html>
