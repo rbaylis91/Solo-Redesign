@@ -40,6 +40,8 @@
 }
 .sf-menu ul {
 	border:1px solid #ddd;
+	border-top:none;
+	background:#fff;
 	min-width: 12em; /* allow long menu items to determine submenu width */
 	*width: 12em; /* no auto sub width for IE7, see white-space comment below */
 }
