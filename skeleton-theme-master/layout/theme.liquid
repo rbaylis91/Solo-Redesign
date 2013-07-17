@@ -25,9 +25,8 @@
 
   {{ content_for_header }}
   {{ 'base.css' | asset_url | stylesheet_tag }}
-  {{ 'layout.css' | asset_url | stylesheet_tag }}
-  {{ 'style.css' | asset_url | stylesheet_tag }}
   {{ 'skeleton.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
   {{ 'superfish.css' | asset_url | stylesheet_tag }}
 
   <!--[if lt IE 9]>
