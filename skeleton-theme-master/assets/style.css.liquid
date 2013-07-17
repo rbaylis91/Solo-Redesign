@@ -5,6 +5,8 @@
 
 h1, h2, h3, h4, h5, h6 {color:#2c2f2f;}
 body{font-family: Helvetica, Arial, sans-serif;}
+img{max-width:100%; height: auto;}
+
 /* Hiding placeholder text on focus in webkit, thanks to http://www.kolodvor.net/2012/03/23/webkit-placeholder-attribute-behavior */
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color:transparent; }
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
@@ -14,7 +16,7 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 .hidden { display: none; }
 .left { float: left; }
 .right { float: right; }
-
+.boxify{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;} 
 h1{font-size:60px;}
 h5{font-size: 14px;line-height: 1.52em;padding: 0 0 5px;font-weight:bold;}
 
