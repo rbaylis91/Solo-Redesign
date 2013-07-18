@@ -57,29 +57,28 @@
 
     <header>
 
-  
-      {% comment %}
-      {% if shop.customer_accounts_enabled %}
-      <p class="customer-links">
-        {% if customer %}
-        Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
-        {% else %}
-        {{ 'Log in' | customer_login_link }}
-        {% if shop.customer_accounts_optional %}
-        or {{ 'Create an account' | customer_register_link }}
-        {% endif %}
-        {% endif %}
-      </p>
-      {% endif %}
-      {% endcomment %}
-
       <!-- Header -->
       <div class="header twelve row">
 
-        <h1 id="site-title">
+        <h1 class="header-title">
           <a href="/">{{ shop.name }}</a>
         </h1>
         
+        <!--Header Widget -->
+        <div class="header-widget">
+          
+          <div class="header-customer">
+             {% if shop.customer_accounts_enabled %}
+             {% if customer %}
+              Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+              {% else %}
+              {{ 'Log in' | customer_login_link }}
+              {% if shop.customer_accounts_optional %}
+              or {{ 'Create an account' | customer_register_link }}
+              {% endif %}
+              {% endif %}
+             {% endif %}
+          </div>
         <!-- Social Icons -->
           <ul class="social-icons">
               <li class="tw"><a href="#"></a></li>
@@ -93,7 +92,8 @@
               <li class="gp"><a href="#"></a></li>
           </ul>
         <!-- End Social Icons -->
-
+        </div>
+        <!-- End Header Widget -->
       </div>
       <!--End Header-->
       
