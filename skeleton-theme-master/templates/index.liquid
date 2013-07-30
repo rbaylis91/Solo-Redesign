@@ -1,19 +1,7 @@
-{% comment %}
-Re-use the 'rte' class wherever you output content that was added by a merchant using
-the Rich Text Editor ( 'rte' stands for rich text editor ).
-Style all HTML elements in that content the same way across the board.
-Use the 'rte' class in your CSS to help maintain that consistency.
-Example: the h2 element should have the same size and color in:
-- product descriptions
-- collection descriptions
-- 'page' pages' content
-- blog post
-{% endcomment %}
-
 {% assign page = pages.frontpage %}
 
 {% if settings.homepage_is_product_page %}
-	{% assign product = collections.frontpage.products.first %}
+	{% assign product = collections.stuff.products.first %}
 	{% include 'product' %}
 {% else %}
 <div class="rte">
@@ -21,6 +9,7 @@ Example: the h2 element should have the same size and color in:
 </div>
 {% endif %}
 
+<<<<<<< HEAD
 {% comment %}
 <!-- START SHOWCASE -->
 <!--
@@ -49,6 +38,8 @@ Example: the h2 element should have the same size and color in:
 {% endfor %}
 </ul>-->
 {% endcomment %}
+=======
+>>>>>>> 4376520127bd43a4a06e0eeba497b6a7ab827692
 
 <!-- Begin slider -->
 <div class="row flexslider-outer clearfix">
