@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   {% if template == 'index' %}
-  <title> {{ shop.name }} | {{ page_title }}</title>
+  <title>{{ shop.name }} | {{ page_title }}</title>
   {% elsif template == '404' %}
   <title>Page Not Found | {{ shop.name }}</title>
   {% else %}
@@ -70,12 +70,14 @@
           <div class="header-customer">
              {% if shop.customer_accounts_enabled %}
              {% if customer %}
-                <a href="/account">My Account</a>
+              Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
               {% else %}
-                <a href="/account/login">My Account</a>
+              {{ 'Log in' | customer_login_link }}
+              {% if shop.customer_accounts_optional %}
+              or {{ 'Create an account' | customer_register_link }}
+              {% endif %}
               {% endif %}
              {% endif %}
-             - <strong>Cart:</strong><a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
           </div>
         <!-- Social Icons -->
           <ul class="social-icons">
@@ -106,7 +108,7 @@
       </section> 
     </header>
     <div id="main" role="main" class="sixteen columns">
-      <div class="main-sub {% if template contains "blog" or template == "article" or template == "page" %} twelve columns alpha{% else %}row {% endif %} boxify">{{ content_for_layout }}</div>
+      <div class="{% if template contains "blog" or template == "article" or template == "page" %} twelve columns alpha{% else %}row {% endif %} boxify">{{ content_for_layout }}</div>
 
       <!-- START SIDEBAR -->
       {% if template contains "blog" or template == "article" or template =="page" %}

@@ -19,13 +19,13 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 .boxify{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;} 
 h1{font-size:60px;}
 h5{font-size: 14px;line-height: 1.52em;padding: 0 0 5px;font-weight:bold;}
-a{color:#5FA6D8;text-decoration:none; }
-a:hover{opacity:0.8;}
+
 
 /**** Buttons ****/
 
-.btn{ padding:15px 20px; border-radius:5px; border:none; }
-.btn-green{ color:white; background: #abcf2c;}
+.btn{margin:5px 5px 5px 0;height: 40px;line-height: 40px;padding:0 15px;border:none;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.btn:hover{opacity:0.8;}
+.btn-green{color:white; background-color: #abcf2c;}
 
 
 
@@ -37,8 +37,8 @@ a:hover{opacity:0.8;}
 /**** Header ****/
 .header{padding:60px 0; margin-bottom:0; position: relative;}
 .header-title{ font-size: 3em; font-weight: bold; 	padding: 0; margin-bottom:0;}
-.header-widget{position:absolute; top:33px; right:0; text-align:right;}
-.header-customer{margin-bottom:10px;}
+.header-widget{position:absolute; top:0; right:0;}
+
 
 /**** Header social icons ****/
 
@@ -75,13 +75,13 @@ nav li, nav ul{margin-bottom:0;}
 .mobile{display:none;}
 
 
-.title{ margin: 80px 0; text-align:center; }
+.title{ margin:40px 0 80px 0; text-align:center;}
 .container {padding:0;}
 
 #main{margin-top:0px;}
 #main > #sidebar, #main > .twelve, #main > .row{margin-top:40px;margin-bottom:40px;}
 #main > .twelve{padding-right:20px;}
-.main-sub{margin-top:0 !important;}
+
 
 
 
@@ -203,10 +203,16 @@ ul.grid li { float: left; list-style-type: none; }
 /* ===================== */
 /* = Customer Accounts = */
 /* ===================== */
+#addresses h4{margin-top:20px1}
+#customer label, #account label{font-weight:normal}
+#customer #forgot_password{margin-bottom:10px}
+#customer input[type=text],#customer input[type=email],#customer input[type=password],#account  input[type=text],#account input[type=email],#account input[type=password]{width:200px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 
-
-
-
+table.customer_address_table{width:400px;table-layout:fixed;}
+.customer_address_table .label{vertical-align:bottom;width:25%;}
+.customer_address_table .value{width:75%;padding:20px 0px 0px 10px;}
+.customer_address_table .label > label{font-weight:normal;}
+.customer_address_table .value > input[text],.customer_address_table .value > select{margin:0px;width:100%;display:block;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 
 
 
@@ -261,7 +267,11 @@ ul.grid li { float: left; list-style-type: none; }
 	#cartform .remove{padding-top:0px;text-align:right;}
 
 	.flexslider h5{font-weight:normal;font-size:13px;}
-
+	
+	#customer input[type=text],#customer input[type=email],#customer input[type=password], #account  input[type=text],#account input[type=email],#account input[type=password]{width:100%;}
+  	table.customer_address_table{width:100%;}
+  	.full.btn{width:100%;margin:5px 0px;}
+  	
 }
 
 
