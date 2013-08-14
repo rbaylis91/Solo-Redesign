@@ -119,26 +119,26 @@
     <div id="overview" class="sixteen columns clearfix">
       <div id="o-inner" class="row">
         <div class=" o-content overview-third o-first">
-          <h3>{{ pages.frontpage.title }}</h3>
+          <h4>{{ pages.frontpage.title }}</h4>
           <p>{{ pages.frontpage.content | strip_html | strip_newlines | truncatewords: 45 }}</p>
           <p id="o-link"><a class="a-col" href="/pages/frontpage">Read More</a></p>
         </div>
         <div class="o-content welcome overview-third">{% if settings.disable_blog %}
-          <h3>{{ pages[settings.extra_content].title }}</h3>
+          <h4>{{ pages[settings.extra_content].title }}</h4>
           <p>{{ pages[settings.extra_content].content | strip_html | strip_newlines | truncatewords: 45 }}</p>
           <p><a class="a-col" href="/pages/{{ settings.extra_content }}">Read More</a></p>{% else %}
-          <h3>From Our Blog</h3>{% for article in blogs.news.articles limit: 1 %}
-          <h5>{{ article.title }}</h5>
+          <h4>From Our Blog</h4>{% for article in blogs.news.articles limit: 1 %}
+          <h6 class="article-title">{{ article.title }}</h6>
           <p>{{ article.content | strip_html | strip_newlines | truncatewords: 30 }}</p>
           <p id="o-link"><a class="a-col" href="{{ article.url }}">Read More</a></p>{% endfor %}{% endif %}
         </div>{% if settings.newsletter == "disabled" %}
         <div>
-          <h3>{{ pages.about-us.title }}</h3>
+          <h4>{{ pages.about-us.title }}</h4>
           <p>{{ pages.about-us.content | strip_html | strip_newlines | truncatewords: 45 }}</p>
           <p><a href="/pages/about-us">Read More</a></p>
         </div>{% else %}
         <div class="o-content newsletter overview-third">
-          <h3>{{ settings.newsletter_heading }}</h3>
+          <h4>{{ settings.newsletter_heading }}</h4>
           <form id="o-form" method="post" action="{{ settings.newsletter_action }}">
             <p><input type="text" value="{{ settings.newsletter_first_name_label }}" name="{{ settings.newsletter_first_name }}" id="fname" class="field" /></p>
             <p><input type="text" value="{{ settings.newsletter_last_name_label }}" name="{{ settings.newsletter_last_name }}" id="lname" class="field" /></p>

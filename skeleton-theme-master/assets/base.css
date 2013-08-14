@@ -68,19 +68,25 @@
 
 /* #Typography
 ================================================== */
-	h1, h2, h3, h4, h5, h6 {
-		font-family: "Helvetica", "Arial", sans-serif;
-		font-weight: normal; }
+	h1, h2, h3, h4, h5, h6 {font-family: "Helvetica", "Arial", sans-serif;font-weight: bold;line-height: 1.2em; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color:black;font-weight: inherit; }
-	h1 { font-weight:bold;font-size: 46px; line-height: 50px; margin-bottom: 14px;}
-	h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
-	h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
-	h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
-	h5 { font-size: 17px; line-height: 24px; }
-	h6 { font-size: 14px; line-height: 21px; }
+	h1 { font-weight:bold;font-size: 60px; line-height: 1.1em; margin-bottom: 24px;}
+	h2 { font-size: 35px; margin-bottom: 20px; }
+	h3 { font-size: 28px; margin-bottom: 18px; }
+	h4 { font-size: 21px; margin-bottom: 14px; }
+	h5 { font-size: 17px; margin-bottom: 10px; }
+	h6 { font-size: 14px; margin-bottom: 10px; }
+
+	.rte h1 { font-weight:bold;font-size: 35px; margin-bottom: 24px;}
+	.rte h2 { font-size: 28px; margin-bottom: 18px; }
+	.rte h3 { font-size: 21px; margin-bottom: 14px; }
+	.rte h4 { font-size: 17px; margin-bottom:10px;}
+	.rte h5 { font-size: 14px; margin-bottom:10px;}
+	.rte h6 { font-size: 12px; margin-bottom:10px; text-transform:uppercase }
+
 	.subheader { color: #777; }
 
-	p { margin: 0 0 20px 0;font-size:13px;line-height:1.52em; }
+	p { margin: 0 0 10px 0;font-size:13px;line-height:1.52em; }
 	p img { margin: 0; }
 	p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 

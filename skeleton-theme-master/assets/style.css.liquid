@@ -6,7 +6,6 @@
 h1, h2, h3, h4, h5, h6 {color:#2c2f2f;}
 body{font-family: Helvetica, Arial, sans-serif;}
 img{max-width:100%; height: auto;}
-
 /* Hiding placeholder text on focus in webkit, thanks to http://www.kolodvor.net/2012/03/23/webkit-placeholder-attribute-behavior */
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color:transparent; }
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
@@ -17,15 +16,14 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 .left { float: left; }
 .right { float: right; }
 .boxify{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;} 
-h1{font-size:60px;}
-h5{font-size: 14px;line-height: 1.52em;padding: 0 0 5px;font-weight:bold;}
 
+hr.divider{width:100%;display:block;height:1px;border-top: 1px solid #ddd;margin:40px 0;}
 
 /**** Buttons ****/
-
-.btn{margin:5px 5px 5px 0;height: 40px;line-height: 40px;padding:0 15px;border:none;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.btn{margin:5px 5px 5px 0;height: 40px;line-height: 40px;padding:0 15px;border:none;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;font-size:14px;}
+a.btn{padding:10px 15px;}
 .btn:hover{opacity:0.8;}
-.btn-green{color:white; background-color: #abcf2c;}
+.btn-green{color:white !important; background-color: #abcf2c;}
 
 
 
@@ -95,6 +93,8 @@ nav li, nav ul{margin-bottom:0;}
 footer{margin-top:26px;}
 .f-links{float:left;}
 .f-l-item{margin-right:26px;}
+
+#overview .article-title{margin-bottom:10px;}
 #o-inner{text-align: left; border-radius: 12px;	background-color: #f2f2f2;padding: 26px; border: 1px solid #DDDBDB;}
 .overview-third{width:278px;display:inline-block;float:left;margin-left:26px;}
 .o-first{margin-left:0px;}
@@ -175,24 +175,36 @@ ul.grid li { float: left; list-style-type: none; }
 #cartform .remove > .cart:before{font-family: "FontAwesome";content:"\F05E";display:inline-block;font-size:12px;color:black;margin-right:3%;opacity:0.4;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";}
 #cartform .remove:hover > .cart:before{opacity:1.0;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
 #cartform .remove{width:25%;text-align:left;}
-#cartform .total-text{text-align:right;}
-
 
 
 /* =============== */
 /* = blog.liquid = */
 /* =============== */
-
 #blog-main{margin:0px}
-.blog-article-title{font-size:18px;padding-top:20px;font-weight:bold;margin-bottom:0px;line-height:24px;}
-.blog-article-date{color: #666;font-size: 13px;font-weight: normal;padding: 0px 0 5px;}
+.blog-article-title{font-size:40px;font-weight:bold;line-height:1.0em;}
+.blog-article-date{display:inline-block;float:left;color: #666;font-weight: normal;padding: 0px 0 5px;}
 .blog-article p{font-size:13px;line-height:1.52em;color:black;}
+.blog-article-meta-comments a{float:left;color: #666;margin-left:10px;font-weight:normal;}
+.blog-article-meta-tags{margin-bottom:20px;}
+.blog-article-meta-tags a{font-style:italic;color:#666;}
+
+#comments .comment-author{margin-bottom:0px;}
+#comments .comment-date{margin-bottom:10px;font-size:12px;color: #666;}
+li.comment{margin-bottom:40px;}
+#comments label{font-weight:normal;}
+#comments .comment-heading{margin-bottom:30px;}
+#comments .text-input{width:420px;}
+
+/* ======= */
+/* = RTE = */
+/* ======= */
+.rte table{width:100%;margin-bottom:20px;}
+.rte td{padding:10px;border: 1px solid #ddd;}
 
 
 /* =================== */
 /* =  article.liquid = */
 /* =================== */
-
 
 
 /* ================= */
@@ -203,10 +215,12 @@ ul.grid li { float: left; list-style-type: none; }
 /* ===================== */
 /* = Customer Accounts = */
 /* ===================== */
-#addresses h4{margin-top:20px1}
+#addresses h4{margin-top:20px}
 #customer label, #account label{font-weight:normal}
 #customer #forgot_password{margin-bottom:10px}
-#customer input[type=text],#customer input[type=email],#customer input[type=password],#account  input[type=text],#account input[type=email],#account input[type=password]{width:200px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#customer input[type=text],#customer input[type=email],#customer input[type=password],#account  input[type=text],#account input[type=email],#account input[type=password]{width:305px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+#address_form_new input[type=text]{margin-bottom:0px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 
 table.customer_address_table{width:400px;table-layout:fixed;}
 .customer_address_table .label{vertical-align:bottom;width:25%;}
@@ -244,7 +258,7 @@ table.customer_address_table{width:400px;table-layout:fixed;}
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-
+	.hide-mobile{display:none !important;}
 	nav.large{display:none !important;}
 	.mobile{display:block;}
 	#main_navigation{width:100%;}
@@ -259,16 +273,19 @@ table.customer_address_table{width:400px;table-layout:fixed;}
 	.nav-item{width:100%} 
 
 	#cartform td{width:100%;display:block;}
-	#cartform th{display:none;}
+	#cartform th, #cartform .total-text{display:none;}
 	#cartform .qty:before{content:"Quantity";float:left;width:25%;text-align:right;margin-right:5%;}
 	#cartform .price:before{content:"Price";float:left;width:25%;text-align:right;margin-right:5%;}
 	#cartform .qty, #cartform .price{clear:both;}
 	#cartform .price {padding-top:0px;text-align:left;} 
 	#cartform .remove{padding-top:0px;text-align:right;}
-
+	#cartform .total-price{font-size:20px;padding-left:0px;}
+  
+  
 	.flexslider h5{font-weight:normal;font-size:13px;}
 	
 	#customer input[type=text],#customer input[type=email],#customer input[type=password], #account  input[type=text],#account input[type=email],#account input[type=password]{width:100%;}
+  	#addresses input[type=text], #addresses select{width:100%;}	
   	table.customer_address_table{width:100%;}
   	.full.btn{width:100%;margin:5px 0px;}
   	

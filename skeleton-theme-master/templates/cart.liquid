@@ -49,16 +49,16 @@
             </tr>
             {% endfor %}
             <tr class="summary">
-              <td class="image">&nbsp;</td>
+              <td class="hide-mobile">&nbsp;</td>
               <td class="total-text">Total</td>
-              <td class="price"><span class="total"><strong>{{ cart.total_price | money }}</strong></span></td>
-           	  <td>&nbsp;</td>
+              <td class="total-price"><span class="total"><strong>{{ cart.total_price | money }}</strong></span></td>
+           	  <td class="hide-mobile">&nbsp;</td>
             </tr>
           </tbody>
         </table>
         
         <div class="buttons clearfix">
-          <input type="submit" id="checkout" class="btn" name="checkout" value="Checkout" />
+          <input type="submit" id="checkout" class="btn btn-green" name="checkout" value="Checkout" />
           <input type="submit" id="update-cart" class="btn" name="update" value="Update" />
         </div>
         
