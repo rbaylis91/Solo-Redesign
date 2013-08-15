@@ -1,4 +1,4 @@
-{% paginate article.comments by 50 %}
+{% paginate article.comments by 5 %}
 
 {% comment %}
 When a commment has just been submitted, it's not shown right away.
@@ -132,7 +132,7 @@ Note that comment.created_at will only be defined if the comment did not have an
     <textarea class="text-input" required{% if form.errors contains "body" %} class="error"{% endif %} name="comment[body]" id="comment-body">{{ form.body }}</textarea>
   </p>
 
-  <input type="submit" class="full btn" value="Post Comment" /> 
+  <input type="submit" class="full btn btn-green" value="Post Comment" /> 
   
   {% if form.errors %}
     <script>
@@ -154,10 +154,10 @@ Note that comment.created_at will only be defined if the comment did not have an
 {% if blog.next_article or blog.previous_article %}
 <p class="clearfix"> 
   {% if blog.next_article %}
-  <span class="left">{{ '&larr; Next Post' | link_to: blog.next_article }}</span>
+  <span class="left btn btn-green">{{ '&larr; Next Post' | link_to: blog.next_article }}</span>
   {% endif %}    
   {% if blog.previous_article %}
-  <span class="right">{{ 'Previous Post &rarr;' | link_to: blog.previous_article }}</span>
+  <span class="right btn btn-green">{{ 'Previous Post &rarr;' | link_to: blog.previous_article }}</span>
   {% endif %}
 </p>
 {% endif %}
