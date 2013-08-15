@@ -74,15 +74,15 @@
 	h2 { font-size: 35px; margin-bottom: 20px; }
 	h3 { font-size: 28px; margin-bottom: 18px; }
 	h4 { font-size: 21px; margin-bottom: 14px; }
-	h5 { font-size: 17px; margin-bottom: 10px; }
-	h6 { font-size: 14px; margin-bottom: 10px; }
+	h5 { font-size: 17px; margin-bottom: 14px; }
+	h6 { font-size: 14px; margin-bottom: 14px; }
 
 	.rte h1 { font-weight:bold;font-size: 35px; margin-bottom: 24px;}
 	.rte h2 { font-size: 28px; margin-bottom: 18px; }
 	.rte h3 { font-size: 21px; margin-bottom: 14px; }
-	.rte h4 { font-size: 17px; margin-bottom:10px;}
-	.rte h5 { font-size: 14px; margin-bottom:10px;}
-	.rte h6 { font-size: 12px; margin-bottom:10px; text-transform:uppercase }
+	.rte h4 { font-size: 17px; margin-bottom:14px;}
+	.rte h5 { font-size: 14px; margin-bottom:14px;}
+	.rte h6 { font-size: 12px; margin-bottom:14px; text-transform:uppercase }
 
 	.subheader { color: #777; }
 
