@@ -6,7 +6,6 @@
     
     <div id="product-details" class="sixteen columns">
       
-      <h1 itemprop="name" class="title">{{ product.title }}</h1>
       {% assign product_vendor_handle = product.vendor | handle %}
       {% comment %}
       Do we have a collection that has the same name as our product vendor name?
@@ -51,6 +50,8 @@
     
       </div><!-- #product-photos -->
       <div id="product-description-1" class="rte seven columns omega offset-by-one">
+        <h1 itemprop="name" class="title">{{ product.title }}</h1>
+        
         <div id=""  itemprop="description">
           {{ product.description }}
         </div>
