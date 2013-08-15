@@ -1,26 +1,14 @@
-{% comment %}
-The search.liquid template is not a required template.
-That search.liquid template is included in the current theme to make it easier for you 
-to customize your /search page.
-Whether you are using your own template for the search page or not,
-the {{ content_for_header }} tag in theme.liquid will always output the following on the /search page:
-<link rel="stylesheet" href="/global/search.css" type="text/css" />
-So the /search page is always styled by a globally-hosted stylesheet called search.css.
-You may override and complement that CSS in your theme's stylesheet.
-We are using a div#searchresults below so that the styles defined in search.css get
-applied to the elements on this page; the 'searchresults' id is used in the CSS
-selectors inside search.css.
-{% endcomment %}
-
-<div id="searchresults">
+<h1 class="">Search Results</h1>
+<div id="search">
   
   <form action="/search" method="get" class="search-form" role="search">
     <p>
-      <input type="text" name="q" value="{{ search.terms | escape }}" />
-      <input type="submit" value="Search store..." />
+      <input class="search-box full boxify" type="text" name="q" value="{{ search.terms | escape }}" />
+      <input type="submit" class=" search-submit btn full btn-green" value="Search store..." />
     </p>
   </form>
-  
+  <div style="clear:both"></div>
+  <hr class="divider">
   {% comment %}
   search.performed is false when accessing the /search page without a 'q' parameter set
   in the URL. A shop-owner can link to the /search page from one of his link lists.
@@ -40,31 +28,31 @@ selectors inside search.css.
     {% endcomment %}
   
     {% if search.results_count == 0 %}  
+    <h3>Sorry,</h3>
     <p>Your search for "{{ search.terms }}" did not yield any results.</p>              
     {% else %}
-    <ol>
+    <ul>
       {% for item in search.results %}      
       <li class="clearfix">
         <h3>{{ item.title | link_to: item.url }}</h3>
         {% if item.featured_image %}
         <div class="result-image">
           <a href="{{ item.url }}" title="{{ item.title | escape }}">
-            {{ item.featured_image.src | product_img_url: 'small' | img_tag: item.featured_image.alt }}
+            <img src="{{item.featured_image.src | product_img_url:'small'}}"  alt="{{item.featured_image.alt}}"/>
           </a>
         </div>
         {% endif %}
-        <span>{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}</span>        
+        <span style="margin-left:0px;display:block;">{{ item.content | strip_html | truncatewords: 70 | highlight: search.terms }}</span>               
       </li>
+      <hr class="divider">
       {% endfor %}
-    </ol>
+    </ul>
     {% endif %}    
     
     {% if paginate.pages > 1 %}
-    <div id="pagination">
-      {{ paginate | default_pagination }}
-    </div>
+    {% include 'pagination' %}
     {% endif %}
-    
+      
     {% endpaginate %}    
     
   {% endif %}  
