@@ -1,0 +1,13 @@
+{% if paginate.previous or paginate.next %}
+<div class="pagination {% if template contains 'collection' %}wide{% endif %}">
+  {% if paginate.previous %}
+  <a class="btn btn-green" {% if paginate.previous %}href="{{ paginate.previous.url }}"{% endif %} class=" previous {% if paginate.previous %}active{% endif %}">Prev</a>
+  {% endif %}
+  
+  <span class="active">Page {{ paginate.current_page }} of {{paginate.pages}}</span>  
+  
+  {% if paginate.next %}
+  <a class="btn btn-green" style="margin:0 0 0 5px" {% if paginate.next %}href="{{ paginate.next.url }}"{% endif %} class="next {% if paginate.next %}active{% endif %}">Next</a>
+  {% endif %}
+</div>
+{% endif %}
