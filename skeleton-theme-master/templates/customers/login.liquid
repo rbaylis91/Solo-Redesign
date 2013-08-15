@@ -31,7 +31,7 @@
 	      </div>
 
 	      <div class="action_bottom">
-	        <input class="btn btn-green" type="submit" value="Create" />
+	        <input class="btn btn-colour" type="submit" value="Create" />
 	        <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
 	      </div>
 	    {% endform %}
@@ -69,7 +69,7 @@
         {% endif %}
   
         <div class="action_bottom">
-          <input class="full btn btn-green" type="submit" value="Sign In" />
+          <input class="full btn btn-colour" type="submit" value="Sign In" />
           <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
         </div>
       {% endform %}
@@ -93,7 +93,7 @@
           <input type="email" value="" size="30" name="email" id="recover-email" class="large" />
         </div>
         <div class="action_bottom">
-          <input class="full btn btn-green" type="submit" value="Submit" />
+          <input class="full btn btn-colour" type="submit" value="Submit" />
           <span class="note">or <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a></span>
         </div>
       {% endform %}
@@ -111,7 +111,7 @@
         <h3 class="title">Guest Login</h3>
       </div>
       {% form 'guest_login' %}
-        <input class="full btn btn-green" type="submit" value="Continue as Guest" />
+        <input class="full btn btn-colour" type="submit" value="Continue as Guest" />
       {% endform %}
     </div>
     {% endif %}	

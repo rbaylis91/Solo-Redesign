@@ -4,7 +4,7 @@
   <form action="/search" method="get" class="search-form" role="search">
     <p>
       <input class="search-box full boxify" type="text" name="q" value="{{ search.terms | escape }}" />
-      <input type="submit" class=" search-submit btn full btn-green" value="Search store..." />
+      <input type="submit" class=" search-submit btn full btn-colour" value="Search store..." />
     </p>
   </form>
   <div style="clear:both"></div>
@@ -38,7 +38,7 @@
         {% if item.featured_image %}
         <div class="result-image">
           <a href="{{ item.url }}" title="{{ item.title | escape }}">
-            <img src="{{item.featured_image.src | product_img_url:'small'}}"  alt="{{item.featured_image.alt}}"/>
+            <img src="{{item.featured_image.src | product_img_url:'medium'}}"  alt="{{item.featured_image.alt}}"/>
           </a>
         </div>
         {% endif %}

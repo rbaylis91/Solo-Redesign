@@ -4,7 +4,7 @@
   <div class="action_link action_return note" id='return_to_account'><a href="/account">Return to Account page</a></div>
   <h3 class="customer-title">Manage Account Address</h3>
   <div class="action_top">
-    <input type="button" value="Add New Address" class="full btn btn-green" href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">
+    <input type="button" value="Add New Address" class="full btn btn-colour" href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">
   </div>
 </div>
 
@@ -62,7 +62,7 @@
       </tr>
     </table>
     <div class="action_bottom">
-      <input class="full btn btn-green" type="submit" value="Add Address" />
+      <input class="full btn btn-colour" type="submit" value="Add Address" />
       <span class="note"> or <a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">Cancel</a></span>
     </div>
   {% endform %}
@@ -142,7 +142,7 @@
           </tr>
         </table>
         <div class="action_bottom">
-          <input class="full btn btn-green" type="submit" value="Update Address" />
+          <input class="full btn btn-colour" type="submit" value="Update Address" />
           <span class="note"> or <a href="#" onclick="Shopify.CustomerAddress.toggleForm({{form.id}}); return false;">Cancel</a></span>
         </div>        
       {% endform %}
