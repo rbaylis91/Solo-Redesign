@@ -1,23 +1,22 @@
 <div id="sidebar" class="four columns boxify omega">{% unless settings.disable_blog %}
   <h3>Recent Articles</h3>{% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}{% if blogs.[blog_handle].articles.size > 0 %}{% for article in blogs.[blog_handle].articles limit: 4 %}
   <!-- START POST {{ forloop.index }} -->
-  <div class="post{% if forloop.last %} end{% endif %}">
+  <div class="sidebar-post post{% if forloop.last %} end{% endif %}">
     <h6><a href="{{ article.url }}">{{ article.title | escape }}</a></h6>
     <p>{{ article.content | strip_html | strip_newlines | truncate: 80 }}</p>
   </div>
   <!-- END POST {{ forloop.index }} -->{% endfor %}{% else %}
   <p>No articles.</p>{% endif %}
-  <p id="feed"><a href="{{ shop.url }}/blogs/{{ blog_handle }}.atom">{{ blog.title | escape }} Feed Subscription</a></p>{% endunless %}
-
-  <hr class="divider">
+ {% endunless %}
   	
+  <hr class="divider">
   {% unless no_tags == 'no-tags' %}
   <ul>
     <li>
       <h3 id="snippet-tag-title">Tags</h3>
     </li>
     {% for tag in blog.all_tags %}
-    <hr class="divider" style="margin:5px 0px 5px 0px">
+    <hr class="divider" style="margin:5px 0px 12px 0px;opacity:0.5">
     <li class="sidebar-tag {{ tag | handle }} {% if current_tags contains tag %}current{% endif %} {% if forloop.last %}last{% endif %}">
       <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
     </li>
@@ -37,7 +36,7 @@
       {% endif %}
     {% endfor %}
   {% endfor %}
-  $('.{{ tag | handle }}').append('<a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag-count accent-text">' + tag_count + '</a>');
+  $('.{{ tag | handle }}').append('<a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag-count accent-text">'  '</a>');
 {% endfor %}
 </script>
 {% endunless %}
