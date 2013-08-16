@@ -22,6 +22,8 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 
 hr.divider{width:100%;display:block;height:1px;border-top: 1px solid #e8e8e8;margin:40px 0;}
 
+.show-mobile-only{display:none !important;}
+
 /**** Buttons ****/
 .btn{font-family: Helvetica, Arial, sans-serif;margin:5px 5px 5px 0;height: 40px;line-height: 40px;padding:0 15px;border:none;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;font-size:14px;font-weight:bold;display:inline-block;}
 .btn:hover{opacity:0.8;}
@@ -155,9 +157,9 @@ nav li, nav ul{margin-bottom:0;}
 
 
 ul.grid li { float: left; list-style-type: none; }
-.prod-image-wrap{padding:10px;}
+.prod-image-wrap{padding:10px;width:300px;height:300px;}
 .prod-image-wrap a{width:100%;}
-.prod-image-wrap a img{width:inherit;overflow:hidden;height:auto;}
+.prod-image-wrap a img{max-height:100%;max-width:100%;margin:0 auto;display:block;}
 .row-one{margin-top:0px;}
 .prod-grid-item{margin:25px 25px 25px 25px;}
 .first-prod{margin-left:0px;margin-right:25px;}
@@ -249,6 +251,14 @@ table.customer_address_table{width:400px;table-layout:fixed;}
 .customer_address_table .value{width:75%;padding:20px 0px 0px 10px;}
 .customer_address_table .label > label{font-weight:normal;}
 .customer_address_table .value > input[text],.customer_address_table .value > select{margin:0px;width:100%;display:block;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+
+/* Custom select */
+.custom-select{
+	background-color:white;
+	color:black;
+	height:30px;
+}
 
 
 
@@ -402,3 +412,4 @@ ul.slides > li {box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-siz
   .toolbar-left{display:none;}
 
 }
+

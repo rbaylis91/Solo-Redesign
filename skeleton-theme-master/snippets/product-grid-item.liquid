@@ -24,11 +24,11 @@ Here, for the sake of teaching, we will use 2 presentation options:
 
   <div class="boxify prod-image-wrap">  
     <a href="{{ product.url | within: collection }}">
-      <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}" />
+      <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
     </a>
   </div><!-- .prod-image-wrap -->
   
-  <div class="prod-caption">
+  <div class="prod-caption clearfix">
       <a href="{{ product.url | within: collection }}">
         {{ product.title }}
       </a>
@@ -43,6 +43,7 @@ Here, for the sake of teaching, we will use 2 presentation options:
   </div><!-- .prod-caption -->
   
 </li>
+<hr class="divider show-mobile-only clearfix">
 
 {% comment %}
 By all means, you don't need to use a clearing div. Use whatever it is you use to clear
