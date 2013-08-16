@@ -59,65 +59,65 @@
 
       <!-- Header -->
       <div class="header twelve row">
-        
+
         <div class="toolbar clearfix table">
           <div class="table-cell">
-          <div class="toolbar-left">
-            <form action="/search" method="get" class="search-form" role="search">
-              <input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
+            <div class="toolbar-left">
+              <form action="/search" method="get" class="search-form" role="search">
+                <input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
 
-            </form>
-          </div>
-          <div class="toolbar-right">
+              </form>
+            </div>
+            <div class="toolbar-right">
               <span class="customer-links">
-                 {% if shop.customer_accounts_enabled %}
-                 <i class="icon-user"></i> 
-                 {% if customer %}
-                    <a href="/account">My Account</a> · {{ 'Log out' | customer_logout_link }}
-                  {% else %}
-                  {{ 'My Account' | customer_login_link }}
-                  {% endif %}
-                 {% endif %}
+                {% if shop.customer_accounts_enabled %}
+                <i class="icon-user"></i> 
+                {% if customer %}
+                <a href="/account">My Account</a> · {{ 'Log out' | customer_logout_link }}
+                {% else %}
+                {{ 'My Account' | customer_login_link }}
+                {% endif %}
+                {% endif %}
               </span>
               <span class="cart-link">
-                 <i class="icon-shopping-cart"></i> <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>  
+                <i class="icon-shopping-cart"></i> <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>  
               </span>
 
-          </div>
+            </div>
           </div>
         </div>
         <h1 class="header-title">
           <a href="/">{{ shop.name }}</a>
         </h1>
-        
+
         <!--Header Widget -->
         <div class="header-widget">
-          
 
-          
-        {% comment %}
-        <!-- Social Icons -->
+
+
+          {% comment %}
+          <!-- Social Icons -->
           <ul class="social-icons">
-              <li class="tw"><a href="#"></a></li>
-              <li class="fb"><a href="#"></a></li>
-              <li class="yt"><a href="#"></a></li>
-              <li class="rss"><a href="#"></a></li>
-              {% comment %}
-              <li class="ins"><a href="#"></a></li>
-              <li class="pin"><a href="#"></a></li>
-              <li class="vim"><a href="#"></a></li>
-              <li class="tum"><a href="#"></a></li>
-              <li class="gp"><a href="#"></a></li>
-              {% endcomment %}
+            <li class="tw"><a href="#"></a></li>
+            <li class="fb"><a href="#"></a></li>
+            <li class="yt"><a href="#"></a></li>
+            <li class="rss"><a href="#"></a></li>
+            {% comment %}
+            <li class="ins"><a href="#"></a></li>
+            <li class="pin"><a href="#"></a></li>
+            <li class="vim"><a href="#"></a></li>
+            <li class="tum"><a href="#"></a></li>
+            <li class="gp"><a href="#"></a></li>
+            {% endcomment %}
           </ul>
-        <!-- End Social Icons -->
-       {% endcomment %}
+          <!-- End Social Icons -->
+          {% endcomment %}
         </div>
         <!-- End Header Widget -->
       </div>
       <!--End Header-->
-      
-      
+
+
       <section id="nav" class="clearfix">
         <nav class="large sixteen clearfix">
           {% include 'dropdown' %}
@@ -180,6 +180,16 @@
 
       <p class="f-copy" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
 
+      <div id="footer-payment-methods">
+        {{ 'cc-amex.png' | asset_url | img_tag }}
+        {{ 'cc-discover.png' | asset_url | img_tag }}
+        {{ 'cc-visa.png' | asset_url | img_tag }}
+        {{ 'cc-mastercard.png' | asset_url | img_tag }}
+        {{ 'cc-maestro.png' | asset_url | img_tag }}
+        {{ 'cc-cirrus.png' | asset_url | img_tag }}
+        {{ 'cc-paypal.png' | asset_url | img_tag }}
+        {{ 'cc-google.png' | asset_url | img_tag }}
+      </div>
     </footer>
 
 
