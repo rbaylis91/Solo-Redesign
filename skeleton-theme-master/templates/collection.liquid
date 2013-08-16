@@ -69,9 +69,7 @@ http://support.shopify.com/customer/portal/articles/75425 for details.
 </ul>
 
 {% if paginate.pages > 1 %}
-<div id="pagination">
-  {{ paginate | default_pagination }}
-</div>
+  {% include 'pagination' %}
 {% endif %}
 
 {% endpaginate %}

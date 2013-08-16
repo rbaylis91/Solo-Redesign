@@ -8,7 +8,8 @@
   <!-- END POST {{ forloop.index }} -->{% endfor %}{% else %}
   <p>No articles.</p>{% endif %}
  {% endunless %}
-  	
+  
+{% if template contains "blog" or template == "article" %}	
   <hr class="divider">
   {% unless no_tags == 'no-tags' %}
   <ul>
@@ -21,8 +22,7 @@
       <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
     </li>
     {% endfor %}
-  </ul>
-</div>
+  </ul>  
 <script type="text/javascript" charset="utf-8">
 {% for tag in blog.all_tags %}
   {% assign the_tag = tag %}
@@ -40,3 +40,5 @@
 {% endfor %}
 </script>
 {% endunless %}
+{% endif %}
+</div>

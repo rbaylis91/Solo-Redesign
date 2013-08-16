@@ -27,17 +27,18 @@
 	display: block;
 	position: relative;
 }
+
+
 .sf-menu ul ul {
 	top: 0;
 	left: 100%;
 }
 
-
 /*** DEMO SKIN ***/
 .sf-menu {
 	float: left;
-
 }
+
 .sf-menu ul {
 	border:1px solid #ddd;
 	background:#fff;
