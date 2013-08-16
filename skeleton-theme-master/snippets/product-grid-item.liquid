@@ -20,7 +20,7 @@ Here, for the sake of teaching, we will use 2 presentation options:
   {% assign on_sale = true %}
 {% endif %}
 
-<li class="prod-grid-item column-no-marg  {% if product-grid-item == 'three-per-row' %}{% cycle 'first-product': 'first-prod', '', 'last-prod' %}{% endif %} one-third {{ product-grid-item }}{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %} boxify">
+<li class="prod-grid-item  one-third column{% if product-grid-item == 'three-per-row' %} {% cycle 'first-product': 'alpha', '', 'omega' %} {% endif %}{{ product-grid-item }}{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
 
   <div class="boxify prod-image-wrap">  
     <a href="{{ product.url | within: collection }}">
