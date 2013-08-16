@@ -59,7 +59,27 @@
 
       <!-- Header -->
       <div class="header twelve row">
+        
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <form action="/search" method="get" class="search-form" role="search">
+              <input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
 
+            </form>
+          </div>
+          <div class="toolbar-right">
+                 {% if shop.customer_accounts_enabled %}
+                 {% if customer %}
+                  Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+                  {% else %}
+                  {{ 'Log in' | customer_login_link }}
+                  {% if shop.customer_accounts_optional %}
+                  or {{ 'Create an account' | customer_register_link }}
+                  {% endif %}
+                  {% endif %}
+                 {% endif %}
+          </div>
+        </div>
         <h1 class="header-title">
           <a href="/">{{ shop.name }}</a>
         </h1>
@@ -67,18 +87,9 @@
         <!--Header Widget -->
         <div class="header-widget">
           
-          <div class="header-customer">
-             {% if shop.customer_accounts_enabled %}
-             {% if customer %}
-              Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
-              {% else %}
-              {{ 'Log in' | customer_login_link }}
-              {% if shop.customer_accounts_optional %}
-              or {{ 'Create an account' | customer_register_link }}
-              {% endif %}
-              {% endif %}
-             {% endif %}
-          </div>
+
+          
+        {% comment %}
         <!-- Social Icons -->
           <ul class="social-icons">
               <li class="tw"><a href="#"></a></li>
@@ -94,6 +105,7 @@
               {% endcomment %}
           </ul>
         <!-- End Social Icons -->
+       {% endcomment %}
         </div>
         <!-- End Header Widget -->
       </div>
@@ -145,7 +157,7 @@
             <p><input type="text" value="{{ settings.newsletter_first_name_label }}" name="{{ settings.newsletter_first_name }}" id="fname" class="field" /></p>
             <p><input type="text" value="{{ settings.newsletter_last_name_label }}" name="{{ settings.newsletter_last_name }}" id="lname" class="field" /></p>
             <p><input type="text" value="{{ settings.newsletter_email_label }}" name="{{ settings.newsletter_email }}" id="email" class="field" /></p>
-            <input class="button" id="subscribe" type="submit" value="{{ settings.newsletter_submit }}" />
+            <input class="btn" id="subscribe" type="submit" value="{{ settings.newsletter_submit }}" />
           </form>
         </div>{% endif %}
       </div>
