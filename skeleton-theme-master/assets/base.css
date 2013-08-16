@@ -164,6 +164,7 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="telephone"],
 	textarea,
 	select {
 		border: 1px solid #ccc;
@@ -181,9 +182,11 @@
 		background: #fff; }
 	select {
 		padding: 0; }
+
 	input[type="text"]:focus,
 	input[type="password"]:focus,
 	input[type="email"]:focus,
+	input[type="telephone"]:focus,
 	textarea:focus {
 		border: 1px solid #aaa;
  		color: #444;
@@ -195,7 +198,6 @@
 	label,
 	legend {
 		display: block;
-		font-weight: bold;
 		font-size: 13px;  }
 	select {
 		width: 220px; }
