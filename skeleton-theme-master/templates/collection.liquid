@@ -34,8 +34,8 @@ http://support.shopify.com/customer/portal/articles/75425 for details.
 {% endif %}
 <hr class="divider">
 {% if collection.all_tags.size > 0 %}
-    <h3 style="margin:0 0 5px 10px;">Product Tags</h3>
-    <select id="collection-tags" class="custom-select">
+    <p style="margin:0 20px 5px 10px;">Product Tags</p> 
+    <select id="collection-tags" class="custom-select" style="">
       <option value="">All</option>
       {% for tag in collection.all_tags %}
       {% if current_tags contains tag %}
