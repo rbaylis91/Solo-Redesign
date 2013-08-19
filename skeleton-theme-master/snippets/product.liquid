@@ -30,7 +30,7 @@
         
         <div id="product-photo-container">
           <a class="gallery" href="{{ product.featured_image.src | product_img_url: 'original' }}" rel="gallery">
-            <img width="100%" src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+            <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
           </a>
         </div>
     
