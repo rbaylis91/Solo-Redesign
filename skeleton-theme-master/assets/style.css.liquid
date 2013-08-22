@@ -148,14 +148,16 @@ nav li, nav ul{margin-bottom:0;}
 .product-compare-price{font-size:18px;font-weight:normal;padding-left:3px;color:grey;}
 
 
-
+<div class="clearfix" style="width:100%;display:block;clear:both">
+  <div class="tag-right" style="float:right;display:block;">
+    <p class="product-tags" style="margin:0 10px 5px 10px;display:inline-block;">Product Tags</p> 
+    <select id="collection-tags" class="custom-select" style="display:inline-block;">
 
 
 
 /* ==================== */
 /* = collection.liqid = */
 /* ==================== */
-
 
 ul.grid li { float: left; list-style-type: none; }
 .prod-image-wrap{padding:10px;width:300px;height:300px;}
@@ -168,10 +170,10 @@ ul.grid li { float: left; list-style-type: none; }
 
 .prod-caption{text-align:center;}
 
-
-
-
-
+div.tag-block{display:block;clear:both;width:100%;}
+div.tag-right{display:block;float:right;}
+p.product-tags{margin:0 10px 5px 10px;display:inline-block;}
+select#collection-tags{display:inline-block;}
 
 
 /* =============== */
@@ -336,6 +338,11 @@ table.customer_address_table{width:400px;table-layout:fixed;}
   	.prod-image-wrap{width:420px;height:420px;}
 }
 
+@media only screen and (max-width: 479px)  {
+	.prod-image-wrap{width:300px;height:300px;}
+
+}
+
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 	.overview-third{width:214px;}
@@ -346,7 +353,6 @@ table.customer_address_table{width:400px;table-layout:fixed;}
 /* Mobile Landscape */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 	.prod-image-wrap{width:236px;height:236px;}
->>>>>>> 0ffbcaabb24c822a293e06b26194da0b29ee29a7
 }
 
 

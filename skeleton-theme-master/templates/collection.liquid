@@ -34,8 +34,10 @@ http://support.shopify.com/customer/portal/articles/75425 for details.
 {% endif %}
 <hr class="divider">
 {% if collection.all_tags.size > 0 %}
-    <p style="margin:0 20px 5px 10px;">Product Tags</p> 
-    <select id="collection-tags" class="custom-select" style="">
+<div class="clearfix">
+  <div class="tag-right">
+    <p class="product-tags">Product Tags</p> 
+    <select id="collection-tags" class="custom-select">
       <option value="">All</option>
       {% for tag in collection.all_tags %}
       {% if current_tags contains tag %}
@@ -45,6 +47,8 @@ http://support.shopify.com/customer/portal/articles/75425 for details.
       {% endif %}
       {% endfor %}
     </select>
+  </div>
+</div>
 {% endif %}   
 
 <ul class="clearfix">
