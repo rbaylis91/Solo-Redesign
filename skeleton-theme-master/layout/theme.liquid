@@ -170,18 +170,21 @@
         </div>{% endif %}
       </div>
     </div>
+    
+    <div class="footer sixteen columns clearfix">
     <footer class="row">
+      <div class="clearfix">
 
-      {% if linklists.footer.links.size > 0 %}
-      <p class="f-links" role="navigation">
-        {% for link in linklists.footer.links %}
-        <a class="f-l-item" href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-        {% endfor %}
-      </p>
-      {% endif %}
+        {% if linklists.footer.links.size > 0 %}
+        <p class="f-links eight columns alpha" role="navigation">
+          {% for link in linklists.footer.links %}
+          <a class="f-l-item" href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+          {% endfor %}
+        </p>
+        {% endif %}
 
-      <p class="f-copy" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
-
+        <p class="f-copy eight columns omega" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
+      </div>
       <div id="footer-payment-methods">
         {{ 'cc-amex.png' | asset_url | img_tag }}
         {{ 'cc-discover.png' | asset_url | img_tag }}
@@ -193,6 +196,7 @@
         {{ 'cc-google.png' | asset_url | img_tag }}
       </div>
     </footer>
+    </div>
 
 
   </div><!-- end of #container -->
