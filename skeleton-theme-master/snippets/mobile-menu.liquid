@@ -1,5 +1,5 @@
 {% assign found_active_link = false %}
-<select name="main_navigation" id="main_navigation" class="fl">
+<select name="main_navigation" id="main_navigation" class="fl custom-select">
   {% for link in linklists.main-menu.links %}
     {% if link.active %}
     <option value="{{ link.url }}" selected="selected">{{ link.title }}</option>
