@@ -34,53 +34,53 @@ http://support.shopify.com/customer/portal/articles/75425 for details.
 {% endif %}
 <hr class="divider">
 {% if collection.all_tags.size > 0 %}
-    <p style="margin:0 20px 5px 10px;">Product Tags</p> 
-    <select id="collection-tags" class="custom-select" style="">
-      <option value="">All</option>
-      {% for tag in collection.all_tags %}
-      {% if current_tags contains tag %}
-      <option value="{{ tag | handle }}" selected="selected">{{ tag }}</option>
-      {% else %}
-      <option value="{{ tag | handle }}">{{ tag }}</option>
-      {% endif %}
-      {% endfor %}
-    </select>
+<p>Product Tags</p> 
+<select id="collection-tags" class="custom-select" style="">
+  <option value="">All</option>
+  {% for tag in collection.all_tags %}
+  {% if current_tags contains tag %}
+  <option value="{{ tag | handle }}" selected="selected">{{ tag }}</option>
+  {% else %}
+  <option value="{{ tag | handle }}">{{ tag }}</option>
+  {% endif %}
+  {% endfor %}
+</select>
 {% endif %}   
 
 <ul class="clearfix">
 {% for product in collection.products %}
-  {% include 'product-grid-item' with 'three-per-row' %}
+{% include 'product-grid-item' with 'three-per-row' %}
 {% else %}
 <p>There are no products in this view.</p>
 {% endfor %}
 </ul>
 
 {% if paginate.pages > 1 %}
-  {% include 'pagination' %}
+{% include 'pagination' %}
 {% endif %}
 
 {% endpaginate %}
 <script>
-  var collFilters = jQuery('#collection-tags');
-  collFilters.change(function() {
-    var newTags = [];
-    collFilters.each(function() { 
-      if (jQuery(this).val()) {
-        newTags.push(jQuery(this).val());
-      }
-    });
-    if (newTags.length) {
-      var query = newTags.join('+');
-      window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('tag', query);
-    } 
-    else {
-      {% if collection.handle %}
-      window.location.href = '/collections/{{ collection.handle }}';
-      {% elsif collection.products.first.type == collection.title %}
-      window.location.href = '{{ collection.title | url_for_type }}';
-      {% elsif collection.products.first.vendor == collection.title %}
-      window.location.href = '{{ collection.title | url_for_vendor }}';
-      {% endif %}
+var collFilters = jQuery('#collection-tags');
+collFilters.change(function() {
+  var newTags = [];
+  collFilters.each(function() { 
+    if (jQuery(this).val()) {
+      newTags.push(jQuery(this).val());
     }
   });
-  </script>
+  if (newTags.length) {
+    var query = newTags.join('+');
+    window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('tag', query);
+  } 
+  else {
+    {% if collection.handle %}
+    window.location.href = '/collections/{{ collection.handle }}';
+    {% elsif collection.products.first.type == collection.title %}
+    window.location.href = '{{ collection.title | url_for_type }}';
+    {% elsif collection.products.first.vendor == collection.title %}
+    window.location.href = '{{ collection.title | url_for_vendor }}';
+    {% endif %}
+  }
+});
+</script>
