@@ -1,31 +1,26 @@
-{% comment %}
-Important notes about pagination:
-- Never access collection.products before the opening paginate tag.
-- Never paginate by more than 50.
-{% endcomment %}
 
 {% paginate collection.products by 24 %}
 
-{% comment %}
-Re-use the 'rte' class wherever you output content that was added by a merchant using
-the Rich Text Editor ( 'rte' stands for rich text editor ).
-Style all HTML elements in that content the same way across the board.
-Use the 'rte' class in your CSS to help maintain that consistency.
-Example: the h2 element should have the same size and color in:
-- product descriptions
-- collection descriptions
-- 'page' pages' content
-- blog post
-{% endcomment %}
-
-<h1>{{ collection.title }}</h1>
-
-{% comment %}
-Listing all tags within the current collection.
-Shopify uses product tags to manage subcategories inside collections.
-See 'How do I create subcategories of products?' at 
-http://support.shopify.com/customer/portal/articles/75425 for details.
-{% endcomment %}
+<div class="clearfix">
+  <div class="nine columns alpha">
+    <h1>{{ collection.title }}</h1>
+  </div>
+  <div class="product-tags seven columns omega">
+    {% if collection.all_tags.size > 0 %}
+    Product Tags
+    <select id="collection-tags" class="custom-select" style="">
+      <option value="">All</option>
+      {% for tag in collection.all_tags %}
+      {% if current_tags contains tag %}
+      <option value="{{ tag | handle }}" selected="selected">{{ tag }}</option>
+      {% else %}
+      <option value="{{ tag | handle }}">{{ tag }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+    {% endif %}
+  </div>
+</div>
 
 {% if collection.description.size > 0 %} 
 <div class="rte">
@@ -33,19 +28,6 @@ http://support.shopify.com/customer/portal/articles/75425 for details.
 </div>
 {% endif %}
 <hr class="divider">
-{% if collection.all_tags.size > 0 %}
-<p>Product Tags</p> 
-<select id="collection-tags" class="custom-select" style="">
-  <option value="">All</option>
-  {% for tag in collection.all_tags %}
-  {% if current_tags contains tag %}
-  <option value="{{ tag | handle }}" selected="selected">{{ tag }}</option>
-  {% else %}
-  <option value="{{ tag | handle }}">{{ tag }}</option>
-  {% endif %}
-  {% endfor %}
-</select>
-{% endif %}   
 
 <ul class="clearfix">
 {% for product in collection.products %}

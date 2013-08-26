@@ -36,7 +36,7 @@
       {% endif %}
     {% endfor %}
   {% endfor %}
-  $('.{{ tag | handle }}').append('<a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag-count accent-text">'  '</a>');
+  $('.{{ tag | handle }}').append('<a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag-count accent-text">' + '</a>');
 {% endfor %}
 </script>
 {% endunless %}
