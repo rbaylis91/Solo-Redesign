@@ -37,7 +37,7 @@
         {% if product.images.size > 1 %}
         <ul id="product-photo-thumbs" class="clearfix grid">
           {% for image in product.images offset:1 %}
-          <li class="product-photo-thumb">
+          <li class="product-photo-thumb {% cycle '','','product-last-thumb' %}">
             <a class="gallery" href="{{ image.src | product_img_url: 'original' }}" rel="gallery">
               <img width="100%" src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
             </a>
