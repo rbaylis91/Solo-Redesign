@@ -18,13 +18,15 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 .boxify{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;} 
 .table{display: table !important;}
 .table-cell { display: table-cell !important;  vertical-align: middle;}
-
+.no-border{border: none !important; }
 
 hr.divider{width:100%;display:block;height:1px;border-top: 1px solid #e8e8e8;margin:30px 0;}
 
 .show-mobile-only{display:none !important;}
 
+
 /**** Buttons ****/
+
 .btn{font-family: Helvetica, Arial, sans-serif; height: 40px;line-height: 40px;padding:0 15px;border:none;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;font-size:14px;font-weight:bold;display:inline-block;}
 .btn:hover{opacity:0.8;}
 
@@ -32,6 +34,7 @@ hr.divider{width:100%;display:block;height:1px;border-top: 1px solid #e8e8e8;mar
 .btn-colour{color:white !important;}
 
 input.btn[type="submit"]{font-weight:bold;}
+
 
 /* ================ */
 /* = theme.liquid = */
@@ -83,7 +86,7 @@ input.btn[type="submit"]{font-weight:bold;}
 nav{font-weight:bold; border-top:1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8;}
 nav li, nav ul{margin-bottom:0;}
 .dropdown{/*margin:15px 0px 0px -18px; padding:0px; */}
-.dropdown ul{display:none;background-color:white;border: 1px solid #EBEBEB;font-weight:normal;}
+.dropdown ul{display:none;background-color:white;border: 1px solid #e8e8e8;font-weight:normal;}
 .dropdown ul li{width:250px;padding: 15px 18px 15px 18px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin-bottom:0px;}
 .m-nav-bar{display:none;}
 .mobile{display:none;}
@@ -102,7 +105,7 @@ nav li, nav ul{margin-bottom:0;}
 /**** Side Bar ****/
 
 #sidebar h6 {margin-bottom:5px;line-height:1.4em;}
-#sidebar .sidebar-post{margin-bottom:28px;}
+#sidebar .sidebar-post{margin-bottom:30px; padding-bottom:30px; border-bottom:1px solid #e8e8e8;}
 
 
 

@@ -9,8 +9,9 @@
 <div class="content">
 <div class="eleven columns alpha">
   <ul id="blog-main">
+    
   {% for article in blog.articles %}
-  <li class="blog-article{% if forloop.first %} first{% endif %}{% if forloop.last %} last{% endif %}">
+  <li class="blog-article{% if forloop.first %} first{% endif %}{% if forloop.last %} no-border{% endif %}">
     <div class="article-info">
       <h2 class="blog-article-title">
         <a href="{{ article.url }}">{{ article.title }}</a>
@@ -45,7 +46,6 @@
     </div>
     <a class="a-col blog-read-more btn btn-colour" href="{{ article.url }}">Read more</a>
   </li>
-  <hr class="divider">
   {% endfor %}
 </ul>
   

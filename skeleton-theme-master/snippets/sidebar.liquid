@@ -2,17 +2,23 @@
 
 
 {% if template contains "page" %}
-  <h4>Recent Articles</h4>{% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}{% if blogs.[blog_handle].articles.size > 0 %}{% for article in blogs.[blog_handle].articles limit: 4 %}
-  <!-- START POST {{ forloop.index }} -->
-  <div class="sidebar-post post{% if forloop.last %} end{% endif %}">
-    <h6><a href="{{ article.url }}">{{ article.title | escape }}</a></h6>
-    <p>{{ article.content | strip_html | strip_newlines | truncate: 80 }}</p>
-  </div>
-  <!-- END POST {{ forloop.index }} -->{% endfor %}{% else %}
-  <p>No articles.</p>{% endif %}
+  <h4>Recent Articles</h4>
+  {% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}
+
+  {% if blogs.[blog_handle].articles.size > 0 %}
+    {% for article in blogs.[blog_handle].articles limit: 4 %}
+    <!-- START POST {{ forloop.index }} -->
+    <div class="sidebar-post post{% if forloop.last %} no-border{% endif %}">
+      <h6><a href="{{ article.url }}">{{ article.title | escape }}</a></h6>
+      <span>{{ article.content | strip_html | strip_newlines | truncate: 80 }}</span>
+    </div>
+  <!-- END POST {{ forloop.index }} -->
+    {% endfor %}
+  {% else %}
+    <p>No articles.</p>
+  {% endif %}
 
 {% elsif template contains "blog" %}
-
   {% if template contains "blog" or template == "article" %}	
   {% unless no_tags == 'no-tags' %}
   <ul>
@@ -20,7 +26,6 @@
       <h4>Tags</h4>
     </li>
     {% for tag in blog.all_tags %}
-    <hr class="divider" style="margin:5px 0px 12px 0px;opacity:0.5">
     <li class="sidebar-tag {{ tag | handle }} {% if current_tags contains tag %}current{% endif %} {% if forloop.last %}last{% endif %}">
       <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
     </li>
