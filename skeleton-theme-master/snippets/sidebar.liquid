@@ -1,4 +1,7 @@
-<div id="sidebar" class="four columns boxify omega">{% unless settings.disable_blog %}
+<div id="sidebar" class="five offset-by-one columns boxify omega">
+
+
+{% comment %}
   <h3>Recent Articles</h3>{% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}{% if blogs.[blog_handle].articles.size > 0 %}{% for article in blogs.[blog_handle].articles limit: 4 %}
   <!-- START POST {{ forloop.index }} -->
   <div class="sidebar-post post{% if forloop.last %} end{% endif %}">
@@ -7,7 +10,7 @@
   </div>
   <!-- END POST {{ forloop.index }} -->{% endfor %}{% else %}
   <p>No articles.</p>{% endif %}
- {% endunless %}
+{% endcomment %}
   
 {% if template contains "blog" or template == "article" %}	
   <hr class="divider">
