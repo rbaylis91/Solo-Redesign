@@ -1,8 +1,8 @@
 <div id="sidebar" class="five offset-by-one columns boxify omega">
 
 
-{% comment %}
-  <h3>Recent Articles</h3>{% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}{% if blogs.[blog_handle].articles.size > 0 %}{% for article in blogs.[blog_handle].articles limit: 4 %}
+{% if template contains "page" %}
+  <h4>Recent Articles</h4>{% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}{% if blogs.[blog_handle].articles.size > 0 %}{% for article in blogs.[blog_handle].articles limit: 4 %}
   <!-- START POST {{ forloop.index }} -->
   <div class="sidebar-post post{% if forloop.last %} end{% endif %}">
     <h6><a href="{{ article.url }}">{{ article.title | escape }}</a></h6>
@@ -10,14 +10,14 @@
   </div>
   <!-- END POST {{ forloop.index }} -->{% endfor %}{% else %}
   <p>No articles.</p>{% endif %}
-{% endcomment %}
-  
-{% if template contains "blog" or template == "article" %}	
-  <hr class="divider">
+
+{% elsif template contains "blog" %}
+
+  {% if template contains "blog" or template == "article" %}	
   {% unless no_tags == 'no-tags' %}
   <ul>
     <li>
-      <h3 id="snippet-tag-title">Tags</h3>
+      <h4>Tags</h4>
     </li>
     {% for tag in blog.all_tags %}
     <hr class="divider" style="margin:5px 0px 12px 0px;opacity:0.5">
@@ -26,22 +26,25 @@
     </li>
     {% endfor %}
   </ul>  
-<script type="text/javascript" charset="utf-8">
-{% for tag in blog.all_tags %}
+
+  <script type="text/javascript" charset="utf-8">
+  {% for tag in blog.all_tags %}
   {% assign the_tag = tag %}
   {% assign the_tag_count = 0 %}
   var tag_count = 0
   {% for article in blogs[blog.handle].articles %}
-    {% for tag in article.tags %}
-      {% if tag == the_tag %}
-        tag_count++;
-        {% assign the_tag_count = the_tag_count | plus: 1 %}
-      {% endif %}
-    {% endfor %}
+  {% for tag in article.tags %}
+  {% if tag == the_tag %}
+  tag_count++;
+  {% assign the_tag_count = the_tag_count | plus: 1 %}
+  {% endif %}
+  {% endfor %}
   {% endfor %}
   $('.{{ tag | handle }}').append('<a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag-count accent-text">' + '</a>');
-{% endfor %}
-</script>
-{% endunless %}
-{% endif %}
+  {% endfor %}
+  </script>
+  {% endunless %}
+  {% endif %}
 </div>
+
+{% endif %}

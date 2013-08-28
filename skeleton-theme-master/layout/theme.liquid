@@ -131,14 +131,16 @@
       </section> 
     </header>
     <div id="main" role="main" class="sixteen columns">
-      <div class="row boxify{% if template contains 'blog' or template == 'article' or template == 'page' %} eleven columns alpha{% endif %}">{{ content_for_layout }}</div>
+      <div class="row boxify">
+        {{ content_for_layout }}
+      </div>
 
       <!-- START SIDEBAR -->
       {% if template contains "blog" or template == "article" or template =="page" %}
-      {% include "sidebar" %}
       {% endif %}
       <!-- END SIDEBAR -->
     </div>
+    
     <div id="overview" class="sixteen columns clearfix">
       <div id="o-inner" class="row">
         <div class=" o-content overview-third o-first">

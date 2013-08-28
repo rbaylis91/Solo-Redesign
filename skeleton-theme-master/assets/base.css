@@ -70,7 +70,7 @@
 ================================================== */
 	h1, h2, h3, h4, h5, h6 {font-family: "Helvetica", "Arial", sans-serif;font-weight: bold;line-height: 1.2em; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color:black;font-weight: inherit; }
-	h1 { font-weight:bold;font-size: 40px; line-height: 1.1em; margin-bottom: 24px;}
+	h1 { font-weight:bold;font-size: 36px; line-height: 1.1em; margin-bottom: 30px;}
 	h2 { font-size: 35px; margin-bottom: 20px; }
 	h3 { font-size: 28px; margin-bottom: 18px; }
 	h4 { font-size: 21px; margin-bottom: 14px; }
