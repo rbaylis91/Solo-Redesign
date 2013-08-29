@@ -1,24 +1,9 @@
 {% paginate article.comments by 5 %}
 
-{% comment %}
-When a commment has just been submitted, it's not shown right away.
-Shopify needs to wait until it knows for sure that it is not spam to publish it.
-We can still show right away *to its author* the comment he just submitted 
-— although that comment may not have been published yet.
-When a comment is submitted, the browser is redirected to a page that 
-includes the new comment id in its URL. Example:
-http://shopname.myshopify.com/blogs/news/2022072-my-post?comment=3721372
-When a comment ID is specified in an article URL, that comment is accessible in the 
-template through a Liquid object called comment. 
-That comment is a full-fledged comment variable that has all the regular comment properties: 
-http://wiki.shopify.com/Comment_variable.
-Note that comment.created_at will only be defined if the comment did not have any blank field 
-— was posted without error.
-{% endcomment %}
 
 {% assign number_of_comments = article.comments_count %}
 
-{% comment %}If a comment was just submitted, and it has no blank fields.{% endcomment %}
+
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count | plus: 1 %}
 {% endif %}

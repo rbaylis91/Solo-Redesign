@@ -7,7 +7,7 @@
   </div>
   <div class="product-tags seven columns omega">
     {% if collection.all_tags.size > 0 %}
-    Product Tags
+    <span class="product-tags-label">Product Tags</span>
     <select id="collection-tags" class="custom-select" style="">
       <option value="">All</option>
       {% for tag in collection.all_tags %}
