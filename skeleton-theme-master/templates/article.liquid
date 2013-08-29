@@ -8,17 +8,16 @@
   {% assign number_of_comments = article.comments_count | plus: 1 %}
 {% endif %}
 
+<h1>{{ article.title }}</h1>
+
 <div class="content">
   <div class="eleven columns alpha">
 
 
-<h3><a href="{{ blog.url }}">{{ blog.title }}</a></h3>
+
 
 <div class="blog-article">
     <div class="article-info">
-      <h2 class="blog-article-title">
-        {{ article.title }}
-      </h2>
       <h6 class="blog-article-date">
         <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}, </time>
       </h6>
