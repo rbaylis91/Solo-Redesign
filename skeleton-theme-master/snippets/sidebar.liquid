@@ -26,7 +26,7 @@
       <h4>Tags</h4>
     </li>
     {% for tag in blog.all_tags %}
-    <li class="sidebar-tag {{ tag | handle }} {% if current_tags contains tag %}current{% endif %} {% if forloop.last %}last{% endif %}">
+    <li class="sidebar-tag {% if current_tags contains tag %}current{% endif %} {% if forloop.last %}no-border{% endif %}">
       <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
     </li>
     {% endfor %}
