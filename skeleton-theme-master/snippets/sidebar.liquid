@@ -1,7 +1,7 @@
 <div id="sidebar" class="five offset-by-one columns boxify omega">
 
 
-{% if template contains "page" %}
+
   <h4>Recent Articles</h4>
   {% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}
 
@@ -18,8 +18,8 @@
     <p>No articles.</p>
   {% endif %}
 
-{% elsif template contains "blog" %}
-  {% if template contains "blog" or template == "article" %}	
+
+  {% if template contains "blog" %}	
   {% unless no_tags == 'no-tags' %}
   <ul>
     <li>
@@ -52,4 +52,3 @@
   {% endif %}
 </div>
 
-{% endif %}
