@@ -2,77 +2,81 @@
   <div id="customer">
 <!-- CREATE ACCOUNT -->
 {% layout settings.customer_layout %}
-	  <div id="create-customer" class="eight columns alpha">
-	    <div class="template_header">
-	      <h3 class="customer-title">Create Account</h3>
-	    </div>
+	  <div id="create-customer" class="eight create columns alpha">
+      <div class="login-center">
+  	    <div class="template_header">
+  	      <h3 class="customer-title">Create Account</h3>
+  	    </div>
 
-	    {% form 'create_customer' %}
-	      {{ form.errors | default_errors }}
+  	    {% form 'create_customer' %}
+  	      {{ form.errors | default_errors }}
 
-	      <div id="first_name" class="clearfix large_form">
-	        <label for="first_name" class="login">First Name</label>
-	        <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" />
-	      </div>
+  	      <div id="first_name" class="clearfix large_form">
+  	        <label for="first_name" class="login">First Name</label>
+  	        <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" />
+  	      </div>
 
-	      <div id="last_name" class="clearfix large_form">
-	        <label for="last_name" class="login">Last Name</label>
-	        <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" />
-	      </div>
+  	      <div id="last_name" class="clearfix large_form">
+  	        <label for="last_name" class="login">Last Name</label>
+  	        <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" />
+  	      </div>
 
-	      <div id="email" class="clearfix large_form">
-	        <label for="email" class="login">Email Address</label>
-	        <input type="email" value="" name="customer[email]" id="email" class="large" size="30" />
-	      </div>
+  	      <div id="email" class="clearfix large_form">
+  	        <label for="email" class="login">Email Address</label>
+  	        <input type="email" value="" name="customer[email]" id="email" class="large" size="30" />
+  	      </div>
 
-	      <div id="password" class="clearfix large_form">
-	        <label for="password" class="login">Password</label>
-	        <input type="password" value="" name="customer[password]" id="password" class="large password" size="30" />
-	      </div>
+  	      <div id="password" class="clearfix large_form">
+  	        <label for="password" class="login">Password</label>
+  	        <input type="password" value="" name="customer[password]" id="password" class="large password" size="30" />
+  	      </div>
 
-	      <div class="action_bottom">
-	        <input class="btn btn-colour" type="submit" value="Create" />
-	        <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
-	      </div>
-	    {% endform %}
+  	      <div class="action_bottom">
+  	        <input class="btn btn-colour" type="submit" value="Create" />
+  	        <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
+  	      </div>
+  	    {% endform %}
+      </div>
 	  </div>
 <!-- END CREATE ACCOUNT -->
 
 <!-- LOGIN -->
 {% layout settings.customer_layout %}
-    <div id="accnt-login" class="eight columns omega">
-      <div class="template_header">
-        <h3 class="customer-title">Customer Login</h3>
-      </div>
-  
-      {% form 'customer_login' %}
-        {{ form.errors | default_errors }}
-        <div id="login_email" class="clearfix large_form">
-          <label for="customer_email" class="login">Email Address</label>
-          <input type="email" value="" name="customer[email]" id="customer_email" class="large" size="30" />
+    <div id="accnt-login" class="eight login columns omega">
+      <div class="login-center">
+        <div class="template_header">
+          <h3 class="customer-title">Login</h3>
         </div>
-  
-        {% if form.password_needed %}
-  
-          {% comment %}
-            Customer Account Login
-          {% endcomment %}
-  
-          <div id="login_password" class="clearfix large_form">
-            <label for="customer_password" class="login">Password</label>
-            <input type="password" value="" name="customer[password]" id="customer_password" class="large password" size="16" />
-            <div id="forgot_password">
-              <a href="#" onclick="showRecoverPasswordForm();return false;">Forgot your password?</a>
-            </div>
+    
+        {% form 'customer_login' %}
+          {{ form.errors | default_errors }}
+          <div id="login_email" class="clearfix large_form">
+            <label for="customer_email" class="login">Email Address</label>
+            <input type="email" value="" name="customer[email]" id="customer_email" class="large" size="30" />
           </div>
-  
-        {% endif %}
-  
-        <div class="action_bottom">
-          <input class="full btn btn-colour" type="submit" value="Sign In" />
-          <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
-        </div>
-      {% endform %}
+    
+          {% if form.password_needed %}
+    
+            {% comment %}
+              Customer Account Login
+            {% endcomment %}
+    
+            <div id="login_password" class="clearfix large_form">
+              <label for="customer_password" class="login">Password</label>
+              <input type="password" value="" name="customer[password]" id="customer_password" class="large password" size="16" />
+              <div id="forgot_password">
+                <a href="#" onclick="showRecoverPasswordForm();return false;">Forgot your password?</a>
+              </div>
+            </div>
+    
+          {% endif %}
+    
+          <div class="action_bottom">
+            <input class="full btn btn-colour" type="submit" value="Sign In" />
+            <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
+          </div>
+        {% endform %}
+      </div>
     </div>
   
     {% comment %}

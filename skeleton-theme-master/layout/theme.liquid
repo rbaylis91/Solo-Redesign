@@ -55,9 +55,8 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-
+  
   <div class="container">
-
     <header>
 
       <!-- Header -->
@@ -133,7 +132,7 @@
     <div id="main" role="main" class="sixteen columns">
       <div class="row boxify">
         {{ content_for_layout }}
-      </div>
+      </div> 
 
       <!-- START SIDEBAR -->
       {% if template contains "blog" or template == "article" or template =="page" %}

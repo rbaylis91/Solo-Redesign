@@ -276,21 +276,24 @@ li.comment{margin-bottom:40px;}
 /* ===================== */
 /* = Customer Accounts = */
 /* ===================== */
-#addresses h4{margin-top:20px}
+a#view_address{margin-top:20px;display:block;}
+#addresses h4{margin-top:30px;}
+h4.address_title,.address_actions, .address > p, .email{margin-bottom:5px;}
+.view_address > p{margin-bottom:0px;}
 #customer label, #account label{font-weight:normal}
 #customer #forgot_password{margin-bottom:10px}
 #customer input[type=text],#customer input[type=email],#customer input[type=password],#account  input[type=text],#account input[type=email],#account input[type=password]{width:305px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 
 #address_form_new input[type=text]{margin-bottom:0px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
-
-table.customer_address_table{width:400px;table-layout:fixed;}
+table.customer_address_table{width:400px;table-layout:fixed;margin-bottom:20px;}
 .customer_address_table .label{vertical-align:bottom;width:25%;}
 .customer_address_table .value{width:75%;padding:20px 0px 0px 10px;}
 .customer_address_table .label > label{font-weight:normal;}
 .customer_address_table .value > input[text],.customer_address_table .value > select{margin:0px;width:100%;display:block;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 
-
-
+.eight.create{border-right:1px solid #e8e8e8;padding-right:8px;margin-right:0px;}
+.login-center{width:300px;margin:0 auto;}
+  
 
 
 /* =================================================== */
@@ -436,7 +439,12 @@ ul.slides > li {box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-siz
 	#cartform .remove{padding-top:0px;text-align:right;}
 	#cartform .total-price{font-size:20px;padding-left:0px;}
   
-  	
+
+  /**** LOGIN/CREATE ACCOUNT ****/
+  .login-center{margin:0 0 0 0;}
+  .eight.create{border-right:none;padding-right:0px;margin-right:0px;}
+  #create-customer{margin-bottom:30px;}
+
   /**** SEARCH ****/
   
   #search h3{text-align:center;}
