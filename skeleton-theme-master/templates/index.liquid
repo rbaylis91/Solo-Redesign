@@ -62,7 +62,7 @@ Example: the h2 element should have the same size and color in:
               <a href="{{ product.url | within: collections.all }}">
                 <img src="{{ product.images[0] | product_img_url: "small" }}" alt="{{ product.title | escape }}" />
               </a>
-              <h5><a href="{{ product.url | within: collections.all }}">{{ product.title | escape | truncate: 20 }}</a></h5>
+              <h5 class="title"><a href="{{ product.url | within: collections.all }}">{{ product.title | escape | truncate: 20 }}</a></h5>
               <p class="price">{{ product.price | money }}</p>
             </li>{% endfor %}
           </ul>
