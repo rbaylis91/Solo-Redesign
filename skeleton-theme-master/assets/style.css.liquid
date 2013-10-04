@@ -180,16 +180,16 @@ nav li, nav ul{margin-bottom:0;}
 
 .product-tags{text-align:right;}
 ul.grid li { float: left; list-style-type: none; }
-.prod-image-wrap{padding:10px;width:300px;height:300px;}
-.prod-image-wrap a{width:100%;}
-.prod-image-wrap a img{max-height:100%;max-width:100%;margin:0 auto;display:block;}
+.prod-image-wrap, .coll-image-wrap{padding:10px;height:300px;}
+.prod-image-wrap a, .coll-image-wrap a{width:100%;}
+.prod-image-wrap a img, .coll-image-wrap a img{max-height:100%;max-width:100%;margin:0 auto;display:block;}
 .row-one{margin-top:0px;}
-.prod-grid-item{margin:25px 25px 25px 25px;}
+.prod-grid-item,.coll-grid-item{margin:25px 25px 25px 25px;}
 .first-prod{margin-left:0px;margin-right:25px;}
 .last-prod{margin-left:25px;margin-right:0px;}
 
-.prod-caption{text-align:center;}
-.prod-title{font-weight:bold;}
+.prod-caption,.coll-caption{text-align:center;}
+.prod-title,.coll-title{font-weight:bold;}
 
 div.tag-block{display:block;clear:both;width:100%;}
 div.tag-right{display:block;float:right;}
@@ -393,7 +393,8 @@ ul.slides > li {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-siz
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
   
-	.row-one,.prod-grid-item,.first-prod,.last-prod{margin:0px;}
+
+	.row-one,.first-prod,.last-prod{margin:0px;}
   	ul.slides .title,ul.slides .price{display:none !important;}
 
   /**** NAV *****/
@@ -423,7 +424,7 @@ ul.slides > li {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-siz
 
 
   /**** COLLECTION ****/
-
+  	.prod-grid-item,.coll-grid-item{margin-top:25px !important;margin-bottom:25px !important;}
   	.prod-image-wrap{width:420px;height:420px;}
   	.toolbar-left{display:none;}
   	.product-tags .customSelect{margin: 0;}
