@@ -1,9 +1,8 @@
-
+{% comment %}If no value is passed to the snippet, we will set the snippet variable to a sensible default.{% endcomment %}
 {% if collection-grid-item == '' %}{% assign collection-grid-item = 'three-per-row' %}{% endif %}
 
-<li class="{{ collection-grid-item }} one-third column {% if collection-grid-item == 'three-per-row' %} {% cycle 'first-product': 'alpha', '', 'omega' %}{% endif %}">
+<li class="{{ collection-grid-item }}">
 
-<!-- SHIT 1 -->
   <div class="coll-image-wrap">  
     <a href="{{ collection.url }}">
       {% if collection.image %}
@@ -23,36 +22,21 @@
       </span>
   </div><!-- .coll-caption -->
   
-  <!-- SHIT 2 -->
-  
-  <div class="boxify prod-image-wrap">  
-    <a href="{{ product.url | within: collection }}">
-      <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
-    </a>
-  </div><!-- .prod-image-wrap -->
-  
-  <div class="prod-caption clearfix">
-      <a href="{{ product.url | within: collection }}" class="prod-title">
-        {{ product.title }}
-      </a>
-      <br/>
-      <span class="prod-price">
-        {% if product.price_varies %}From{% endif %}
-        {{ product.price | money }}
-        {% if on_sale %}
-        <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
-        {% endif %}
-      </span>
-  </div><!-- .prod-caption -->
-
 </li>
+
+{% comment %}
+By all means, you don't need to use a clearing div. Use whatever it is you use to clear
+floated elements. The code that follows just just shows you how to use a cycle element.
+Notice that we named it ( 'clear' ). We need to name it because there's another cycle
+element in this file ( we called that other one 'last' ). If you have more than one
+cycle element in a rendered view, you'll need to name all of them.
+The cycle element is documented here: http://wiki.shopify.com/UsingLiquid#Cycle
+{% endcomment %}
+
+
 
 {% if collection-grid-item == 'four-per-row' %}
 {% cycle 'clear': '', '', '', '<div style="clear:both"></div>' %}
 {% elsif collection-grid-item == 'three-per-row' %}
 {% cycle 'clear': '', '', '<div style="clear:both"></div>' %}
 {% endif %}
-
-<hr class="divider show-mobile-only clearfix">
-
-
