@@ -23,7 +23,7 @@
 }
 
 .sf-menu a {
-	padding:15px 40px; float:left; font-size:16px; color:#555 !important;
+	padding:15px 40px; float:left; font-size:16px; color:{{settings.nav_link_color}} !important;
 	display: block;
 	position: relative;
 }
@@ -39,7 +39,7 @@
 
 }
 .sf-menu ul {
-	border:1px solid #e8e8e8;
+	border:1px solid {{settings.border_color}};
 	background:#fff;
 	min-width: 12em; /* allow long menu items to determine submenu width */
 	*width: 12em; /* no auto sub width for IE7, see white-space comment below */
@@ -80,29 +80,29 @@
 	top: 50%;
 	right: 1em;
 	margin-top: -3px;
-	height: 0;
+	height: 0;    
 	width: 0;
 	/* order of following 3 rules important for fallbacks to work */
 	border: 5px solid transparent;
-	border-top-color: #e8e8e8; /* edit this to suit design (no rgba in IE8) */
-	border-top-color: rgba(0,0,0,.5);
+	border-top-color: {{settings.nav_link_color}}; /* edit this to suit design (no rgba in IE8) */
+	border-top-color: {{settings.nav_link_color}};
 }
 .sf-arrows > li > .sf-with-ul:focus:after,
 .sf-arrows > li:hover > .sf-with-ul:after,
 .sf-arrows > .sfHover > .sf-with-ul:after {
-	border-top-color: #e8e8e8; /* edit this to suit design (no rgba in IE8) */
-	border-top-color: rgba(0,0,0,.5);
+	border-top-color: {{settings.nav_link_color}}; /* edit this to suit design (no rgba in IE8) */
+	border-top-color: {{settings.nav_link_color}};
 }
 /* styling for right-facing arrows */
 .sf-arrows ul .sf-with-ul:after {
 	margin-top: -5px;
 	margin-right: -3px;
 	border-color: transparent;
-	border-left-color: #e8e8e8; /* edit this to suit design (no rgba in IE8) */
-	border-top-color: rgba(0,0,0,.5);
+	border-left-color: {{settings.nav_link_color}}; /* edit this to suit design (no rgba in IE8) */
+	border-top-color: {{settings.nav_link_color}};
 	}
 .sf-arrows ul li > .sf-with-ul:focus:after,
 .sf-arrows ul li:hover > .sf-with-ul:after,
 .sf-arrows ul .sfHover > .sf-with-ul:after {
-	border-top-color: #e8e8e8; /* edit this to suit design (no rgba in IE8) */
-	border-top-color: rgba(0,0,0,.5);}
+	border-top-color: {{settings.nav_link_color}}; /* edit this to suit design (no rgba in IE8) */
+	border-top-color: {{settings.nav_link_color}};}

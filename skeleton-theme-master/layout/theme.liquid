@@ -8,6 +8,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+ 
   {% if template == 'index' %}
   <title>{{ shop.name }} | {{ page_title }}</title>
   {% elsif template == '404' %}
@@ -31,6 +34,13 @@
   {{ 'superfish.css' | asset_url | stylesheet_tag }}
   {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
   {{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
+
+  {% if settings.header_font contains 'Google' %}
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.header_font | remove: 'Google+' }}:300,400,700">
+  {% endif %}
+  {% if settings.base_font contains 'Google' %}
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.base_font | remove: 'Google+' }}:300,400,700">
+  {% endif %}
 
   <!--[if lt IE 9]>
   {{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
@@ -89,9 +99,13 @@
             </div>
           </div>
         </div>
+        {% if settings.use_logo %}
+        <img class="header-logo" src="{{'logo.png'| asset_url}}"/>
+        {% else %}
         <h1 class="header-title">
           <a href="/">{{ shop.name }}</a>
         </h1>
+        {% endif %}
 
         <!--Header Widget -->
         <div class="header-widget">
@@ -168,7 +182,7 @@
             <p><input type="text" value="{{ settings.newsletter_first_name_label }}" name="{{ settings.newsletter_first_name }}" id="fname" class="field" /></p>
             <p><input type="text" value="{{ settings.newsletter_last_name_label }}" name="{{ settings.newsletter_last_name }}" id="lname" class="field" /></p>
             <p><input type="text" value="{{ settings.newsletter_email_label }}" name="{{ settings.newsletter_email }}" id="email" class="field" /></p>
-            <input class="btn" id="subscribe" type="submit" value="{{ settings.newsletter_submit }}" />
+            <input class="btn subtle" id="subscribe" type="submit" value="{{ settings.newsletter_submit }}" />
           </form>
         </div>{% endif %}
       </div>
