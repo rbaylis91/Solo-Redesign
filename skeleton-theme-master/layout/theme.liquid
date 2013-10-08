@@ -157,34 +157,31 @@
     
     <div id="overview" class="sixteen columns clearfix">
       <div id="o-inner" class="row">
+
+        {% if settings.footer_featured_page != '' %}
         <div class=" o-content overview-third o-first">
-          <h4>{{ pages.frontpage.title }}</h4>
-          <p>{{ pages.frontpage.content | strip_html | strip_newlines | truncatewords: 45 }}</p>
-          <p id="o-link"><a class="a-col" href="/pages/frontpage">Read More</a></p>
+          <h4>{{ pages.[settings.footer_featured_page].title }}</h4>
+          <p>{{ pages.[settings.footer_featured_page].content | strip_html | strip_newlines | truncatewords: 45 }}</p>
+          <p id="o-link"><a class="a-col" href="{{pages.[settings.footer_featured_page].url}}">Read More</a></p>
         </div>
-        <div class="o-content welcome overview-third">{% if settings.disable_blog %}
-          <h4>{{ pages[settings.extra_content].title }}</h4>
-          <p>{{ pages[settings.extra_content].content | strip_html | strip_newlines | truncatewords: 45 }}</p>
-          <p><a class="a-col" href="/pages/{{ settings.extra_content }}">Read More</a></p>{% else %}
-          <h4>From Our Blog</h4>{% for article in blogs.news.articles limit: 1 %}
+        {% endif %}
+
+        <div class="o-content welcome overview-third">
+          <h4>{{blogs.[settings.footer_blog_post].title}}</h4>{% for article in blogs.[settings.footer_blog_post].articles limit: 1 %}
           <h6 class="article-title">{{ article.title }}</h6>
           <p>{{ article.content | strip_html | strip_newlines | truncatewords: 30 }}</p>
-          <p id="o-link"><a class="a-col" href="{{ article.url }}">Read More</a></p>{% endfor %}{% endif %}
-        </div>{% if settings.newsletter == "disabled" %}
-        <div>
-          <h4>{{ pages.about-us.title }}</h4>
-          <p>{{ pages.about-us.content | strip_html | strip_newlines | truncatewords: 45 }}</p>
-          <p><a href="/pages/about-us">Read More</a></p>
-        </div>{% else %}
+          <p id="o-link"><a class="a-col" href="{{ article.url }}">Read More</a></p>{% endfor %}
+        </div>
+
         <div class="o-content newsletter overview-third">
-          <h4>{{ settings.newsletter_heading }}</h4>
-          <form id="o-form" method="post" action="{{ settings.newsletter_action }}">
-            <p><input type="text" value="{{ settings.newsletter_first_name_label }}" name="{{ settings.newsletter_first_name }}" id="fname" class="field" /></p>
-            <p><input type="text" value="{{ settings.newsletter_last_name_label }}" name="{{ settings.newsletter_last_name }}" id="lname" class="field" /></p>
-            <p><input type="text" value="{{ settings.newsletter_email_label }}" name="{{ settings.newsletter_email }}" id="email" class="field" /></p>
-            <input class="btn subtle" id="subscribe" type="submit" value="{{ settings.newsletter_submit }}" />
+          <h4>Newsletter</h4>
+          <form id="o-form" method="post" action="{{ settings.mailing_list_form_action }}">
+            <p><input type="text" placeholder="First Name" name="FNAME" id="FNAME" class="field" /></p>
+            <p><input type="text" placeholder="Last Name" name="LNAME" id="LNAME" class="field" /></p>
+            <p><input type="text" placeholder="Email Address" name="EMAIL" id="EMAIL" class="field" /></p>
+            <input class="btn subtle" id="subscribe" type="submit" value="Subscribe" />
           </form>
-        </div>{% endif %}
+        </div>
       </div>
     </div>
 
@@ -203,14 +200,16 @@
           <p class="f-copy eight columns omega" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
         </div>
         <div id="footer-payment-methods">
-          {{ 'cc-amex.png' | asset_url | img_tag }}
-          {{ 'cc-discover.png' | asset_url | img_tag }}
-          {{ 'cc-visa.png' | asset_url | img_tag }}
-          {{ 'cc-mastercard.png' | asset_url | img_tag }}
-          {{ 'cc-maestro.png' | asset_url | img_tag }}
-          {{ 'cc-cirrus.png' | asset_url | img_tag }}
-          {{ 'cc-paypal.png' | asset_url | img_tag }}
-          {{ 'cc-google.png' | asset_url | img_tag }}
+          {% if settings.accept_amex %}{{ 'cc-amex.png' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_discover %}{{ 'cc-discover.png' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_visa %}{{ 'cc-visa.png' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_delta %}{{ 'cc-delta.gif' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_westernunion %}{{ 'cc-westernunion.gif' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_mastercard %}{{ 'cc-mastercard.png' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_maestro %}{{ 'cc-maestro.png' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_cirrus %}{{ 'cc-cirrus.png' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_paypal %}{{ 'cc-paypal.png' | asset_url | img_tag }}{% endif %}
+          {% if settings.accept_google %}{{ 'cc-google.png' | asset_url | img_tag }}{% endif %}
         </div>
       </footer>
     </div>

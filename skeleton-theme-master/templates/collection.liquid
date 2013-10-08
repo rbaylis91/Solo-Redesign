@@ -1,10 +1,11 @@
 
-{% paginate collection.products by 24 %}
+{% paginate collection.products by {{settings.pagination_limit}} %}
 
 <div class="clearfix">
   <div class="nine columns alpha">
     <h1>{{ collection.title }}</h1>
   </div>
+  {% if settings.collection_tags %}
   <div class="product-tags seven columns omega">
     {% if collection.all_tags.size > 0 %}
     <span class="product-tags-label">Product Tags</span>
@@ -20,6 +21,7 @@
     </select>
     {% endif %}
   </div>
+  {% endif %}
 </div>
 
 {% if collection.description.size > 0 %} 

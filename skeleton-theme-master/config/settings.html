@@ -143,69 +143,34 @@
     </tr>
     <tr class="horizontal">
       <th><label for="homepage">Page to show on homepage</label><small>You can include a Page on the homepage</small></th>
-      <td><select class="page" name="homepage" id="homepage"  /></td>
+      <td><select class="page" name="homepage" id="homepage"/></td>
     </tr>
-
-    <tr>
-      <td colspan="2">
-        <h3>Additional featured products</h3>
-      </td>
-    </tr>
-    <tr>
-      <th><label for="enable_featuredproduct">Show single featured product banner</label><small>To hide featured product just uncheck</small></th>
+   <tr>
+      <th><label for="enable_featuredproduct">Show single featured product on homepage</label><small>To hide featured product just uncheck</small></th>
       <td><input type="checkbox" id="enable_featuredproduct" name="enable_featuredproduct" value="1" /></td>
     </tr>
     
     <tr class="horizontal">
-      <th><label for="frontpage_collection">Featured products</label><small>Products in this collection will be on the homepage</small></th>
+      <th><label for="frontpage_collection">Featured product</label><small>The first product in this collection will appear on the homepage</small></th>
       <td><select name="frontpage_collection" class="collection"  /></td>
     </tr>
-    
     <tr>
       <td colspan="2">
-        <h3>Slideshow banner</h3>
-        For best results, upload images that are at least 966px wide. Try to keep your slideshow images the same size.
+        <h3>Featured Collection Slider</h3>
       </td>
     </tr>
-    
+    <tr class="horizontal">
+      <th><label for="slider_headline">Slider headline</label></th>
+      <td><input type="text" id="slider_headline" name="slider_headline" value="" /></td>
+    </tr>
     <tr>
-      <table class="standard-table">
-        <tr>
-          <td></td>
-          <td>Show?</td>
-          <td>Image</td>
-          <td>Links to</td>
-          <td>ALT text</td>
-        </tr>
-        <tr class="odd">
-          <td><label>Slide #1</label></td>
-          <td><input type="checkbox" id="slide_1" name="slide_1" value="1" /></td>
-          <td><input type="file" id="slide_1" name="slideshow_1.jpg" data-max-width="966" /></td>
-          <td><input type="text" id="slide_1_link" name="slide_1_link" value="/collections/all" /></td>
-          <td><input type="text" id="slide_1_alt" name="slide_1_alt" /></td>
-        </tr>
-        <tr class="even">
-          <td><label>Slide #2</label></td>
-          <td><input type="checkbox" id="slide_2" name="slide_2" value="1"/></td>
-          <td><input type="file" id="slide_2" name="slideshow_2.jpg" data-max-width="966" /></td>
-          <td><input type="text" id="slide_2_link" name="slide_2_link" value="/collections/all" /></td>
-          <td><input type="text" id="slide_2_alt" name="slide_2_alt" /></td>
-        </tr>
-        <tr class="odd">
-          <td><label>Slide #3</label></td>
-          <td><input type="checkbox" id="slide_3" name="slide_3" value="1" /></td>
-          <td><input type="file" id="slide_3" name="slideshow_3.jpg" data-max-width="966" /></td>
-          <td><input type="text" id="slide_3_link" name="slide_3_link" /></td>
-          <td><input type="text" id="slide_3_alt" name="slide_3_alt" /></td>
-        </tr>
-        <tr class="even">
-          <td><label>Slide #4</label></td>
-          <td><input type="checkbox" id="slide_4" name="slide_4" value="1" /></td>
-          <td><input type="file" id="slide_4" name="slideshow_4.jpg" data-max-width="966" /></td>
-          <td><input type="text" id="slide_4_link" name="slide_4_link" /></td>
-          <td><input type="text" id="slide_4_alt" name="slide_4_alt" /></td>
-        </tr>
-      </table>
+      <th><label for="slider_check">Show collection slider on homepage</label><small>To hide featured collection just uncheck</small></th>
+      <td><input type="checkbox" id="slider_check" name="slider_check" value="1" /></td>
+    </tr>
+    
+    <tr class="horizontal">
+      <th><label for="slider_featured">Featured Collection Slider</label><small>Products in this collection will be on the homepage</small></th>
+      <td><select name="slider_featured" class="collection"  /></td>
     </tr>
 
   </table>
@@ -214,18 +179,14 @@
   <legend>Product Page</legend>
   <table>
     <tr class="horizontal">
-      <th><label for="enable_product_image_zoom">Enable image zoom feature?</label></th>
-      <td><input type="checkbox" id="enable_product_image_zoom" name="enable_product_image_zoom" value="1" /></td>
+      <th><label for="enable_lightbox">Enable lightbox feature?</label></th>
+      <td><input type="checkbox" id="enable_lightbox" name="enable_lightbox" value="1" /></td>
     </tr>
     <tr class="horizontal">
-      <th><label for="display_quantity_dropdown">Display Quantity Box?</label></th>
+      <th><label for="enable_quantity">Display Quantity Box?</label></th>
       <td>
-        <input type="checkbox" id="display_quantity_dropdown" name="display_quantity_dropdown" value="1" />
+        <input type="checkbox" id="enable_quantity" name="enable_quantity" value="1" />
       </td>
-    </tr>
-    <tr class="horizontal">
-      <th><label for="show_related_products">Display related products?</label></th>
-      <td><input type="checkbox" id="show_related_products" name="show_related_products" value="1" checked="checked" /></td>
     </tr>
   </table>
 </fieldset>
@@ -260,13 +221,26 @@
 <fieldset>
   <legend>Footer</legend>
   <table>
-    <tr class="horizontal">
-      <th><label for="footer_linklist_title">Footer link list heading</label></th>
-      <td><input type="text" id="footer_linklist_title" name="footer_linklist_title" value="Quick Links" /></td>
+    <tr>
+      <td colspan="2">
+        <h3>Footer Colors</h3>
+      </td>
     </tr>
     <tr class="horizontal">
-      <th><label for="footer_linklist">Footer link list to show</label></th>
-      <td><select name="footer_linklist" class="linklist" value="footer" /></td>
+      <th><label for="footer_border_color">Footer border color</label></th>
+      <td><input id="footer_border_color" name="footer_border_color" class="color" value="#dddddd" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="footer_bg_color">Footer background color</label></th>
+      <td><input id="footer_bg_color" name="footer_bg_color" class="color" value="#dddddd" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="footer_header_color">Footer header color</label></th>
+      <td><input id="footer_header_color" name="footer_header_color" class="color" value="#dddddd" /></td>
+    </tr>        
+    <tr class="horizontal">
+      <th><label for="footer_text_color">Footer text color</label></th>
+      <td><input id="footer_text_color" name="footer_text_color" class="color" value="#dddddd"/></td>
     </tr>
     <tr class="horizontal">
       <th><label for="footer_blog_post_header">Latest blog post header:</label></th>
@@ -277,8 +251,8 @@
       <td><select name="footer_blog_post" class="blog" value="" /></td>
     </tr>
     <tr class="horizontal">
-      <th><label for="footer_display_newsletter">Show newsletter?</label></th>
-      <td><input type="checkbox" id="footer_display_newsletter" name="footer_display_newsletter" value="1" /></td>
+      <th><label for="footer_featured_page">Page to use for featured content</label></th>
+      <td><select name="footer_featured_page" class="page" value="" /></td>
     </tr>
     <tr class="horizontal">
       <th><label for="mailing_list_form_action">Mailchimp form action URL</label></th>
