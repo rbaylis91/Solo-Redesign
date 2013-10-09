@@ -78,9 +78,19 @@
             <div class="toolbar-left">
               <form action="/search" method="get" class="search-form" role="search">
                 <input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
-
               </form>
             </div>
+            <div class="social-container boxify">
+              {% if settings.twitter_link != '' %}<a href="{{settings.twitter_link}}" target="_blank"><i class="social icon-twitter"></i></a>{% endif %}
+              {% if settings.facebook_link != '' %}<a href="{{settings.facebook_link}}" target="_blank"><i class="social icon-facebook"></i></a>{% endif %}
+              {% if settings.google_link != '' %}<a href="{{settings.google_link}}" target="_blank"><i class="social icon-google-plus"></i></a>{% endif %}
+              {% if settings.youtube_link != '' %}<a href="{{settings.youtube_link}}" target="_blank"><i class="social icon-youtube"></i></a>{% endif %}
+              {% if settings.pinterest_link != '' %}<a href="{{settings.pinterest_link}}" target="_blank"><i class="social icon-pinterest"></i></a>{% endif %}
+              {% if settings.instagram_link != '' %}<a href="{{settings.instagram_link}}" target="_blank"><i class="social icon-instagram"></i></a>{% endif %}
+              {% if settings.tumblr_link != '' %}<a href="{{settings.tumblr_link}}" target="_blank"><i class="social icon-tumblr"></i></a>{% endif %}
+              {% if settings.atom_link != '' %}<a href="{{settings.atom_link}}" target="_blank"><i class="social icon-rss"></i></a>{% endif %}
+            </div>
+
             <div class="toolbar-right">
               <span class="customer-links">
                 {% if shop.customer_accounts_enabled %}

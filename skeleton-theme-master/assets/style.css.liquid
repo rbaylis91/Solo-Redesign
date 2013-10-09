@@ -63,28 +63,8 @@ input.btn[type="submit"]{font-weight:bold;}
 
 
 /**** Header social icons ****/
-.social-icons li{display:inline-block;}
-.social-icons a{background: url("{{ 'social_icons.png' | asset_url }}") top left; display:inline-block; width:32px;height:32px;}
-
-.fb a{background-position: -32px 0;}
-.yt a{background-position: -64px 0;}
-.rss a{background-position: -96px 0;}
-.ins a{background-position: -128px 0;}
-.pin a{background-position: -160px 0;}
-.vim a{background-position: -192px 0;}
-.tum a{background-position: -224px 0;}
-.gp a{background-position: -256px 0;}
-
-.tw a:hover{background-position:0 32px}
-.fb a:hover{background-position: -32px 32px;}
-.yt a:hover{background-position: -64px 32px;}
-.rss a:hover{background-position: -96px 32px;}
-.ins a:hover{background-position: -128px 32px;}
-.pin a:hover{background-position: -160px 32px;}
-.vim a:hover{background-position: -192px 32px;}
-.tum a:hover{background-position: -224px 32px;}
-.gp a:hover{background-position: -256px 32px;}
-
+.social-container {display:inline-block;margin-left:20px;padding-top:4px;}
+.social{font-size:18px;margin-left:10px;}
 /**** Nav Bar ****/
 
 nav{font-weight:bold; border-top:1px solid {{settings.border_color}}; border-bottom: 1px solid {{settings.border_color}};}
@@ -407,7 +387,7 @@ ul.slides > li {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-siz
   	ul.slides .title,ul.slides .price{display:none !important;}
 
   /**** NAV *****/
-  	
+  	.social-container {float:right;}
 	.hide-mobile{display:none !important;}
 	.show-mobile-only{display:inline-block !important;}
 	nav.large{display:none !important;}
