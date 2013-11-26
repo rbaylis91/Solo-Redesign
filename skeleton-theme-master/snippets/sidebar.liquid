@@ -6,14 +6,15 @@
   {% capture blog_handle %}{% if template == "page" %}news{% else %}{{ blog.handle }}{% endif %}{% endcapture %}
 
   {% if blogs.[blog_handle].articles.size > 0 %}
+  <ul>
     {% for article in blogs.[blog_handle].articles limit: 4 %}
     <!-- START POST {{ forloop.index }} -->
-    <div class="sidebar-post post{% if forloop.last %} no-border{% endif %}">
-      <h6><a href="{{ article.url }}">{{ article.title | escape }}</a></h6>
-      <span>{{ article.content | strip_html | strip_newlines | truncate: 80 }}</span>
-    </div>
+    <li class="sidebar-item post{% if forloop.last %} no-border{% endif %}">
+      <a href="{{ article.url }}">{{ article.title | escape }}</a>
+    </li>
   <!-- END POST {{ forloop.index }} -->
     {% endfor %}
+  </ul>
   {% else %}
     <p>No articles.</p>
   {% endif %}
@@ -21,12 +22,10 @@
 
   {% if template contains "blog" %}	
   {% unless no_tags == 'no-tags' %}
+  <h4>Tags</h4>
   <ul>
-    <li>
-      <h4>Tags</h4>
-    </li>
     {% for tag in blog.all_tags %}
-    <li class="sidebar-tag {% if current_tags contains tag %}current{% endif %} {% if forloop.last %}no-border{% endif %}">
+    <li class="sidebar-item tag {% if current_tags contains tag %}current{% endif %} {% if forloop.last %}no-border{% endif %}">
       <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
     </li>
     {% endfor %}
