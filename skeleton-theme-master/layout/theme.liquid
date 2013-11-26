@@ -177,7 +177,7 @@
         {% endif %}
 
         <div class="o-content welcome overview-third">
-          <h4>{{blogs.[settings.footer_blog_post].title}}</h4>{% for article in blogs.[settings.footer_blog_post].articles limit: 1 %}
+          <h4>{{settings.blog_post_header}}</h4>{% for article in blogs.[settings.footer_blog_post].articles limit: 1 %}
           <h6 class="article-title">{{ article.title }}</h6>
           <p>{{ article.content | strip_html | strip_newlines | truncatewords: 30 }}</p>
           <p id="o-link"><a class="a-col" href="{{ article.url }}">Read More</a></p>{% endfor %}
