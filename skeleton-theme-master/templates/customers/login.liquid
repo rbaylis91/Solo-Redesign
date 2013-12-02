@@ -76,6 +76,19 @@
             <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
           </div>
         {% endform %}
+        {% if shop.checkout.guest_login %}
+          <div id="guest">
+            <hr>
+            <div class="template_header">
+              <h3 class="title">Guest Login</h3>
+            </div>
+            {% form 'guest_login' %}
+              <input class="full btn btn-colour" type="submit" value="Continue as Guest" />
+            {% endform %}
+          </div>
+    {% endif %} 
+
+
       </div>
     </div>
   
@@ -101,24 +114,13 @@
           <span class="note">or <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a></span>
         </div>
       {% endform %}
-    </div>
-  
+    </div>  
   
     {% comment %}
       Guest Login form for shops with optional customer accounts. This form is displayed only when users click on the checkout link
       on the cart page.
     {% endcomment %}
   
-    {% if shop.checkout.guest_login %}
-    <div id="guest">
-      <div class="template_header">
-        <h3 class="title">Guest Login</h3>
-      </div>
-      {% form 'guest_login' %}
-        <input class="full btn btn-colour" type="submit" value="Continue as Guest" />
-      {% endform %}
-    </div>
-    {% endif %}	
   </div>    
 <!-- END LOGIN -->
 
