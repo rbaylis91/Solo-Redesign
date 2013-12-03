@@ -66,7 +66,7 @@
 
 /* #Typography
 ================================================== */
-	h1, h2, h3, h4, h5, h6 {font-family: "Helvetica", "Arial", sans-serif;font-weight: bold;line-height: 1.4em;margin-bottom:30px; }
+	h1, h2, h3, h4, h5, h6 {font-family: "Helvetica", "Arial", sans-serif;font-weight: bold;line-height: 1.0em;margin-bottom:15px; }
 	h1 { font-weight:bold;font-size: 40px;}
 	h2 { font-size: 34px; }
 	h3 { font-size: 28px; }
@@ -76,7 +76,7 @@
 
 	li{ font-size:16px;}
 
-	p { margin-bottom:30px;font-size:16px;line-height:1.4em; }
+	p { margin-bottom:15px;font-size:16px;line-height:1.4em; }
 	p img { margin: 0; }
 	p.lead { font-size: 21px; line-height: 27px;;  }
 	.intro p{font-size:18px;}
