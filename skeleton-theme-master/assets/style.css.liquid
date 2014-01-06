@@ -3,9 +3,14 @@
 /* =  Global CSS  = */
 /* ================ */
 
-h1, h2, h3, h4, h5, h6 {color:{{settings.header_color}};font-family:'{{ settings.header_font | remove: 'Google+' | replace: '+', ' ' }}';}
+h1, h2, h3, h4, h5, h6 {color:{{settings.header_color}};
+  font-family:{{ settings.header_font | remove: 'Google+' | replace: '+', ' ' }};
+}
 body{background-color:{{settings.shop_bg_color}};}
-body,p,strong{font-family:'{{ settings.base_font | remove: 'Google+' | replace: '+', ' ' }}';color:{{settings.body_font_color}};}
+body,p,strong{
+  font-family: {{ settings.base_font | remove: 'Google+' | replace: '+', ' ' }}; 
+  color:{{settings.body_font_color}};
+}
 img{max-width:100%; height: auto;}
 a{color:{{settings.link_color}};}
 a:hover{opacity:0.7;}
@@ -135,6 +140,7 @@ nav li, nav ul{margin-bottom:0;}
 /*** Product images ***/
 
 #product-photos{margin-bottom:30px;}
+#product-photos a:hover{opacity:1;}
 #product-photo-container{max-width:100%;max-height:500px;}
 #product-photo-container img{max-width:100%; max-height:500px;display:block;margin:0 auto;}
 #product-photo-thumbs li{width:31.33%; margin:0 3% 3% 0; }

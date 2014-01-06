@@ -9,10 +9,10 @@
     "header_color": "#333333",
     "shop_btn_color": "#f45b4f",
     "border_color": "#dddddd",
-    "footer_border_color": "#dddddd",
-    "footer_bg_color": "#dddddd",
-    "footer_header_color": "#dddddd",
-    "footer_text_color": "#dddddd",
+    "footer_border_color": "#eee",
+    "footer_bg_color": "#eee",
+    "footer_header_color": "#000000",
+    "footer_text_color": "#000000",
     "slider_headline": "",
     "twitter_link": "http://twitter.com/shopify",
     "facebook_link": "http://facebook.com/shopify",
@@ -26,7 +26,7 @@
     "footer_blog_post_header": "News",
     "mailing_list_form_action": "",
     "base_font": "Helvetica, Arial, sans-serif",
-    "header_font": "Google+Cabin",
+    "header_font": "Helvetica, Arial, sans-serif",
     "pagination_limit": "24",
     "use_logo": false,
     "enable_featuredproduct": true,
@@ -70,7 +70,8 @@
     "frontpage_collection": "frontpage",
     "homepage": "about-us",
     "footer_blog_post": "news",
-    "footer_linklist": "footer"
+    "footer_linklist": "footer",
+    "footer_featured_page": "about-us"
   },
   "presets": {
     "Red and black": {
