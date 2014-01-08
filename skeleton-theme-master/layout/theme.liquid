@@ -171,8 +171,10 @@
         {% if settings.footer_featured_page != '' %}
         <div class=" o-content overview-third o-first">
           <h4>{{ pages.[settings.footer_featured_page].title }}</h4>
-          <p>{{ pages.[settings.footer_featured_page].content | strip_html | strip_newlines | truncatewords: 45 }}</p>
-          <p id="o-link"><a class="a-col" href="{{pages.[settings.footer_featured_page].url}}">Read More</a></p>
+          <p>{{ pages.[settings.footer_featured_page].content | strip_html | strip_newlines | truncatewords: 45 }} 
+            <a class="a-col" href="{{pages.[settings.footer_featured_page].url}}">(read more)</a>
+          </p>
+
         </div>
         {% endif %}
 
