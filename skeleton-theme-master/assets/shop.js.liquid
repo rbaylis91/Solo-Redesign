@@ -23,7 +23,11 @@ $(window).resize(function(){
 
 jQuery(function($){
 
-  $("nav.mobile select").change(function(){ window.location = jQuery(this).val(); }); 
+  /* Mobile select*/
+  $("nav.mobile select").change(function(){ 
+    window.location = $(this).val(); 
+    console.log($(this).val());
+  }); 
 
   $('html').removeClass('no-js');
                     
@@ -93,4 +97,11 @@ function collectionLoop(){
   }
 }
 
-
+/*
+$(window).load(function(){
+  $("select").change(function(){
+    if($(this).attr("value") == "#") return false;
+    window.location = $(this).attr("value");
+  });
+});
+*/

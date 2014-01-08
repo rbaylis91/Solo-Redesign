@@ -39,7 +39,7 @@
           {% for image in product.images offset:1 %}
           <li class="product-photo-thumb {% cycle '','','product-last-thumb' %}">
             <a class="gallery" href="{{ image.src | product_img_url: 'original' }}" rel="gallery">
-              <img width="100%" src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
+              <img src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
             </a>
           </li>
           {% endfor %}
@@ -105,6 +105,7 @@
 
         {% if collection %}
         {% if collection.previous_product or collection.next_product %}
+        <hr>
         <div>     
           {% if collection.previous_product %}
           {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}

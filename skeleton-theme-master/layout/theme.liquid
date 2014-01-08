@@ -31,8 +31,8 @@
   {{ 'base.css' | asset_url | stylesheet_tag }}
   {{ 'skeleton.css' | asset_url | stylesheet_tag }}
   {{ 'style.css' | asset_url | stylesheet_tag }}
-  {{ 'superfish.css' | asset_url | stylesheet_tag }}
-  {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+  {{ 'superfish.css' | asset_url | stylesheet_tag }}{% comment %}
+  {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}{% endcomment %}
   {{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
 
   {% if settings.header_font contains 'Google' %}
