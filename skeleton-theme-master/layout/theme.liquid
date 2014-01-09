@@ -5,6 +5,7 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->  
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -166,33 +167,30 @@
     </div>
     
     <div id="overview" class="sixteen columns clearfix">
-      <div id="o-inner" class="row">
 
         {% if settings.footer_featured_page != '' %}
         <div class=" o-content overview-third o-first">
           <h4>{{ pages.[settings.footer_featured_page].title }}</h4>
-          <p>{{ pages.[settings.footer_featured_page].content | strip_html | strip_newlines | truncatewords: 45 }}</p>
-          <p id="o-link"><a class="a-col" href="{{pages.[settings.footer_featured_page].url}}">Read More</a></p>
+          <p>{{ pages.[settings.footer_featured_page].content | strip_html | strip_newlines | truncatewords: 45 }} 
+            <a class="a-col" href="{{pages.[settings.footer_featured_page].url}}">(read more)</a>
+          </p>
+
         </div>
         {% endif %}
 
         <div class="o-content welcome overview-third">
-          <h4>{{settings.footer_blog_post_header}}</h4>{% for article in blogs.[settings.footer_blog_post].articles limit: 1 %}
-          <h6 class="article-title">{{ article.title }}</h6>
-          <p>{{ article.content | strip_html | strip_newlines | truncatewords: 25 }}</p>
-          <p id="o-link"><a class="a-col" href="{{ article.url }}">Read More</a></p>{% endfor %}
+
+          <h4>Follow Us</h4>
         </div>
 
         <div class="o-content newsletter overview-third">
           <h4>Newsletter</h4>
           <form id="o-form" method="post" action="{{ settings.mailing_list_form_action }}">
-            <p><input type="text" placeholder="First Name" name="FNAME" id="FNAME" class="field" /></p>
-            <p><input type="text" placeholder="Last Name" name="LNAME" id="LNAME" class="field" /></p>
             <p><input type="text" placeholder="Email Address" name="EMAIL" id="EMAIL" class="field" /></p>
-            <input class="btn subtle" id="subscribe" type="submit" value="Subscribe" />
+            <input class="btn btn-colour" id="subscribe" type="submit" value="Subscribe" />
           </form>
         </div>
-      </div>
+
     </div>
 
     <div class="footer sixteen columns clearfix">
@@ -237,7 +235,6 @@
   });
 
   </script>
-
 
 </body>
 </html>
