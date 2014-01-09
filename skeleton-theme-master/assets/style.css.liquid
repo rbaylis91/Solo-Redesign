@@ -2,9 +2,14 @@
 /* =  Global CSS  = */
 /* ================ */
 
-h1, h2, h3, h4, h5, h6 {color:{{settings.header_color}};font-family:'{{ settings.header_font | remove: 'Google+' | replace: '+', ' ' }}';}
+h1, h2, h3, h4, h5, h6 {color:{{settings.header_color}};
+  font-family:{{ settings.header_font | remove: 'Google+' | replace: '+', ' ' }};
+}
 body{background-color:{{settings.shop_bg_color}};}
-body,p,strong{font-family:'{{ settings.base_font | remove: 'Google+' | replace: '+', ' ' }}';color:{{settings.body_font_color}};}
+body,p,strong{
+  font-family: {{ settings.base_font | remove: 'Google+' | replace: '+', ' ' }}; 
+  color:{{settings.body_font_color}};
+}
 img{max-width:100%; height: auto;}
 a{color:{{settings.link_color}};}
 a:hover{opacity:0.7;}
@@ -31,9 +36,7 @@ hr.divider{width:100%;display:block;height:1px;border-top: 1px solid #e8e8e8;mar
 
 .btn{background-color:transparent;font-family: Helvetica, Arial, sans-serif; height: 40px;line-height: 40px;padding:0 15px;border:none;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;font-size:14px;font-weight:bold;display:inline-block;}
 .btn:hover{opacity:0.8;}
-
-.btn-colour{color:white !important;background-color: {{settings.shop_btn_color}};}
-.btn.subtle{color:{{settings.shop_btn_color}}; border:1px solid {{settings.shop_btn_color}}; }
+.btn-colour{color: #fff !important;background-color: {{settings.shop_btn_color}};}
 input.btn[type="submit"]{font-weight:bold;}
 
 
@@ -97,12 +100,16 @@ nav li, nav ul{margin-bottom:0;}
 
 
 /**** Footer  ****/
+#overview{ border-top:1px solid {{settings.border_color}}; border-bottom:1px solid {{settings.border_color}};  padding:30px 0; margin-bottom:30px;}
 #overview a{opacity:0.7 !important;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)" !important;}
 #overview h1, #overview h2, #overview h3, #overview h4,#overview h5, #overview h6{color:{{settings.footer_header_color}};}
 #overview p,a{color:{{settings.footer_text_color}}}
 
 #overview .article-title{margin-bottom:10px;}
+
+/*
 #o-inner{text-align: left; border-radius: 12px;	background-color: {{settings.footer_bg_color}};padding: 26px; border: 1px solid {{settings.footer_border_color}}; margin-bottom:15px;}
+*/
 .overview-third{width:278px;display:inline-block;float:left;margin-left:26px;}
 .o-first{margin-left:0px;}
 #o-link{margin-bottom:0px;}
@@ -110,7 +117,8 @@ nav li, nav ul{margin-bottom:0;}
 #overview input[type="text"]{width:100%;-webkit-box-sizing: border-box; border: 1px solid #DDDBDB; box-sizing: border-box;}
 #subscribe{margin-bottom:0px;}
 .f-copy{text-align:right;}
-.footer-inner{margin-bottom:30px;}
+
+.footer-inner p, .footer-inner a {font-size:12px;}
 .footer-inner a:hover{text-decoration:underline;}
 #footer-payment-methods{text-align:center; margin-bottom:30px;}
 .f-links a{display:inline-block; margin-right:15px;}
@@ -138,7 +146,9 @@ nav li, nav ul{margin-bottom:0;}
 /*** Product images ***/
 
 #product-photos{margin-bottom:30px;}
-#product-photo-container{max-width:100%;max-height:500px;margin-bottom:10px;}
+#product-photos a:hover{opacity:1;}
+#product-photo-container{max-width:100%;max-height:500px;}
+
 #product-photo-container img{max-width:100%; max-height:500px;display:block;margin:0 auto;}
 #product-photo-thumbs li{line-height:0;width:146px;max-height: 292px;margin-right:10px; }
 #product-photo-thumbs img{margin:0 auto;display:block;}
@@ -177,7 +187,7 @@ li.prod-grid-item.first-in-row,li.coll-grid-item.first-in-row{clear:left;}
 ul.grid li { float: left; list-style-type: none;}
 .prod-image-wrap, .coll-image-wrap{padding:10px;max-height:500px;position:relative;line-height:0;}
 
-.info-container{display:none;position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(0,0,0,0.6);}
+.info-container{display:none;position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(0,0,0,0.9);}
 .info-vertical-center{display:table;padding:0px;height:100%;width:100%;}
 .product-info{vertical-align:middle;display:table-cell;width:100%;text-align:center;line-height:1;}
 .prod-image-wrap{padding:0px;}
