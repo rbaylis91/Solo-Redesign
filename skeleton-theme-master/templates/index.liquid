@@ -18,7 +18,7 @@ Example: the h2 element should have the same size and color in:
 {% endif %}
 
 {% if settings.enable_featuredproduct and settings.homepage != '' %}
-<hr class="divider"/>
+<hr class="divider large"/>
 {% endif %}
 
 {% if settings.homepage != ''%}
@@ -28,12 +28,8 @@ Example: the h2 element should have the same size and color in:
 {% endif %}
 
 {% comment %}
-{% endcomment %}
-
-{% if settings.slider_check %}
 <!-- Begin slider -->
 <div class="flexslider-outer clearfix">
-  {% if settings.slider_headline != '' %}<h5 class="flexslider-header clearfix">{% if settings.slider_featured != ''%}{{settings.slider_headline}}{% else %}Please pick a collection in your theme settings to show product slider{%endif%}</h5>{% endif  %}
     <div class="flexslider-container">
       <div class="flexslider">
           <ul class="slides">{% for product in collections[settings.slider_featured].products | limit:15 %}
@@ -48,5 +44,19 @@ Example: the h2 element should have the same size and color in:
     </div>
   </div>
 </div>
-{% endif %}
+{% endcomment %}
+
 <!-- End slider -->
+
+<!-- SHOW FEATURED COLLECTION ON HOMEPAGE -->
+{% if settings.slider_check %}
+
+  {% if settings.slider_headline != '' %}<h5 class="home-collection clearfix">{% if settings.slider_featured != ''%}{{settings.slider_headline}}{% else %}Please pick a collection in your theme settings to show product slider{%endif%}</h5>{% endif  %}
+<ul class="clearfix product-loop">
+{% for product in collections[settings.slider_featured].products | limit:15 %}
+{% include 'product-grid-item' %}
+{% else %}
+<p>There are no products in this view.</p>
+{% endfor %}
+</ul>
+{% endif %}

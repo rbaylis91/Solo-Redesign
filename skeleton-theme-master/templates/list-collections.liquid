@@ -27,9 +27,9 @@
 </div>
 {% endif %}
 <hr class="divider">
-<ul class="clearfix">
+<ul class="clearfix collection-loop">
 {% for collection in collections %}
-{% include 'collection-grid-item' with 'three-per-row' %}
+{% include 'collection-grid-item' %}
 {% else %}
 <p>There are no collections. Why not make a new collection</p>
 {% endfor %}

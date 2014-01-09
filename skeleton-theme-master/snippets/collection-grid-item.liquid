@@ -1,32 +1,29 @@
-{% comment %}If no value is passed to the snippet, we will set the snippet variable to a sensible default.{% endcomment %}
-{% if collection-grid-item == '' %}{% assign collection-grid-item = 'three-per-row' %}{% endif %}
-
-<li class="coll-grid-item  one-third column{% if collection-grid-item == 'three-per-row' %} {% cycle 'first-product': 'alpha', '', 'omega' %} {% endif %}{{ product-grid-item }}{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
+<li class="coll-grid-item one-third column">
 
   <div class="boxify coll-image-wrap">  
-    <a href="{{ collection.url }}">
       {% if collection.image %}
-      <img src="{{ collection.image.src | collection_img_url: 'medium' }}" alt="{{ collection.image.alt | escape }}" />
+      <img src="{{ collection.image.src | collection_img_url: 'large' }}" alt="{{ collection.image.alt | escape }}" />
       {% else %}
-      <img src="{{ collection.products.first.featured_image.src | product_img_url: 'medium' }}" alt="{{ collection.title | escape }}" />
-      {% endif %}
+      <!-- NO IMAGE AVAILABLE -->
+      <img src="{{ collection.products.first.featured_image.src | product_img_url: 'large' }}" alt="{{ collection.title | escape }}" />
+      {% endif %} 
+    
+    <a href="{{ collection.url | within: collection }}" class="clearfix">
+    <div class="info-container clearfix">
+      <div class="info-vertical-center clearfix">
+        <div class="collection-info">  
+          <span class="coll-title" >
+            {{ collection.title }}
+          </span>
+          <br/>
+          <span class="coll-count">
+            {{ collection.all_products_count }} {{ collection.all_products_count | pluralize:'item','items' }}
+          </span>
+        </div>
+      </div>
+    </div>
     </a>
-  </div><!-- .coll-image-wrap -->
+  </div>  
   
-  <div class="coll-caption">
-      <a class="coll-title" href="{{ collection.url }}">
-        {{ collection.title }}
-      </a>
-      <span class="coll-item-count">
-        {{ collection.all_products_count }} {{ collection.all_products_count | pluralize:'item','items' }}
-      </span>
-  </div><!-- .coll-caption -->
   
 </li>
-
-
-{% if collection-grid-item == 'four-per-row' %}
-{% cycle 'clear': '', '', '', '<div style="clear:both"></div>' %}
-{% elsif collection-grid-item == 'three-per-row' %}
-{% cycle 'clear': '', '', '<div style="clear:both"></div>' %}
-{% endif %}
