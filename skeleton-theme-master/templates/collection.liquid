@@ -7,7 +7,7 @@
   </div>
   {% if settings.collection_tags %}
   <div class="product-tags seven columns omega">
-    {% if collection.all_tags.size > 0 %}
+    {% if collection.all_tags.size > 0 %}  
     <span class="product-tags-label">Product Tags</span>
     <select id="collection-tags" class="custom-select" style="">
       <option value="">All</option>
@@ -25,15 +25,15 @@
 </div>
 
 {% if collection.description.size > 0 %} 
-<div class="rte">
+<div class="rte intro">
   {{ collection.description }}
 </div>
 {% endif %}
 <hr class="divider">
 
-<ul class="clearfix">
+<ul class="clearfix product-loop">
 {% for product in collection.products %}
-{% include 'product-grid-item' with 'three-per-row' %}
+{% include 'product-grid-item' %}
 {% else %}
 <p>There are no products in this view.</p>
 {% endfor %}

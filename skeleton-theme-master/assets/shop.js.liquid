@@ -2,17 +2,32 @@ $(document).ready(function(){
     $('.custom-select').customSelect();
     $('ul.sf-menu').superfish({
         delay:1,
-        speed:       1                          // faster animation speed
+        speed:1                          // faster animation speed
     });
     $('.gallery').magnificPopup({type:'image'});
 
+
+    /* CollectionLoop */
+    collectionLoop();
 		
+});
+
+var lastWidth = $(window).width();
+
+$(window).resize(function(){
+   if($(window).width()!=lastWidth){
+      collectionLoop();
+      console.log("window size changed");   
+    }
 });
 
 jQuery(function($){
 
-  $("nav.mobile select").change(function(){ window.location = jQuery(this).val(); }); 
-
+  /* Mobile select*/
+  $("nav.mobile select").change(function(){ 
+    window.location = $(this).val(); 
+    console.log($(this).val());
+  }); 
 
   $('html').removeClass('no-js');
                     
@@ -48,7 +63,7 @@ jQuery(function($){
     });
     return true;
   });
-                   
+
   $(window).load(function() {
     $('.flexslider').flexslider({
       animation: "slide",
@@ -62,4 +77,31 @@ jQuery(function($){
   });
 });
 
+/* Collection Loop JS */
+/*===================*/
 
+function collectionLoop(){
+
+  $( ".prod-grid-item,.coll-grid-item" ).removeClass( "first-in-row last-in-row" );
+
+  $( ".prod-grid-item:nth-of-type(1),.coll-grid-item:nth-of-type(1)" ).addClass( "first" );
+
+  if($(window).width() > 767){
+
+    $( ".prod-grid-item:nth-of-type(3n+3),.coll-grid-item:nth-of-type(3n+3)" ).addClass( "last-in-row" );
+    $( ".prod-grid-item:nth-of-type(3n+1),.coll-grid-item:nth-of-type(3n+1)" ).addClass( "first-in-row" );
+  }
+  if($(window).width() > 479 && $(window).width() < 768){
+    $( ".prod-grid-item:nth-of-type(even),.coll-grid-item:nth-of-type(even)" ).addClass( "last-in-row" );
+    $( ".prod-grid-item:nth-of-type(odd),.coll-grid-item:nth-of-type(odd)" ).addClass( "first-in-row" );
+  }
+}
+
+/*
+$(window).load(function(){
+  $("select").change(function(){
+    if($(this).attr("value") == "#") return false;
+    window.location = $(this).attr("value");
+  });
+});
+*/
