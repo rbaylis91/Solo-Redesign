@@ -18,7 +18,7 @@ Example: the h2 element should have the same size and color in:
 {% endif %}
 
 {% if settings.enable_featuredproduct and settings.homepage != '' %}
-<hr class="divider large"/>
+<hr class="divider"/>
 {% endif %}
 
 {% if settings.homepage != ''%}
@@ -50,13 +50,14 @@ Example: the h2 element should have the same size and color in:
 
 <!-- SHOW FEATURED COLLECTION ON HOMEPAGE -->
 {% if settings.slider_check %}
-
-  {% if settings.slider_headline != '' %}<h5 class="home-collection clearfix">{% if settings.slider_featured != ''%}{{settings.slider_headline}}{% else %}Please pick a collection in your theme settings to show product slider{%endif%}</h5>{% endif  %}
+<div id="feat-coll-container" class="clearfix">
+  {% if settings.slider_headline != '' %}<h5 id="feat-coll-header" class="clearfix">{% if settings.slider_featured != ''%}{{settings.slider_headline}}{% else %}Please pick a collection in your theme settings to show product slider{%endif%}</h5>{% endif  %}
 <ul class="clearfix product-loop">
-{% for product in collections[settings.slider_featured].products | limit:15 %}
+{% for product in collections[settings.slider_featured].products | limit:12 %}
 {% include 'product-grid-item' %}
 {% else %}
 <p>There are no products in this view.</p>
 {% endfor %}
 </ul>
+</div>
 {% endif %}
