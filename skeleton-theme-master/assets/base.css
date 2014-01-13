@@ -66,11 +66,11 @@
 
 /* #Typography
 ================================================== */
-	h1, h2, h3, h4, h5, h6 {font-family: "Helvetica", "Arial", sans-serif;font-weight: bold;line-height: 1.0em;margin-bottom:15px; }
-	h1 { font-weight:bold;font-size: 40px;}
-	h2 { font-size: 34px; }
-	h3 { font-size: 28px; }
-	h4 { font-size: 22px; }
+	h1, h2, h3, h4, h5, h6 {font-family: "Helvetica", "Arial", sans-serif;font-weight: bold;line-height: 1.0em;margin-bottom:30px; }
+	h1 { font-weight:bold;font-size: 30px;}
+	h2 { font-size: 28px; }
+	h3 { font-size: 22px; }
+	h4 { font-size: 20px; }
 	h5 { font-size: 20px; }
 	h6 { font-size: 18px; }
 

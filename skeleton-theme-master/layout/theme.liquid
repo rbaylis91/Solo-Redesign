@@ -163,7 +163,7 @@
     <div id="overview" class="sixteen columns clearfix">
 
       <!--Footer Navigation -->
-      <div class="one-third column alpha">
+      <div class="one-third column alpha footer-nav">
         <h4>{{ linklists.footer.title }}</h4>
         {% if linklists.footer.links.size > 0 %}
         {% for link in linklists.footer.links %}
@@ -174,7 +174,7 @@
       </div>
 
       <!-- Footer Social-->
-      <div class="one-third column">
+      <div class="one-third column footer-social">
 
         <h4>Follow Us</h4>
         <div class="social-container boxify">
@@ -190,10 +190,10 @@
       </div>
 
       <!-- Footer Newsletter -->
-      <div class="one-third column omega">
+      <div class="one-third column omega footer-news">
         <h4>Newsletter</h4>
         <form id="o-form" method="post" action="{{ settings.mailing_list_form_action }}">
-          <p><input type="text" placeholder="Email Address" name="EMAIL" id="EMAIL" class="field" /></p>
+          <input type="text" placeholder="Email Address" name="EMAIL" id="email" class="field" />
           <input class="btn btn-colour" id="subscribe" type="submit" value="Subscribe" />
         </form>
       </div>
