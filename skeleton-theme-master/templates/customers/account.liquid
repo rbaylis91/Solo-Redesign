@@ -5,19 +5,21 @@
   <h1>Account Details and Order History</h1>
 
 
-  <div class="account-user three columns alpha">  
+  <div class="account-left three columns alpha">  
     <p class="user-name">
       <strong>{{ customer.name }}</strong>
       <p>{{ customer.email }}</p>
     </p>
     {% if customer.default_address != nil %}
-    <p>{{ customer.default_address.address1 }}</p>
-    {% if customer.default_address.address2 != "" %}
-    <p>{{ customer.default_address.address2 }}</p>
-    {% endif %}
-    <p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
-    <p>{{ customer.default_address.zip}}</p>
-    <p>{{ customer.default_address.phone }}</p>
+    <div class="user-default-address">
+      <p>{{ customer.default_address.address1 }}</p>
+      {% if customer.default_address.address2 != "" %}
+      <p>{{ customer.default_address.address2 }}</p>
+      {% endif %}
+      <p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
+      <p>{{ customer.default_address.zip}}</p>
+      <p>{{ customer.default_address.phone }}</p>
+    </div>
     {% endif %}
     <a href="/account/addresses">View Addresses ({{ customer.addresses_count }})</a>
   </div>   

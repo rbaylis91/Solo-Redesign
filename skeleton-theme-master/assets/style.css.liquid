@@ -299,16 +299,28 @@ table.customer_address_table{width:400px;table-layout:fixed;margin-bottom:20px;}
 
 .action_bottom .btn.subtle{margin-left:7px;}
 
+
 /***** Account Details *****/
+
 .customer-accounts table{width:100%;}
-.customer-accounts td{padding:5px;}
-.customer-accounts th{padding:0 5px 0px 5px;}
+.customer-accounts td{padding:10px 5px;}
+.customer-accounts th{padding-left: 5px;}
+.customer-accounts tfoot{border-top:1px solid {{settings.border_color}}; }
+.customer-accounts .return{padding-top:15px; border-top:1px solid {{settings.border_color}};}
+
 .cart-headers{border-bottom:1px solid {{settings.border_color}};}
 .cart-headers th{text-align:left; font-weight:bold; }
-.account-user{margin-bottom:30px !important;}
-.account-user, .account-user p{font-size:14px;}
-.account-user p{margin-bottom:0px;}
+
+.account-left{margin-bottom:30px !important;}
+.account-left, .account-user p{font-size:14px;}
+.account-left p{margin-bottom:0px;}
 .user-name{border-bottom:1px solid {{settings.border_color}}; margin-bottom:10px !important;}
+.user-default-address{margin-bottom:10px;}
+
+
+/***** Order Page ******/
+
+.order-payment, .order-shipping, .order-date{margin-bottom:30px !important;}
 
 
 /* =================================================== */
