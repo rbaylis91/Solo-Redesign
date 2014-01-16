@@ -58,7 +58,7 @@
         </div>
 
         {% assign hide_default_title = false %}
-        {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+        {% if product.variants.size == 1 %}
         {% assign hide_default_title = true %}
         {% endif %}       
 
