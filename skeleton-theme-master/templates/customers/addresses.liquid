@@ -28,7 +28,7 @@
           <span class="action_link action_delete">{{ "Delete" | delete_customer_address_link: address.id }}</span>
         </div>
     </div>    
-    <div id="edit_address_{{address.id}}" class="customer-address-table" style="display:none;">
+    <div id="edit_address_{{address.id}}" class="customer_address_table" style="display:none;">
       <!-- Edit Address Form -->
       {% form 'customer_address', address %}
       <table class="customer_address_table">
@@ -92,14 +92,15 @@
   {% endpaginate %}
   
   
-  <input type="submit" class="btn btn-colour" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;" value="Add New Address"/>
-
+  <div class="add-address-button">
+    <input type="submit" class="btn btn-colour" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;" value="Add New Address"/>
+  </div>
   <!--Add Address Form -->
   <div class="add-address-wrapper">
     <div id="add_address" style="display:none;">
       {% form 'customer_address', customer.new_address %}
       <h4>Add a new address</h4>
-      <table class="customer-address-table">
+      <table class="customer_address_table">
         <tr class="form-row">
           <td><label for="address_first_name_new">First Name</label></td>
           <td><input type="text" id="address_first_name_new" class="address_form" name="address[first_name]" value="{{form.first_name}}" size="40" /></td>
@@ -150,7 +151,7 @@
         </tr>
       </table>
       <div class="update-address">
-        <input class="btn" type="submit" value="Add Address" />
+        <input class="btn btn-colour" type="submit" value="Add Address" />
         <span class="note"> or <a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">Cancel</a></span>
       </div>
       {% endform %}
