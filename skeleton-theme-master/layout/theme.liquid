@@ -155,10 +155,12 @@
         <nav class="mobile clearfix">
           {% include 'mobile-menu' %}
         </nav>
-      </section> 
+      </section>
+      {% if settings.banner_text != '' %} 
       <div class="banner clearfix">
-        <h6>Sign up for an account, and get free shipping!</h6>
+        <h6>{{settings.banner_text}}</h6>
       </div>
+      {% endif %}
     </header>
     <div id="main" role="main" class="sixteen columns">
       <div class="row boxify">
