@@ -33,7 +33,7 @@
 
 <ul class="clearfix product-loop">
 {% for product in collection.products %}
-{% include 'product-grid-item' %}
+{% if settings.collection_list %}{% include 'product-list-item' %}{% else %}{% include 'product-grid-item'}{% endif %}
 {% else %}
 <p>There are no products in this view.</p>
 {% endfor %}

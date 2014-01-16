@@ -1,0 +1,46 @@
+{% comment %}Is this product on sale?{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+<li class="prod-list-item {% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
+
+  <div class="boxify prod-image-wrap">  
+      {% if product.featured_image %}
+      <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
+      {% else %}
+      <!-- NO IMAGE AVAILABLE -->
+      <img style="width:100%" src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
+      {% endif %} 
+    
+    <a href="{{ product.url | within: collection }}" class="clearfix">
+    <div class="info-container clearfix">
+      <div class="info-vertical-center clearfix">
+        <div class="product-info">  
+          <span class="prod-title" >
+            {{ product.title }}
+          </span>
+          <br/>
+          <span class="prod-price">
+            {% if product.price_varies %}From{% endif %}
+            {{ product.price | money }}
+            {% if on_sale %}
+            <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+    </a>
+  </div>  
+  
+  
+</li>
+{% comment %}
+{% if product-grid-item == 'four-per-row' %}
+{% cycle 'clear': '', '', '', '<div class="hide-mobile" style="clear:both"></div>' %}
+{% elsif product-grid-item == 'three-per-row' %}
+{% cycle 'clear': '', '', '<div class="hide-mobile" style="clear:both"></div>' %}
+{% endif %}
+{% endcomment %}
