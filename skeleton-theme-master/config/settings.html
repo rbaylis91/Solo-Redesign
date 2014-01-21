@@ -39,21 +39,21 @@
         <h3>Colors</h3>
       </td>
     </tr>
-    <tr class="horizontal">
+    <tr class="horizontal"> 
       <th><label for="shop_bg_color">Website background color</label></th>
       <td><input id="shop_bg_color" name="shop_bg_color" class="color" value="#ffffff" /></td>
     </tr>
     <tr class="horizontal">
-      <th><label for="toolbar_text_color">Top toolbar text color</label></th>
-      <td><input id=" " name="toolbar_text_color" class="color" value="#bbbbbb" /></td>
+      <th><label for="nav_link_color">Navigation link color</label></th>
+      <td><input id=" " name="nav_link_color" class="color" value="#bbbbbb" /></td>
     </tr>
+    <tr class="horizontal">
+      <th><label for="nav_bg_color">Navigation background color</label></th>
+      <td><input id="nav_bg_color" name="nav_bg_color" class="color" value="#888888" /></td>
+    </tr>    
     <tr class="horizontal">
       <th><label for="link_color">Link color</label></th>
       <td><input id="link_color" name="link_color" class="color" value="#f45b4f" /></td>
-    </tr>
-    <tr class="horizontal">
-      <th><label for="nav_link_color">Nav link color</label></th>
-      <td><input id="nav_link_color" name="nav_link_color" class="color" value="#888888" /></td>
     </tr>
     <tr class="horizontal">
       <th><label for="body_font_color">Text color</label></th>
@@ -154,8 +154,86 @@
   <table>
     <tr>
       <td colspan="2">
+        <h3>Fullscreen Banner</h3>
+      </td> 
+    </tr>
+    <tr>
+      <th><label for="enable_fullscreen_banner">Show fullscreen banner on the homepage</label><small>To hide fullscreen banner just uncheck</small></th>
+      <td><input type="checkbox" id="enable_fullscreen_banner" name="enable_fullscreen_banner" value="unchecked" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="enable_fullscreen_featured_image">Show fullscreen featured image</label></th>
+      <td><input type="checkbox" id="enable_fullscreen_featured_image" name="enable_fullscreen_featured_image" value="unchecked" /></td>
+    </tr>
+    <tr>
+      <th><label for="fullscreen_featured_image">Fullscreen featured image URL<br /><small>Up to 1000px by 1000px</small></label></th>
+      <td>
+        <input type="file" id="fullscreen_featured_image" name="fullscreen_featured_image.png" data-max-width="1000" data-max-height="1000" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h3>Fullscreen Banner Header</h3>
+      </td> 
+    </tr>
+    <tr class="horizontal">
+      <th><label for="fullscreen_header">Header text to display beneath image</label><small>To hide the text, leave this field blank</small></th>
+      <td><input type="text" id="fullscreen_header" name="fullscreen_header" value="" size="100" /></td>
+    </tr>
+    <tr class="horizontal">
+      <th><label for="fullscreen_header_color">Fullscreen header color</label></th>
+      <td><input id="fullscreen_header_color" name="fullscreen_header_color" class="color" value="#dddddd" /></td>
+    </tr>  
+    <tr class="horizontal">
+      <th><label for="fullscreen_header_font">Fullscreen header font</label></th>
+      <td>
+        <select name="fullscreen_header_font" id="google_fullscreen_header_font" class="font">
+          <optgroup label="Google Web Fonts">          
+            <option value='Google+Arvo'>Arvo</option>
+            <option value='Google+Asap'>Asap</option>
+            <option value='Google+Cabin'>Cabin</option>
+            <option value='Google+Copse'>Copse</option>
+            <option value='Google+Droid+Sans'>Droid Sans</option>
+            <option value='Google+Droid+Serif'>Droid Serif</option>
+            <option value='Google+Gentium+Book+Basic'>Gentium Book Basic</option>
+            <option value='Google+Josefin+Slab'>Josefin Slab</option>
+            <option value='Google+Josefin+Sans'>Josefin Sans</option>
+            <option value='Google+Kreon'>Kreon</option>
+            <option value='Google+Lato'>Lato</option>
+            <option value='Google+Merriweather'>Merriweather</option>
+            <option value='Google+Old+Standard+TT'>Old Standard TT</option>
+            <option value='Google+Open+Sans'>Open Sans</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h3>Fullscreen Banner Background</h3>
+      </td> 
+    </tr>
+    <tr class="horizontal">
+      <th><label for="fullscreen_bg_color">Fullscreen banner background color</label></th>
+      <td><input id="fullscreen_bg_color" name="fullscreen_bg_color" class="color" value="#dddddd" /></td>
+    </tr>  
+     <tr class="horizontal">
+      <th><label for="enable_fullscreen_bg_image">Use image for background</label></th>
+      <td><input type="checkbox" id="enable_fullscreen_bg_image" name="enable_fullscreen_bg_image" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="fullscreen_bg_image">Fullscreen background image<br /><small>Recommended size:1000px by 1000px</small></label></th>
+      <td>
+        <input type="file" id="fullscreen_bg_image" name="fullscreen_bg_image.png" data-max-width="2000" data-max-height="2000" />
+      </td>
+    </tr>    
+    <tr>
+      <td colspan="2">
         <h3>Homepage Content</h3>
       </td>
+    </tr>
+    <tr>
+      <th><label for="enable_featuredproduct">Show single featured product on homepage</label><small>To hide featured product just uncheck</small></th>
+      <td><input type="checkbox" id="enable_featuredproduct" name="enable_featuredproduct" value="1" /></td>
     </tr>
     <tr class="horizontal">
       <th><label for="homepage">Page to show on homepage</label><small>You can include a Page on the homepage</small></th>
@@ -203,7 +281,7 @@
       <td>
         <input type="checkbox" id="enable_quantity" name="enable_quantity" value="1" />
       </td>
-    </tr>
+    </tr>  
   </table>
 </fieldset>
 <fieldset>

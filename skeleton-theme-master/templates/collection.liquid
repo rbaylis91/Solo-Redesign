@@ -22,7 +22,7 @@
     {% endif %}
   </div>
   {% endif %}
-</div>
+</div> 
 
 {% if collection.description.size > 0 %} 
 <div class="rte intro">
@@ -31,9 +31,13 @@
 {% endif %}
 <hr class="divider">
 
-<ul class="clearfix product-loop">
+<ul class="clearfix product-loop"><!-- test -->
 {% for product in collection.products %}
-{% if settings.collection_list %}{% include 'product-list-item' %}{% else %}{% include 'product-grid-item'}{% endif %}
+  {% if settings.collection_list %}
+    {% include 'product-list-item' %} 
+  {% else %}
+    {% include 'product-grid-item' %}    
+  {% endif %}
 {% else %}
 <p>There are no products in this view.</p>
 {% endfor %}

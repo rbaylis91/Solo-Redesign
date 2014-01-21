@@ -1,0 +1,22 @@
+<div class="fullscreen-banner outer">
+  <div class="fb-inner table">
+    <div class="fb-content vert-table-cell">
+        {% if settings.enable_fullscreen_featured_image %}
+        <img id="fb-image" src="{{'fullscreen_featured_image.png'|asset_url}}"/>
+        {% endif %}
+        <h1>{{settings.fullscreen_header}}</h1>
+    </div>
+  </div>
+</div>
+{% comment %}
+
+Themes Settings needed:
+
+* tagline font family (Google Webfonts) 
+* tagline color
+* background image
+* featured image
+* background color
+
+
+{% endcomment %}

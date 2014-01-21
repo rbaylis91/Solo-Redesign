@@ -9,6 +9,15 @@ $(document).ready(function(){
 
     /* CollectionLoop */
     collectionLoop();
+
+    /* fullscreen banner image size */
+    if($("body").hasClass("template-index")){
+      $(window).bind('resize', featured_image_height);
+      featured_image_height();
+    }
+
+    /* sticky nav */
+    $('header').waypoint('sticky');
 		
 });
 
@@ -103,4 +112,11 @@ function collectionLoop(){
 function remove_item(id) {
   document.getElementById('updates_'+id).value = 0;
   document.getElementById('cartform').submit();
+}
+
+/* Height of featured image in fullscreen banner */
+/*==============================================*/
+function featured_image_height() {
+    var $windowHeight = $(window).height();
+    $("#fb-image").css({maxHeight: ($windowHeight/2) + 'px' });
 }

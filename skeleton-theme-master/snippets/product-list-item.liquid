@@ -1,10 +1,11 @@
+{% comment %}
 {% comment %}Is this product on sale?{% endcomment %}
 {% assign on_sale = false %}
 {% if product.compare_at_price > product.price %}
   {% assign on_sale = true %}
 {% endif %}
 
-<li class="prod-list-item {% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
+<li class="prod-grid-item one-third column {{ product-grid-item }} {% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
 
   <div class="boxify prod-image-wrap">  
       {% if product.featured_image %}
@@ -44,3 +45,33 @@
 {% cycle 'clear': '', '', '<div class="hide-mobile" style="clear:both"></div>' %}
 {% endif %}
 {% endcomment %}
+{% endcomment %}
+
+<li class="prod-list-item row {% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
+<div class="prod-container clearfix ">
+    <div class="eight columns alpha prod-image">
+      <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
+    </div>
+
+    <div class="eight offset-by-one columns omega prod-info ">
+      <h3>{{product.title}}</h3>
+      <span class="prod-price">
+        {% if product.price_varies %}From{% endif %}
+        {{ product.price | money }}
+        {% if on_sale %}
+        <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
+        {% endif %}
+      </span>
+      <p>{{product.vendor}}</p>
+      <hr>
+      <a class="btn btn-subtle" href="{{url}}">View Details</a>
+    </div>
+  </div>
+</li>
+<style>
+.prod-list-item{margin-bottom:40px;overflow:hidden;}
+.prod-list-item .prod-container{display:block;margin:0 auto;}
+.prod-list-item img{float:right;max-width:100%;max-height:400px;}
+.prod-list-item p{font-size:12px;}
+.prod-list-item .prod-info{padding-left:20px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+</style>
