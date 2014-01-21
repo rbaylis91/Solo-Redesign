@@ -46,32 +46,18 @@ input.btn[type="submit"]{font-weight:bold;}
 /* = theme.liquid = */
 /* ================ */
 
-/**** Toolbar ****/
-
-
-.toolbar{height:55px; width:100%; border-bottom:1px solid {{settings.border_color}};}
-.toolbar,.toolbar a{color:{{settings.toolbar_text_color}};}
-.toolbar-left{float:left;}
-.toolbar-left input{margin:0; border-radius:15px; background: #fff url("{{ 'search.png' | asset_url }}") 148px 9px no-repeat; padding: 6px 25px 6px 10px; width:135px; }
-.toolbar-right{float:right; padding-top:6px; font-size:13px;}
-.toolbar-right a:hover{text-decoration:underline;}
-.toolbar-right i,.cart-link, .customer-links{display:inline-block;}
-.toolbar-right i{margin-right:3px;}
-.cart-link{margin-left:20px;}
 
 /**** Header ****/
 
-.header{margin-bottom:0;background:#000;}
+.header{margin-bottom:0;background:#000; height:50px; position: fixed; z-index:9999; width:100%;}
 .header-title{font-weight: bold; margin-bottom:0; line-height:1; }
 .header-title a,.header-title a:hover{color:#fff;}
 .header-logo{display:block;margin:10px auto;}
 
 
-
-
 /**** Nav Bar ****/
 
-nav{font-weight:bold; border-top:1px solid {{settings.border_color}}; border-bottom: 1px solid {{settings.border_color}};}
+nav{font-weight:bold;}
 nav a{color:{{settings.nav_link_color}};}
 nav li, nav ul{margin-bottom:0;}
 .dropdown{/*margin:15px 0px 0px -18px; padding:0px; */}
@@ -84,7 +70,7 @@ nav li, nav ul{margin-bottom:0;}
 .container {padding:0;}
 #template{padding-bottom:60px;}
 
-#main{margin-top:0px;}
+#main{margin-top:60px;}
 #main > #sidebar, #main > .twelve, #main > .row{margin: 60px 0;}
 #main > .twelve{padding-right:20px;}
 

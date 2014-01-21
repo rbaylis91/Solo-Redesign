@@ -63,95 +63,40 @@
   {{ 'custom_select.js'  | asset_url | script_tag }}
   {{ 'jquery.magnific-popup.min.js'  | asset_url | script_tag }}
 
- 
+
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 
-  <div class="header">
-    <div class="container clearfix">
-      
-      {% if settings.use_logo %}
-      <img class="header-logo" src="{{'logo.png'| asset_url}}"/>
-      {% else %}
-      <h1 class="header-title">
-        <a href="/">{{ shop.name }}</a>
-      </h1>
-      {% endif %}
-    </div>
-  </div>
+  <div class="header table">
+    <div class="container clearfix table-cell">
 
-  <div class="container">
-    <header>
-
-      <!-- Header -->
-      <div class="twelve row">  
-
-        <div class="toolbar clearfix table">
-          <div class="table-cell">
-            <div class="toolbar-left">
-              <form action="/search" method="get" class="search-form" role="search">
-                <input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
-              </form>
-            </div>
-            <div class="toolbar-right">
-              <span class="customer-links">
-                {% if shop.customer_accounts_enabled %}
-                <i class="icon-user"></i> 
-                {% if customer %}
-                <a href="/account">My Account</a> · {{ 'Log out' | customer_logout_link }}
-                {% else %}
-                {{ 'My Account' | customer_login_link }}
-                {% endif %}
-                {% endif %}
-              </span>
-              <span class="cart-link">
-                <i class="icon-shopping-cart"></i> <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>  
-              </span>
-
-            </div>
-          </div>
-        </div>
-        
-        <!--Header Widget -->
-        <div class="header-widget">
-
-
-
-          {% comment %}
-          <!-- Social Icons -->
-          <ul class="social-icons">
-            <li class="tw"><a href="#"></a></li>
-            <li class="fb"><a href="#"></a></li>
-            <li class="yt"><a href="#"></a></li>
-            <li class="rss"><a href="#"></a></li>
-            {% comment %}
-            <li class="ins"><a href="#"></a></li>
-            <li class="pin"><a href="#"></a></li>
-            <li class="vim"><a href="#"></a></li>
-            <li class="tum"><a href="#"></a></li>
-            <li class="gp"><a href="#"></a></li>
-            {% endcomment %}
-          </ul>
-          <!-- End Social Icons -->
-          {% endcomment %}
-        </div>
-        <!-- End Header Widget -->
+      <div class="left ">
+        {% if settings.use_logo %}
+        <img class="header-logo" src="{{'logo.png'| asset_url}}"/>
+        {% else %}
+        <h1 class="header-title">
+          <a href="/">{{ shop.name }}</a>
+        </h1>
+        {% endif %}
       </div>
-      <!--End Header-->
 
-
-      <section id="nav" class="clearfix">
+      <section id="nav" class="right">
         <nav class="large sixteen clearfix">
           {% include 'dropdown' %}
         </nav> 
         <nav class="mobile clearfix">
           {% include 'mobile-menu' %}
         </nav>
-      </section> 
-    </header>
+      </section>
+
+
+    </div>
+  </div>
+
+  <div class="container">
 
     <div id="main" role="main" class="sixteen columns">
       <div class="row boxify">
