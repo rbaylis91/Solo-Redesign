@@ -5,13 +5,12 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->  
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 
   <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
- 
+
   {% if template == 'index' %}
   <title>{{ shop.name }} | {{ page_title }}</title>
   {% elsif template == '404' %}
@@ -79,23 +78,34 @@
     {% include 'above-fold-feature' %}
   {% endif %}
 
-  <header style="width:100%">
-    <section id="nav container" class="clearfix" style="margin:0 auto">
-          <nav class="large sixteen columns clearfix">
-            {% include 'dropdown' %}
-          </nav> 
-          <nav class="mobile clearfix">
-            {% include 'mobile-menu' %}
-          </nav>
-    </section>
-  </header>
+  <div class="header table">
+    <div class="container clearfix table-cell">
 
-  <div class="container">      
-      {% if settings.banner_text != '' %} 
-      <div class="banner clearfix">
-        <h6>{{settings.banner_text}}</h6>
+      <div class="left ">
+        {% if settings.use_logo %}
+        <img class="header-logo" src="{{'logo.png'| asset_url}}"/>
+        {% else %}
+        <h1 class="header-title">
+          <a href="/">{{ shop.name }}</a>
+        </h1>
+        {% endif %}
       </div>
-      {% endif %}
+
+      <section id="nav" class="right">
+        <nav class="large sixteen clearfix">
+          {% include 'dropdown' %}
+        </nav> 
+        <nav class="mobile clearfix">
+          {% include 'mobile-menu' %}
+        </nav>
+      </section>
+
+
+    </div>
+  </div>
+
+  <div class="container">
+
     <div id="main" role="main" class="sixteen columns">
       <div class="row boxify">
         {{ content_for_layout }}
@@ -106,48 +116,50 @@
       {% endif %}
       <!-- END SIDEBAR -->
     </div>
-    
+
+
+
     <div id="overview" class="sixteen columns clearfix">
 
-        {% if settings.footer_featured_page != '' %}
-        <div class=" o-content overview-third o-first">
-          <h4>{{ pages.[settings.footer_featured_page].title }}</h4>
-          <p>{{ pages.[settings.footer_featured_page].content | strip_html | strip_newlines | truncatewords: 45 }} 
-            <a class="a-col" href="{{pages.[settings.footer_featured_page].url}}">(read more)</a>
-          </p>
-
-        </div>
+      <!--Footer Navigation -->
+      <div class="one-third column alpha footer-nav">
+        <h4>{{ linklists.footer.title }}</h4>
+        {% if linklists.footer.links.size > 0 %}
+        {% for link in linklists.footer.links %}
+        <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+        {% endfor %}
         {% endif %}
 
-        <div class="o-content welcome overview-third">
+      </div>
 
-          <h4>Follow Us</h4>
-        </div>
+      <!-- Footer Social-->
+      <div class="one-third column footer-social">
 
-        <div class="o-content newsletter overview-third">
-          <h4>Newsletter</h4>
-          <form id="o-form" method="post" action="{{ settings.mailing_list_form_action }}">
-            <p><input type="text" placeholder="Email Address" name="EMAIL" id="EMAIL" class="field" /></p>
-            <input class="btn btn-colour" id="subscribe" type="submit" value="Subscribe" />
-          </form>
+        <h4>Follow Us</h4>
+        <div class="social-container boxify">
+          {% if settings.twitter_link != '' %}<a href="{{settings.twitter_link}}" target="_blank"><i class="social icon-twitter"></i></a>{% endif %}
+          {% if settings.facebook_link != '' %}<a href="{{settings.facebook_link}}" target="_blank"><i class="social icon-facebook"></i></a>{% endif %}
+          {% if settings.google_link != '' %}<a href="{{settings.google_link}}" target="_blank"><i class="social icon-google-plus"></i></a>{% endif %}
+          {% if settings.youtube_link != '' %}<a href="{{settings.youtube_link}}" target="_blank"><i class="social icon-youtube"></i></a>{% endif %}
+          {% if settings.pinterest_link != '' %}<a href="{{settings.pinterest_link}}" target="_blank"><i class="social icon-pinterest"></i></a>{% endif %}
+          {% if settings.instagram_link != '' %}<a href="{{settings.instagram_link}}" target="_blank"><i class="social icon-instagram"></i></a>{% endif %}
+          {% if settings.tumblr_link != '' %}<a href="{{settings.tumblr_link}}" target="_blank"><i class="social icon-tumblr"></i></a>{% endif %}
+          {% if settings.atom_link != '' %}<a href="{{settings.atom_link}}" target="_blank"><i class="social icon-rss"></i></a>{% endif %}
         </div>
+      </div>
+
+      <!-- Footer Newsletter -->
+      <div class="one-third column omega footer-news">
+        <h4>Newsletter</h4>
+        <form id="o-form" method="post" action="{{ settings.mailing_list_form_action }}">
+          <input type="text" placeholder="Email Address" name="EMAIL" id="email" class="field" />
+          <input class="btn btn-colour" id="subscribe" type="submit" value="Subscribe" />
+        </form>
+      </div>
 
     </div>
-
-    <div class="footer sixteen columns clearfix">
+    <div class="footersixteen columns clearfix">
       <footer class="row">
-        <div class="footer-inner clearfix">
-
-          {% if linklists.footer.links.size > 0 %}
-          <p class="f-links eight columns alpha" role="navigation">
-            {% for link in linklists.footer.links %}
-            <a class="f-l-item" href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-            {% endfor %}
-          </p>
-          {% endif %}
-
-          <p class="f-copy eight columns omega" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
-        </div>
         <div id="footer-payment-methods">
           {% if settings.accept_amex %}{{ 'cc-amex.png' | asset_url | img_tag }}{% endif %}
           {% if settings.accept_discover %}{{ 'cc-discover.png' | asset_url | img_tag }}{% endif %}
@@ -159,6 +171,9 @@
           {% if settings.accept_cirrus %}{{ 'cc-cirrus.png' | asset_url | img_tag }}{% endif %}
           {% if settings.accept_paypal %}{{ 'cc-paypal.png' | asset_url | img_tag }}{% endif %}
           {% if settings.accept_google %}{{ 'cc-google.png' | asset_url | img_tag }}{% endif %}
+        </div>
+        <div class="footer-inner clearfix">
+          <p class="f-copy sixteen columns" role="contentinfo">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
         </div>
       </footer>
     </div>
