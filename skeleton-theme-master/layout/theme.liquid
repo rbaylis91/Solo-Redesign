@@ -81,7 +81,6 @@
 
   <div class="header">
     <div class="container clearfix">
-
       <div class="header-name left">
         {% if settings.use_logo %}
         <img class="header-logo" src="{{'logo.png'| asset_url}}"/>
@@ -97,11 +96,12 @@
           {% include 'dropdown' %}
         </nav> 
       </section>
-
-
     </div>
+  {% include 'mobile-menu' %}
+    
   </div>
-
+  
+  
   <div class="container">
 
     <div id="main" role="main" class="sixteen columns">
@@ -185,7 +185,9 @@
 
   <script>
   jQuery(document).ready(function() {
-
+    jQuery(".hamburger").click(function() {
+        jQuery(".mobile-nav").toggle();
+    });
   });
 
   </script>

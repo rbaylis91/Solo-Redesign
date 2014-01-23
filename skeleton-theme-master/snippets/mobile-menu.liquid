@@ -1,23 +1,15 @@
-{% assign found_active_link = false %}
-<select name="main_navigation" id="main_navigation" class="custom-select boxify">
+<nav class="mobile-nav">
   {% for link in linklists.main-menu.links %}
-    {% if link.active %}
-    <option value="{{ link.url }}" selected="selected">{{ link.title }}</option>
-    {% assign found_active_link = true %}
-    {% else %}
-    <option value="{{ link.url }}">{{ link.title }}</option>
+  <li>
+    <a href="{{ link.url }}">{{ link.title }}</a>
+    {% capture child_list_handle %}{{ link.title | handleize }}{% endcapture %}
+    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+    <ul>
+      {% for l in linklists[child_list_handle].links %}
+      <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+      {% endfor %}
+    </ul> 
     {% endif %}
-    {% for childlink in linklists[link.handle].links %}
-      {% if childlink.active %}
-      <option value="{{ childlink.url }}" selected="selected">- {{ childlink.title }}</option>
-      {% assign found_active_link = true %}
-      {% else %}
-      <option value="{{ childlink.url }}">- {{ childlink.title }}</option>
-      {% endif %}
-    {% endfor %}
+  </li>
   {% endfor %}
-  {% unless found_active_link %}
-  <option value="" selected="selected">{{ page_title }}</option>
-  {% endunless %}
-  <option value="/cart">Your cart ({{ cart.item_count }})</option>
-</select>
+</nav>
