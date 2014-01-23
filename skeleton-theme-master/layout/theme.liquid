@@ -68,15 +68,15 @@
   {{'waypoints.js' | asset_url | script_tag }}
   <script>
 
-</script>
+  </script>
 
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
   {% if template == "index" and settings.enable_fullscreen_banner %}
-    {% include 'above-fold-feature' %}
+  {% include 'above-fold-feature' %}
   {% endif %}
 
   <div class="header">
@@ -97,9 +97,6 @@
           {% include 'dropdown' %}
 
         </nav> 
-        <nav class="mobile clearfix">
-          {% include 'mobile-menu' %}
-        </nav>
       </section>
 
 
