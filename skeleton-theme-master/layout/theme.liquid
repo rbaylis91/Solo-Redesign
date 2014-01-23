@@ -82,7 +82,7 @@
   <div class="header">
     <div class="container clearfix">
 
-      <div class="left ">
+      <div class="header-name left">
         {% if settings.use_logo %}
         <img class="header-logo" src="{{'logo.png'| asset_url}}"/>
         {% else %}
@@ -91,11 +91,10 @@
         </h1>
         {% endif %}
       </div>
-
+      <div class="nav-divider-mobile"></div>
       <section id="nav" class="right">
         <nav class="large sixteen clearfix">
           {% include 'dropdown' %}
-
         </nav> 
       </section>
 
@@ -118,7 +117,7 @@
 
 
 
-    <div id="overview" class="sixteen columns clearfix">
+    <div id="overview" class="sixteen columns alpha omega clearfix">
 
       <!--Footer Navigation -->
       <div class="one-third column alpha footer-nav">
@@ -157,7 +156,7 @@
       </div>
 
     </div>
-    <div class="footersixteen columns clearfix">
+    <div class="footer sixteen columns clearfix">
       <footer class="row">
         <div id="footer-payment-methods">
           {% if settings.accept_amex %}{{ 'cc-amex.png' | asset_url | img_tag }}{% endif %}
