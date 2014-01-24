@@ -3,14 +3,14 @@
     "customer_layout": "theme",
     "shop_bg_color": "#ffffff",
     "toolbar_text_color": "#858585",
-    "link_color": "#4ff47e",
+    "link_color": "#f45b4f",
     "nav_link_color": "#858585",
     "body_font_color": "#555555",
     "header_color": "#333333",
     "shop_btn_color": "#f45b4f",
     "border_color": "#dddddd",
-    "footer_border_color": "#eee",
-    "footer_bg_color": "#eee",
+    "footer_border_color": "#eeeeee",
+    "footer_bg_color": "#eeeeee",
     "footer_header_color": "#000000",
     "footer_text_color": "#000000",
     "slider_headline": "",
@@ -68,10 +68,11 @@
     "display_slide_4": "false",
     "enable_slideshowbanner": "true",
     "frontpage_collection": "frontpage",
-    "homepage": "about-us",
+    "homepage": "frontpage",
     "footer_blog_post": "news",
     "footer_linklist": "footer",
-    "footer_featured_page": "about-us"
+    "footer_featured_page": "about-us",
+    "slider_featured": ""
   },
   "presets": {
     "Red and black": {
