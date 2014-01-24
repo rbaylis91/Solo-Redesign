@@ -33,14 +33,12 @@
 
 <ul class="clearfix product-loop"><!-- test -->
 {% for product in collection.products %}
-  {% if settings.collection_list %}
-    {% include 'product-list-item' %} 
-  {% else %}
+  {% if collection.products.size >= 1 %}
     {% include 'product-grid-item' %}    
+  {% else %}
+  <p>There are no products in this view.</p>
   {% endif %}
-{% else %}
-<p>There are no products in this view.</p>
-{% endfor %}
+{% endfor %}  
 </ul>
 
 {% if paginate.pages > 1 %}

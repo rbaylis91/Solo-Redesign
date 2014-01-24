@@ -40,8 +40,8 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.header_font | remove: 'Google+' }}:300,400,700">
   {% endif %}
 
-  {% if settings.fullscreen_header_font contains 'Google' %}
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.fullscreen_header_font | remove: 'Google+' }}:300,400,700">
+  {% if settings.fullscreen_text_font contains 'Google' %}
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.fullscreen_text_font | remove: 'Google+' }}:300,400,700">
   {% endif %}
 
   {% if settings.base_font contains 'Google' %}
@@ -57,8 +57,6 @@
   {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
   {% endif %}
 
-
-
   {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -67,20 +65,22 @@
   {{ 'custom_select.js'  | asset_url | script_tag }}
   {{ 'jquery.magnific-popup.min.js'  | asset_url | script_tag }}
   {{'waypoints.js' | asset_url | script_tag }}
+  {{'jquery.scrollTo.js' | asset_url | script_tag }}
   <script>
 
+  
 </script>
  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-  {% if template == "index" and settings.enable_fullscreen_banner %}
-    {% include 'above-fold-feature' %}
+  {% if template == "index" and settings.enable_fullscreen_header %}
+    {% include 'fullscreen-header' %}
   {% endif %}
-
+ 
   <header style="width:100%">
-    <section id="nav container" class="clearfix" style="margin:0 auto">
+    <section id="nav" class="container" class="clearfix" style="margin:0 auto">
           <nav class="large sixteen columns clearfix">
             {% include 'dropdown' %}
           </nav> 

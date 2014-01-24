@@ -1,25 +1,42 @@
+
 $(document).ready(function(){
-    $('.custom-select').customSelect();
-    $('ul.sf-menu').superfish({
-        delay:1,
-        speed:1                          // faster animation speed
-    });
-    $('.gallery').magnificPopup({type:'image'});
+ 
+  $('.custom-select').customSelect();
+  $('ul.sf-menu').superfish({
+      delay:1,
+      speed:1                          // faster animation speed
+  });
+  $('.gallery').magnificPopup({type:'image'});
 
 
-    /* CollectionLoop */
-    collectionLoop();
+  /* CollectionLoop */
+  collectionLoop();
 
-    /* fullscreen banner image size */
-    if($("body").hasClass("template-index")){
-      $(window).bind('resize', featured_image_height);
-      featured_image_height();
+  /* fullscreen banner */
+  if($("body").hasClass("template-index")){
+    featured_sizing();
+
+    /* do not check for resize if on mobile */
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      
+      $("#fh-call-to-action").click(function(){
+        $(window).scrollTo('#nav');
+      });
+
+    }else{
+      $(window).bind('resize', featured_sizing);
+      
+      $("#fh-call-to-action").click(function(){
+        $(window).scrollTo('#nav', 500);
+      });
     }
+  }
 
-    /* sticky nav */
-    $('header').waypoint('sticky');
+  /* sticky nav */
+  $('header').waypoint('sticky');
 		
 });
+
 
 var lastWidth = $(window).width();
 
@@ -114,9 +131,13 @@ function remove_item(id) {
   document.getElementById('cartform').submit();
 }
 
-/* Height of featured image in fullscreen banner */
-/*==============================================*/
-function featured_image_height() {
+/* Text size, spacing in the fullscreen banner */
+/*============================================*/
+function featured_sizing() {
     var $windowHeight = $(window).height();
-    $("#fb-image").css({maxHeight: ($windowHeight/2) + 'px' });
+    var $baseline = $windowHeight/30;
+
+
+   $(".fh-featured-image").css({maxHeight: ($windowHeight/2) + 'px' });
+   $(".fullscreen-header h1").css({fontSize: $baseline + 'px' }).css({marginTop: $baseline + 'px' }).css({marginBottom: $baseline + 'px' });
 }

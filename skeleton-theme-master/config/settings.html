@@ -154,40 +154,50 @@
   <table>
     <tr>
       <td colspan="2">
-        <h3>Fullscreen Banner</h3>
+        <h3>Fullscreen Header Content</h3>
       </td> 
     </tr>
     <tr>
-      <th><label for="enable_fullscreen_banner">Show fullscreen banner on the homepage</label><small>To hide fullscreen banner just uncheck</small></th>
-      <td><input type="checkbox" id="enable_fullscreen_banner" name="enable_fullscreen_banner" value="unchecked" /></td>
-    </tr>
-    <tr class="horizontal">
-      <th><label for="enable_fullscreen_featured_image">Show fullscreen featured image</label></th>
-      <td><input type="checkbox" id="enable_fullscreen_featured_image" name="enable_fullscreen_featured_image" value="unchecked" /></td>
+      <th><label for="enable_fullscreen_header">Show fullscreen header on the homepage</label><small>To hide fullscreen banner just uncheck</small></th>
+      <td><input type="checkbox" id="enable_fullscreen_header" name="enable_fullscreen_header" value="unchecked" /></td>
     </tr>
     <tr>
-      <th><label for="fullscreen_featured_image">Fullscreen featured image URL<br /><small>Up to 1000px by 1000px</small></label></th>
+      <th><label for="fullscreen_header_content">What would you like to show in the banner?</label></th>
+      <td>
+        <input type="radio" name="fullscreen_header_content" value="image" /> An Image
+        <input type="radio" name="fullscreen_header_content" value="video" />A video
+        <input type="radio" name="fullscreen_header_content" value="none" />Just text
+      </td>
+    </tr>
+    <tr>
+      <th><label for="fullscreen_featured_image">Fullscreen featured image URL<br /><small>This will appear if "an image" is selected above.</small></label></th>
       <td>
         <input type="file" id="fullscreen_featured_image" name="fullscreen_featured_image.png" data-max-width="1000" data-max-height="1000" />
       </td>
     </tr>
     <tr>
+      <th><label for="fullscreen_video_url">Fullscreen banner Youtube/Vimeo URL<br /><small>This will appear if "a video" is selected above.</small></label></th>
+      <td>
+        <input type="text" id="fullscreen_video_url" name="fullscreen_video_url" value="" size="50" />
+      </td>
+    </tr>
+    <tr>
       <td colspan="2">
-        <h3>Fullscreen Banner Header</h3>
+        <h3>Fullscreen Header Text</h3>
       </td> 
     </tr>
     <tr class="horizontal">
-      <th><label for="fullscreen_header">Header text to display beneath image</label><small>To hide the text, leave this field blank</small></th>
-      <td><input type="text" id="fullscreen_header" name="fullscreen_header" value="" size="100" /></td>
+      <th><label for="fullscreen_text">Text to display beneath image/video</label><small>To hide the text, leave this field blank</small></th>
+      <td><input type="text" id="fullscreen_text" name="fullscreen_text" value="" size="100" /></td>
     </tr>
     <tr class="horizontal">
-      <th><label for="fullscreen_header_color">Fullscreen header color</label></th>
-      <td><input id="fullscreen_header_color" name="fullscreen_header_color" class="color" value="#dddddd" /></td>
+      <th><label for="fullscreen_text_color">Fullscreen text color</label></th>
+      <td><input id="fullscreen_text_color" name="fullscreen_text_color" class="color" value="#dddddd" /></td>
     </tr>  
     <tr class="horizontal">
-      <th><label for="fullscreen_header_font">Fullscreen header font</label></th>
+      <th><label for="fullscreen_text_font">Fullscreen header font</label></th>
       <td>
-        <select name="fullscreen_header_font" id="google_fullscreen_header_font" class="font">
+        <select name="fullscreen_text_font" id="google_fullscreen_text_font" class="font">
           <optgroup label="Google Web Fonts">          
             <option value='Google+Arvo'>Arvo</option>
             <option value='Google+Asap'>Asap</option>
@@ -209,7 +219,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <h3>Fullscreen Banner Background</h3>
+        <h3>Fullscreen Header Background</h3>
       </td> 
     </tr>
     <tr class="horizontal">
@@ -223,7 +233,7 @@
     <tr>
       <th><label for="fullscreen_bg_image">Fullscreen background image<br /><small>Recommended size:1000px by 1000px</small></label></th>
       <td>
-        <input type="file" id="fullscreen_bg_image" name="fullscreen_bg_image.png" data-max-width="2000" data-max-height="2000" />
+        <input type="file" id="fullscreen_bg_image" name="fullscreen_bg_image.png" data-max-width="1200" data-max-height="1200" />
       </td>
     </tr>    
     <tr>
@@ -291,12 +301,6 @@
       <th><label for="collection_tags">Display browse by product tags?</label></th>
       <td>
         <input type="checkbox" id="collection_tags" name="collection_tags" value="1" checked="checked" />
-      </td>
-    </tr>
-    <tr class="horizontal">
-      <th><label for="collection_list">Display list view on desktop and tablet?</label><small>Product image will be displayed to the left of product information</small></th>
-      <td>
-        <input type="checkbox" id="collection_list" name="collection_list" value="1" checked="checked" />
       </td>
     </tr>
     <tr class="horizontal">

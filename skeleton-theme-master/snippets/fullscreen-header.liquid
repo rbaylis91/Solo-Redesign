@@ -1,0 +1,21 @@
+<div class="fullscreen-header outer">
+  <div class="fh-inner table">
+    <div class="fh-content vert-table-cell">
+        {% if settings.fullscreen_header_content == "image" %}
+        <img id="fh-image" class="fullscreen-fluid" src="{{'fullscreen_featured_image.png'|asset_url}}"/>
+        {% endif %}
+        {% if settings.fullscreen_header_content == "video" %}
+        <div class="video-embed">
+          <div class="video-embed-center">
+            <div class='embed-container fullscreen-fluid'>
+              {{settings.fullscreen_video_url}}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <h1>{{settings.fullscreen_text}}</h1>
+        <div id="fh-call-to-action" class="btn">View Details</div>
+    </div>
+  </div>
+  
+</div>

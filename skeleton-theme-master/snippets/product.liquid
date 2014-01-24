@@ -23,14 +23,14 @@
         {% if product.images.size == 0 %}
 
         <div id="product-photo-container">
-          <img width="100%" src="{{ '' | product_img_url: 'grande' }}" alt="" />
+          <img rel="prerender" rel="prefetch" width="100%" src="{{ '' | product_img_url: 'grande' }}" alt="" />
         </div>
 
         {% else %}
 
         <div id="product-photo-container">
           <a class="gallery" href="{{ product.featured_image.src | product_img_url: 'original' }}" rel="gallery">
-            <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
+            <img rel="prerender" rel="prefetch" src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
           </a>
         </div>
 
@@ -39,7 +39,7 @@
           {% for image in product.images offset:1 %}
           <li class="product-photo-thumb {% cycle '','','product-last-thumb' %}">
             <a class="gallery" href="{{ image.src | product_img_url: 'original' }}" rel="gallery">
-              <img src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
+              <img rel="prerender" rel="prefetch" src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
             </a>
           </li>
           {% endfor %}
