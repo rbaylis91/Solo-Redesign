@@ -80,6 +80,8 @@
   {% endif %}
 
   <div class="header">
+    
+    <!-- Desktop + Tablet + Landscape Menu -->
     <div class="container clearfix">
       <div class="header-name left">
         {% if settings.use_logo %}
@@ -90,15 +92,25 @@
         </h1>
         {% endif %}
       </div>
-      <div class="nav-divider-mobile"></div>
-      <section id="nav" class="right">
+      
+      <section class="desktop-nav right">
         <nav class="large sixteen clearfix">
           {% include 'dropdown' %}
         </nav> 
       </section>
+      
+      
     </div>
-  {% include 'mobile-menu' %}
     
+    
+    <!-- Mobile Menu -->
+    
+    <nav class="mobile-nav">
+      
+      {% include 'menu-icons' %}
+      <div class="nav-divider-mobile"></div>      
+      {% include 'mobile-dropdown' %}    
+    </nav>
   </div>
   
   
@@ -186,7 +198,7 @@
   <script>
   jQuery(document).ready(function() {
     jQuery(".hamburger").click(function() {
-        jQuery(".mobile-nav").toggle();
+        jQuery(".mobile-dropdown").toggle();
     });
   });
 
